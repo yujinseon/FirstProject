@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <%-- 
-# jsp
+# jsp'
 1. java코드와 html 코드를 혼합하여 최종 html 코드를 만들어서
 	client(브라우저를 가지고 요청한 사용자)에 WAS를 통해서 전달 처리한다.
 	
