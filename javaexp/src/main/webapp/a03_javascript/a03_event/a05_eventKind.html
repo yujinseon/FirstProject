@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style>
+		
+		</style>
+		<script>
+		/*
+		# 여러가지 이벤트 종류
+		1. 대상객체를 지정하여 여러가지 이벤트 종류를 처리할 수 있다.
+			click : 마우를 클릭시 발생.
+			mouseover : 마우스 커서가 대상 객체 위로 지나갈 때 발생
+			mouseout : 마우스 커서가 대상 객체 위에서 벗어났을 때 발생.
+			keyup : 키보드의 키를 입력시 발생(키를 눌렀다가 손을 떼었을 때 발생)
+		2. 형식
+			대상객체.on이벤트명=지정된함수;
+		*/
+		window.onload=function(){
+			// 화면이 로딩된 상황에서 처리할 함수를 기술
+			var h2Obj = document.querySelector("h2");
+			h2Obj.innerText = "마우스 over와 out";
+			h2Obj.onmouseover=function(){
+				this.style.background="yellow";
+				this.innerText = "마우스 over됨!!";
+			};
+			h2Obj.onmouseout=function(){
+				this.style.background="pink";
+				this.innerText = "마우스 out됨!!";
+			};
+		}
+		</script>
+	</head>
+	<body>
+		<h2 align="center"></h2>
+		
+	</body>
+</html>

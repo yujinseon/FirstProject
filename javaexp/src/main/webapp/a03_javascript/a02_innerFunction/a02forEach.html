@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style>
+			td{text-align: center}
+		</style>
+		
+	</head>
+	<body>
+		<h2></h2>
+		<h2></h2>
+		<h2></h2>
+		
+		<h3></h3>
+		<h3></h3>
+		<h3></h3>
+		<script type="text/javascript">
+		/*
+		# 배열 데이터를 효과적으로 처리하는 forEach() 함수
+		1. 배열 데이터 for in 구문을 단위 데이터의 처리와 index에 대한
+			문자열 처리로 불편한 경우가 많다.
+		2. forEach함수를 활용하면 효과적인 처리가 가능하다.
+			함수를 매개변수로 받고, 그 함수의 매개변수로
+			단위 데이터, 숫자형 index, 전체 배열을 받아 처리할 수 있다.
+			function(price, idx, arry){}
+		*/
+		var array = [1000,2000,3000];
+		var h2Arry = document.querySelectorAll("h2");
+		array.forEach(function(price, idx, arry){
+			console.log(price+":"+idx);
+			console.log(arry);
+			// 매개변수로 받은 내용을 idx를 활용하여 해당 index 배열에 
+			// 해당하는 DOM 객체를 지칭하고, idx+1로 번호를 1부터 처리하게 하고,
+			// price값을 각각에 출력 되게 처리한다
+			h2Arry[idx].innerText = idx+1+") "+price;
+			
+		});
+		// ex) 학생의 3명의 이름과 국어 성적을 배열로 선언하고, forEach구문을
+		// 확용하여 상단에 ㅅ선언한 h3 3개에 출력하세요
+		</script>
+		<table id="tab01" width="30%" border="1">
+			<tr><th>번호</th><th>이름</th><th>점수</th></tr>
+		</table>
+		
+		<script type="text/javascript">
+		var studentName = ["홍길동","김길동","송길동"]
+		var studentScore = [90,100,60]
+		var h3Arry = document.querySelectorAll("h3");
+		studentName.forEach(function(Name, idx){
+			h3Arry[idx].innerText = Name +" "+ studentScore[idx];
+			
+		});
+		var studs = [
+			{name:"홍길동", kor:70},
+			{name:"김길동", kor:94},
+			{name:"장길동", kor:100}
+		];
+		var listHtml = "";
+		studs.forEach(function(std,idx){
+			listHtml+="<tr>";
+			listHtml+="<td>"+(idx+1)+"</td>"
+			listHtml+="<td>"+std.name+"</td>"
+			listHtml+="<td>"+std.kor+"</td>"
+			listHtml+="</tr>";
+		});
+		document.querySelector("#tab01").innerHTML+=listHtml;
+		
+		</script>
+	</body>
+</html>

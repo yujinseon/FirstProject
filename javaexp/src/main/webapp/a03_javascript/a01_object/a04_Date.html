@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style>
+		
+		</style>
+	</head>
+	<body>
+		<h2 align="center">오늘</h2>
+		<h3 align="center"></h3>
+		<h3 align="center"></h3>
+		<h3 align="center"></h3>
+		<h3 align="center"></h3>
+		<h3 align="center"></h3>
+		<h3 align="center"></h3>
+		<h3 align="center"></h3>
+		<h3 align="center"></h3>
+		<h3 align="center"></h3>
+	</body>
+	<script type="text/javascript">
+	/*
+	# 날짜 처리 객체 Date
+		GMT기준으로 지역과 시간을 처리해주는 객체
+		new Date() : 현재 위치의 시간/날짜를 가져온다.
+	1. 1/1000초 부터 초, 분, 시간, 일, 월, 년의 날짜와 시간을 처리해주는 내장 객체이다.
+	2. 호출 기능 메서드
+		getFullYear() : 연도
+		getMonth() : 월 index(0~11)
+		getDate() : 날짜
+		getHours() : 시간
+		getMinutes() : 분
+		getSeconds() : 초
+		getDay() : 요일 index(0~6) : 문자 배열로 해당 요일을 저장
+					그것을 index번호로 호출하는 식으로 문자열과 연결
+		toLocaleString : 현재 GMT 상 위치에 언어로 표현
+	3.	변경 처리 메서드 setXXX(변경할 데이터)
+		 Day이외에는 setXXX()로 변경이 가능하다.
+		 요일을 읽기만 가능하고 변경이 불가능하다.
+	
+	*/
+		// 현재 날짜 기준으로 출력..
+		var days = ["일","월","화","수","목","금","토"];
+		// 기본 생성자 객체는 현재 날짜 기준으로 날짜가 처리된다.
+		var date = new Date();
+		// 각, set메서드에 의해서 연도/월/일/시간/분/초 등은
+		// 변경이 가능하다.
+		// 아래 내용을 현재 날짜를 기준으로 20일 후 내용을 
+		// 설정할 때, 활용되는데
+		// 1. 현재날짜 get메서드로 가져오기
+		// 2. 현재날짜 + 이후날짜.
+		// 3. 전체적으로 Date() 객체안에 카운트 매커니즘(날짜만 바뀌는 것이 아니고, 연결된 월/년도)
+		//		바뀌어진다.
+		date.setDate(date.getDate()+20); // 현재 날짜에서 20일 후 날짜 처리
+		var h3Obj = document.querySelectorAll("h3");
+		h3Obj[0].innerText = date;
+		h3Obj[1].innerText = date.toLocaleString();
+		h3Obj[2].innerText = date.getFullYear()+"연도";
+		h3Obj[3].innerText = date.getMonth()+"월";
+		h3Obj[4].innerText = date.getDate()+"일";
+		h3Obj[5].innerText = date.getHours()+"시";
+		h3Obj[6].innerText = date.getMinutes()+"분";
+		h3Obj[7].innerText = date.getSeconds()+"초";
+		h3Obj[8].innerText = days[date.getDay()]+"요일";
+	</script>
+</html>

@@ -1,0 +1,16 @@
+## HTML5 기본 용어 정리
+### 태그와 요소
+- 요소: 제목, 본문, 이미지 등 HTML 페이지에 위치
+- 태그: 요소를 만들 때 사용하는 기호
+
+<h1>    Hello HTML5   </h1>
+시작태그               끝 태그
+
+<br> HTML5 표기법
+</br> XHTML5 표기법
+
+태그 예)
+<article>
+	<h1>Article Header</h1>
+	<p>Lorem ipsum dolor sit amet</p>
+</article>

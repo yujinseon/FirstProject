@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style>
+			td{text-align: center;}
+		</style>
+	</head>
+	<body>
+		<table align="center" id="tab01" width="50%" border="1">
+			<tr><th>순위</th><th>팀명</th></tr>
+		</table>
+	</body>
+	<script type="text/javascript">
+		var kbo = {1:"삼성", 2:"KT", 3:"LG", 4:"두산", 5:"키움"};
+		var addHtml = "";
+		
+		for(var idx in kbo){
+			addHtml += "<tr><td>"+idx+"</td><td>"+kbo[idx]+"</td></tr>";
+		}
+		var tab01 = document.querySelector("#tab01");
+		tab01.innerHTML += addHtml;
+	</script>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style>
+		
+		</style>
+		<script>
+		</script>
+	</head>
+	<body>
+	<!-- 
+	# 서버 기동시, 경로설정
+	1. 웹 서버는 기본 경로가 다음과 같다.
+		ctrl+f11
+		ctrl+alt+화살표아래 :줄복사
+	2. 물리적으로 javaexp\src\main\webapp
+	   http://localhost:7080/javaexp 가 동일한 기준 폴더라는 것을 알 수 있다.
+	   ex) javaexp\src\main\webapp 하위에 index.html 파일이
+	   http://localhost:7080/javaexp/index.html을 통해서 실행되는 것을 보면
+	   해당 폴더에 있는 파일이 실행된 결과라는 것을 알 수 있다.
+	3. 그래서, 웹 서버 아위에 있는 모든 파일들은 서버 기준 경로에 의해서 실행이 된다.
+	4. 현재 localhost(현재 pc에서 서버를 실행할 때)일때, 절대경로는
+	   //localhost:7080/javaexp 경로인데, 생략하여
+	   /javaexp 으로도 접근이 가능하다
+	
+	 -->
+	 	<h2>현재 경로 설정</h2>	
+	 	<h3>http://localhost:7080/javaexp/a01_html/a03_basicTag/a07_path.html</h3>
+	 	<h2>기준경로</h2>
+	 	<h3>http://localhost:7080/javaexp</h3>
+	 	<a href="/javaexp/index.html">/javaexp/index.html</a>
+	 	<!-- 해당 파일로 hyper link해서 호출을 할 수 있다. -->
+	</body>
+</html>

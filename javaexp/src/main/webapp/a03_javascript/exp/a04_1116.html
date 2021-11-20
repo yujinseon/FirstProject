@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style>
+		
+		</style>
+		
+	</head>
+	<body>
+	<h3 onclick="red(this)"></h3>
+	<h3 onclick="orange(this)"></h3>
+	<h3 onclick="yellow(this)"></h3>
+	<h3 onclick="green(this)"></h3>
+	<h3 onclick="blue(this)"></h3>
+	<h3 onclick="navy(this)"></h3>
+	<h3 onclick="purple(this)"></h3>
+	
+	<script type="text/javascript">
+		function red(obj){
+			obj.style.background="red";
+		}
+		function orange(obj){
+			obj.style.background="orange";
+		}
+		function yellow(obj){
+			obj.style.background="yellow";
+		}
+		function green(obj){
+			obj.style.background="green";
+		}
+		function blue(obj){
+			obj.style.background="blue";
+		}
+		function navy(obj){
+			obj.style.background="navy";
+		}
+		function purple(obj){
+			obj.style.background="purple";
+		}
+		
+		var rainbowArry = document.querySelectorAll("h3");
+		rainbowArry[0].innerText = "빨간색";
+		rainbowArry[1].innerText = "주황색";
+		rainbowArry[2].innerText = "노란색";
+		rainbowArry[3].innerText = "초록색";
+		rainbowArry[4].innerText = "파란색";
+		rainbowArry[5].innerText = "남색";
+		rainbowArry[6].innerText = "보라색";
+	</script>
+	</body>
+</html>

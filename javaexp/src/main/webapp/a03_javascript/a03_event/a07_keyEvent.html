@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style>
+		
+		</style>
+		<script>
+		/*
+		# 키 이벤트
+		1. 키보드(자판)을 입력했을 때, 해당 키로 특정한 이벤트를 발생해서
+			핸들러 함수를 처리한 것을 말한다.
+		2. 종류
+			*keyup, keydown
+		3. 처리방법
+			1) 입력이 가능한 요소객체 화면구현
+			2) 입력 요소객체 DOM객체로 호출
+			3) 요소객체에 keyup이벤트 핸들러 처리.
+				- 입력된 내용을 출력하거나
+				- 특정한 키(event.keyCode) 가 입력된 것을 인지해서 처리를 한다.
+		*/
+		window.onload=function(){
+			// 화면이 로딩된 상황에서 처리할 함수를 기술
+			var spanObj = document.querySelector("span");
+			var h4Obj = document.querySelector("h4");
+			var h3Obj = document.querySelector("h3");
+			var h2Obj = document.querySelector("h2");
+			h2Obj.innerText = "키이벤트";
+			var in01obj = document.querySelector("#in01");
+			// 대상객체.on이벤트명=function(){};
+			in01obj.onkeyup=function(){
+				h3Obj.innerText = this.value //입력한 값;
+				spanObj.innerText = this.value.length; // .length : 문자열의 길이
+				h4Obj.innerText = event.keyCode; // 키보드의 고유 코드 값..
+			}
+		}
+		</script>
+	</head>
+	<body>
+		<h2 align="center"></h2>
+		입력:<input type="text" id="in01"/><br>
+		<h3>입력된 내용 출력</h3>
+		현재글자수:<span>0</span>
+		<h4></h4>
+	</body>
+</html>

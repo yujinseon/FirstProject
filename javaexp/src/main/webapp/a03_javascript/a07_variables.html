@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style>
+		
+		</style>
+	</head>
+	<script type="text/javascript">
+		/*
+			javascript는 순차별로 실행된다
+			DOM을 인식(document.querySelector())할려면,
+			먼저, 태그를 선언하고, 하단에 해당 코드를 호출하거나,
+			함수로 해당 내용을 클릭시, 호출하면 인식을 할 수 있다.
+		*/
+			//var h1Array = document.querySelectorAll("h2"); : 에러발생.
+			function call(){
+				var h1Array = document.querySelectorAll("h2");
+				h1Array[0].innerText="함수호출은 상단이라도 처리 된다.";
+			}
+	</script>
+	<body>
+		<h2 onclick="call()"></h2>
+		<h2></h2>
+		<h2></h2>
+		<h2></h2>
+		
+		<table border="1">
+		<tr><th>물건명</th><td></td></tr>
+		<tr><th>가격</th><td></td></tr>
+		<tr><th>개수</th><td></td></tr>
+		</table>
+		<script>
+		// # js의 변수와 할당..
+		var name="홍길동";
+		var loc='김포 풍무동'; // " " , ' ' 상관없음
+		var age=25;
+		console.log("이름:"+name);
+		console.log("사는곳:"+loc);
+		console.log("나이:"+age);
+		// 여러개의 동일한 태그일 때는 querySelectorAll를 통해서 배열로 인식한다.
+		var h1Array = document.querySelectorAll("h2");
+		// 출력하는 요소 객체에 데이터를 처리할 때. innerText()라는 메서드를 활용한다.
+		// 모든 태그들은 같은 이름의 선택자를 배열로 인식할 수 있는데,
+		// 구분자로 index를 사용해서 선택할 수 있다.
+		// index는 위에서 아래로, 왼쪽에서 오른쪽으로 0부터 시작하여, 선택을 할 수 있다
+		h1Array[0].innerText = "이름:"+name;
+		h1Array[1].innerText = "나이:"+age;
+		h1Array[2].innerText = "사는 곳:"+loc;
+		
+		//  ex) 테이블을 만들어, 아래와 같이 @@@에 표시될 데이터를 객체로 호출해서 변수로 할당 하세요
+		// 	물건명 : @@@(td)
+		//	가격 : @@@
+		//	개수 : @@@
+		var name1="컴퓨터";
+		var price=1000000;
+		var cnt = "1개";
+		
+		var tdArray = document.querySelectorAll("td");
+		tdArray[0].innerText = name1;
+		tdArray[1].innerText = price+"원";
+		tdArray[2].innerText = cnt;
+		</script>
+	</body>
+</html>

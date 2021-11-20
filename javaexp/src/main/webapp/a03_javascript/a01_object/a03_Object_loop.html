@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style>
+		  td{text-align: center};
+		</style>
+		
+	</head>
+	<body>
+		
+	</body>
+		<table align="center" id="tab01" width="30%" border="1">
+			<tr><th>번호</th><th>국어점수</th></tr>
+		</table>
+		
+		<script type="text/javascript">
+		/*
+		# 객체와 반복문
+		객체는 for in 구문을 통해서 속성을 접근하여, 속성값을 활용할 수 있다.
+		특정하게 배열의 개수나 속성의 개수를 식별하지 않더라도, 해당 배열의
+		크기나 속성의 개수만큼 반복하여 해당 배열의 index와 속성을 표현하고,
+		값을 확인할 수 있다.
+		1. 배열
+			for(idx in 배열명){
+				idx : index 번호, 일반적인 index번호와 달리 데이터 유형이 문자열이다.
+						+ 연산을 통해서 번호를 1부터 카운트하는 처리를 하려면 Number()sk
+						parseInt() 내장 함수로 형변환을 하여야 한다.
+						cf) 배열명['인덱스번호']
+				배열명[idx] : 배열의 값
+			}
+		2. 객체
+			for(var prop in 객체명){
+				prop : 객체의 속성을 문자열로 가져온다,
+				cf) 위 배열의 idx나 객체의 prop는 변수명을 임의로 정해도
+					무방하다.
+				객체명[prop] : 객체의 속성값 
+			}
+		*/
+		var fruits = ["사과","바나나","딸기"];
+		for (var idx in fruits){
+			console.log(idx+":"+fruits[idx])
+		}
+		
+		
+		var tab01 = document.querySelector("#tab01"); // 테이블의 id 속성을 이용하여 지정함 #테이블id
+		var addHtml="";
+		var kors = [90,95,60,78,98];
+		// DOM을 쓸 떄는 해당 태그가 script 상단에 반드시 선언되어 있어야 한다.
+		// <table align="center" id="tab01"
+		// 기본적으로 태그, id, class가 지원되고
+		// ("태그명") ("#아이디명") (".클래스명")으로 선택할 수 있다.
+		for (var idx in kors){
+			// var addHtml=""; for 내부에 선언하며 1개 row만 생성되고,
+			// 계속 초기화 되기에 for 밖에서 선언하여 누적이 가능하도록 한다
+			// 반복문을 통해서 들어가 태그를 만들어 간다.
+			// idx가 문자열이라서 숫자형으로 변환 후에 +1로 연산하여 번호가 나오게 처리한다.
+			// 변수에 문자열, 태그 자체를 저장 가능
+			addHtml+="<tr><td>"+(Number(idx)+1)+"</td><td>"+kors[idx]+"</td></tr>";
+		}
+		console.log("#최종으로 만들어진 문자열#");
+		console.log(addHtml);
+		// 선택한 테이블에 innerHTML (대소문자 구분 필수)
+		// += : 기존에 있는 태그에서 추가함.
+		// addHtml : html 태그를 삽입하고, 랜더링을 처리하여 그 결과를 보여준다.
+		// innerText : 문자열 그대로 출력
+		// innerHTML : 문자열에 있는 태그를 랜더링하여 추가해서 화면에 출력
+		// tab01.innerHTML = addHtml;
+		// 기존에 table의 구성 태그를 삭제하고 반복문에 의해 추가된 내용을 할당.
+		// 타이틀 내용이 있으면 타이틀까지 삭제되고 데이터만 추가된다.
+		tab01.innerHTML += addHtml;
+		// += : 기존에 있는 table 하위의 태그들에 추가하여, 태그를 처리할 때 활용된다.
+		
+		var prod = {name:"사과", price:3000, cnt:2};
+		for(var prop in prod){
+			console.log(prop+":"+prod[prop]);
+		}
+		
+		</script>
+		
+		
+		<table align="center" id="tab02" width="30%" border="1">
+			
+		</table>
+		
+		<script type="text/javascript">
+		var student = {name:"홍길동", kor:90, eng:88, math:93};
+		var addHtml="";
+		for(var idx in student){
+			addHtml+="<tr><th>"+idx+"</th><td>"+student[idx]+"</td></tr>"
+		}
+		var tab02 = document.querySelector("#tab02");
+		tab02.innerHTML += addHtml;
+		</script>
+		
+		<table align="center" id="tab03" width="30%" border="1">
+			<tr><th>일정순위</th><th>내용</th><th>시간</th><th>비용</th><th>참여자</th></tr>
+		</table>
+		
+		<script type="text/javascript">
+		var week = [
+			{name:"마곡 약속",time:"19:00~01:00", pay:10000, pCnt: 2},
+			{name:"로아",time:"02:00~04:00", pay:0, pCnt: 1},
+			{name:"수업",time:"09:00~18:00", pay:3000, pCnt: 4}
+		];
+		var addHtml=""; // 문자열을 넣을 변수를 선언..
+		for(var idx in week){
+			var sch = week[idx]; // 각 배열에 있는 단위 객체
+			addHtml += "<tr><td>"+(Number(idx)+1)+"</td>"; // 행 단위 처리
+			//열 단위 for문
+			for(var prop in sch){
+				addHtml += "<td>" + sch[prop]+"</td>";
+			}
+			addHtml += "</tr>";
+		}
+		var tab03 = document.querySelector("#tab03");
+		tab03.innerHTML += addHtml;
+		</script>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style>
+		
+		</style>
+		<script>
+		/*
+		# 자바스크립트의 데이터 유형
+		1. 자바스크립트는 변수를 할당하는 순간 데이터 유형이 결정된다.
+		2. 아래와 같은 유형의 데이터 타입이 존재한다.
+			데이터유형 내장된 함수인 typeof(변수명); 으로 확인할 수 있다.
+			
+			1) 문자열
+				var name='홍길동'; // var 변수는 전역변수와 지역 변수를 구분하지 못한다
+				var loc='김포 풍무동'; // 자바와 달리 ''으로 여러개의 문자열을 입력할 수 있다.
+				cf) let name="홍길동"; // 전역변수와 지역변수를 구분해서 사용할 때 쓰인다.
+			2) 숫자형
+				var age = 25;
+				var height = 163.7;
+				// 정수와 실수를 사용할 수 있다.
+			3) boolean형
+				var isPass = age>=20;
+			4) 함수형
+				// 변수형 함수..(익명함수가 변수명에 할당)
+				var callFun = function(){
+					alert("함수호출");
+				};
+				callFun(); // 상단에 선언되어야 호출할 수 있다.
+				
+				callFun01(); // 하단에 선언되어도 호출할 수 있다.
+				// 선언형 함수..
+				function callFun01(){
+					
+					
+				}
+				
+			5) 객체형
+				{}안에 key:value 형식으로 지정하되, (,)로 구분하고 있다.
+				// json
+				var person = {name:"홍길동", age:25, loc:"김포 풍무동"};
+				var arry = [];
+				function Person(name, age, loc){
+					this.name = name;
+					this.age = age;
+					this.loc = loc;
+					
+				}
+				Person p10 = new Person("홍길동",25,"서울");
+		*/
+			var name='홍길동';
+			var loc='김포 풍무동';
+			console.log("이름:" + name);
+			console.log("데이터 유형:" + typeof(name));
+			var age = 25;
+			console.log(age+":"+typeof(age));
+			var isPass = age>=20;
+			console.log(isPass+":"+typeof(isPass));
+			var callFun = function(){
+				alert("함수호출");
+			}
+			console.log(typeof(callFun));
+			var person ={name:"홍길동",age:25,loc:"김포 풍무동"};
+			var arry = [3000,4000,5000];
+			console.log(arry);
+			console.log(typeof(arry));
+			console.log(typeof(person));
+			console.log(person);
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

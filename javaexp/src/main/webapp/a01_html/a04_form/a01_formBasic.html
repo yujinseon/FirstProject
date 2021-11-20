@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style>
+		
+		</style>
+		<script>
+		</script>
+	</head>
+	<body>
+	<!-- 
+	# 폼태그
+	궁극적인 목적은 client에서 입력한 데이터를 서버에 전송하기 위한 목적이다.
+	client(브라우저) ===> server(톰캣)
+	input name="id" ===> 페이지명?id=himan====> 서버안에 jsp나 java
+	value="himan"							 request.getParameter("id")
+	실제 입력한 값이나 초기로 설정된 값을 value 속성에
+	내용이다.									 
+	
+	# 입력 양식 태그
+	1. form 태그
+		1) 입력 양식의 태그를 전체적으로 전송하는 단위 태그를 말한다.
+		2) 속성
+			action : 전송 위치 : 서버에 전송할 자원의 위치, 일반적으로 
+				jsp파일이나, 서버단에서 application으로 처리하는 프로그램 호출
+			method : 전송방식
+				get : 주소에 데이터를 직접 입력해 전달 (default)
+				post : 별도의 방법을 사용해 데이터를 해당 주소로 전달	
+	 -->
+	 	<h2>서버에 데이터 전송 양식</h2>
+	 	<!-- 
+	 	submit 버튼을 클릭하는 순간 아래의 내용을
+	 		a02_rev.jsp?name01=홍길동&age=25
+	 		형식으로 브라우저에서 서버에 요청을 한다. ===> 서버에 있는 파일 중에 a02_rev.jsp를 호출하고,
+	 											${param.name01}을 통해서 화면에 호출
+	 											request.getParameter("name01"); 서버에
+	 											요청된 데이터를 전달한다.
+	 											${param.age}
+	 											request.getParameter("age");
+	 	 -->
+	 	<form action="a02_rev.jsp">
+	 		<input type="text" name="name01" value="홍길동"/>
+	 		<input type="text" name="age" value="25"/>
+	 		<input type="submit"/>
+	 	</form>
+	 	
+	</body>
+</html>

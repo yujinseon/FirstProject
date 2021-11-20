@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style>
+		
+		</style>
+		<script>
+		/*
+		# window.onload이벤트.
+		1. DOM객체는 상단에 태그들을 메모리에 로딩된 후, 그 바탕하에 인식하는
+			객체이다.
+		2. 그래서, 해당 태그들을 인식하려면 script가 태그 이후에 선언하여 호출한다.
+		3. window.onload=function(){}를 처리하면, window 화면이 로딩된 이후에
+			처리되는 함수이다 그래서, body에 있는 모든 객체들을 메모리로 로딩할 수 있는
+			상황에 처리하기에, 상단에 선언하더라도 body에 있는 태그들을 인식할 수 있다.
+		*/
+		
+			window.onload=function(){
+				// 화면이 로딩된 상황에서 처리할 함수를 기술
+				var h2Obj = document.querySelector("h2");
+				h2Obj.innerText = "화면 로딩 완료 후, 처리 내용^^";
+			}
+		</script>
+	</head>
+	<body>
+		<h2 align="center"></h2>
+	</body>
+</html>

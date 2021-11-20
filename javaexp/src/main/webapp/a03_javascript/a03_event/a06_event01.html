@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style>
+		
+		</style>
+		<script>
+		window.onload=function(){
+			// 화면이 로딩된 상황에서 처리할 함수를 기술
+			var h2Obj = document.querySelector("h2");
+			h2Obj.innerText = "시작";
+			
+			// 마우스 오버 함수
+			var h3Arry = document.querySelectorAll("h3");// 1개 선택하면 첫번째만
+			// id값을 이용 -> 각각의 id 지정 or 배열 선택자 -> SelectorAll
+			// 모두 다 처리 방법 :
+			for(var idx=0; idx<h3Arry.length; idx++){	
+				h3Arry[idx].onmouseover=function(){
+					this.style.background = "blue";
+				};
+			// 마우스 아웃 함수
+				h3Arry[idx].onmouseout=function(){
+					this.style.background = "yellow";
+				};
+			}
+		}
+		</script>
+	</head>
+	<body>
+		<h2 align="center"></h2>
+		
+		<h3 align="center">안녕하세요</h3>
+		<h3 align="center">반갑습니다</h3>
+		<h3 align="center">감사합니다</h3>
+	</body>
+</html>

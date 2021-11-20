@@ -1,0 +1,37 @@
+### 자바프로그래밍을 위한 진행과정
+
+1. jdk download
+2. jdk15 - 오라클 사이트, setup.exe
+윈도우 cmd 명령어로 java -version
+3. eclipse download 검색
+4. 경로 -> c:\z01_javaexp 폴더 만들기
+- eclipse installer copy →  c:\z01_javaexp 폴더로
+- c:\z01_javaexp\workspace 폴더 만들기
+- eclipse installer 실행
+- Eclipse IDE for Enterprise Java and Web Developers 설치
+5. c:\z01_javaexp로 Installation Folder 지정
+6. c:\z01_javaexp\eclipse 폴더가 생성
+- 실행
+
+# web application server 설정..
+1. html 페이지 호출 단계
+	1) local에서 html 페이지를 브라우저로 보기..
+		html 태그의 내용 결과를 랜더링하여 보기..
+	2) web server로 front end 페이지 호출.
+		원격에서 접속하여 해당 페이지를 볼 수 있다.
+		- html/css/image/javascript까지 처리된 결과를 볼 수 있다.
+	3) web application server(was) front end + backend 페이지 호출
+		원격에서 java(DB연결)코드가 처리될 결과를 client에 전달 처리한다.
+		java코드가 컴파일 되어 결과에 영향을 미치기에 compiler를 포함한 서버이다.
+		DB접속을 해서 그 결과를 처리할 때, 반드시 필요하다.
+		
+2. web application server 설정
+	1) was 서버를 설치..
+	2) was 서버의 port옵션 변경..
+	3) 현재 소스 프로젝트와 연결.
+	4) test
+	   = head 부분 출력 시 encoding 방식 설정..
+	   기본 html 소스 출력
+	   jsp(자바코드포함) 소스 출력..
+	 
+		

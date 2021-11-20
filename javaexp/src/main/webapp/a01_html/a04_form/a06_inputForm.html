@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style>
+		
+		</style>
+		<script>
+		</script>
+	</head>
+	<body>
+		<!-- 
+		# 테이블과 함께 하는 입력양식
+		1. 테이블을 활용하면 입력양식을 보다 정렬된 내용을 처리할 수 있다.
+		2. 처리순서
+			1) 입력 양식 테이블 만들기
+			2) 필요로 하는 td에 입력 form 처리하기
+		ex) 이름과 성별을 입력하여 가입처리하는 화면을 만들어 보자.
+		1. 테이블 구조만들기 3X2 테이블 만들기
+		2. 테이블 내용을 레이블과 입력 form 내용 넣기.
+			<input type="text" name="name"/>
+			<input type="radio" name="gender" value="남"/>남
+			<input type="radio" name="gender" value="여"/>여
+			<input type="submit" value="가입"/>
+		 -->
+		<table width="50" border = "1">
+			<col width="50%">
+			<col width="50%">
+			<tr><th>이름</th><td></td></tr>
+			<tr><th>성별</th><td></td></tr>
+				<input type="radio" name="gender" value="남"/>남
+				<input type="radio" name="gender" value="여"/>여
+			<tr><td colspan="2"></td></tr>
+				<input type="submit" value="가입"/>
+		</table>
+	</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style>
+		
+		</style>
+		<script>
+		function loading(obj){
+			var answerObj = document.querySelector("[name=answer]")
+			var set01 = setTimeout(function(){
+				if(answerObj.value == ""){
+					alert("입력실패");
+				}else{
+					alert("입력성공");
+				}
+				
+				if(answerObj.value == "25"){
+					alert("정답");
+				}else{
+					alert("오답");
+				}
+				clearTimeout(set01);
+			},5000);
+		}
+		</script>
+	</head>
+	<body>
+		[20]+[5] = <input type="text" name="answer" onclick="loading(this)" />
+	</body>
+</html>

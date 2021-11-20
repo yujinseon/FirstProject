@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style>
+		
+		</style>
+	</head>
+	<body>
+		<h2 align="center" onclick="startTest(this)">시험시작</h2>
+		id:<input type ="text" name="id"/>
+		<input type="button" value="아이디입력" onclick="idClick(this)"/>
+	</body>
+		<script type="text/javascript">
+			// # 특정한 시간 이후에 실행 처리.
+			// 1. var set01 = setTimeout(function(){수행할 내용}, 1/1000초)
+			// 2. 처리 후 메모리 회수 처리
+			//		clearTimeout(set01);
+			//	클릭 후, 시작표시, 10초후에 종료 표시
+			function startTest(obj){ // h2의 메모리가 매개변수를 통해서 전달
+				// h2의 출력 내용을 변경
+				obj.innerText = "시험중";
+				// 1000이 1초, 10000은 10초로 10초 후에 수행할 내용을 function()
+				// 블럭 안에 처리한다.
+				var set01 = setTimeout(function(){
+					alert("시험 종료!!");
+					obj.innerText = "시험이 종료되었습니다.(다시 할까요?)";
+					// 선언된 자원을 set01을 기능 메서드에 의해 종료
+					clearTimeout(set01);
+				},10000);
+			}
+			
+			/*
+			script 처리 : 함수의 경우는 화면이 로딩된 상황에서 이벤트로 호출하기에
+			DOM 객체로 인식이 가능하여 상단에 선언하여도 무방하다
+			1. name="id"으로 DOM 객체 호출
+			2. 5초후에 진행될 내용에 입력 여부 조건으로 확인
+				1) idObj.value=="" 일떄와 그렇지 않을 때 구분하여 처리
+			*/
+			function idClick(obj){
+				// 1. 입력한 DOM 객체 호출.
+				var idObj = document.querySelector("[name=id]");
+				// 버튼의 레이블은 value이므로 속성을 value로 하여 할당한다.
+				obj.value = "아이디 입력중!!";
+				var set01 = setTimeout(function(){
+					alert("입력종료!!");
+					if(idObj.value==""){
+						alert("아이디가 입력이 되지 않았습니다.");
+					}else{
+						alert(idObj.value+" 입력 및 전송 성공");
+					}
+					obj.value = "아이디 입력"; // 다시 초기값으로 변경 처리.
+					clearTimeout(set01); // 선언된 차원의 해제 처리..
+				},5000); // 5초후에 수행될 내용을 처리
+			}
+		</script>
+</html>

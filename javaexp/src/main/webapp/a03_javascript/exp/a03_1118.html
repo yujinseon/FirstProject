@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style>
+		
+		</style>
+		
+	</head>
+	<body>
+		<input type="text" name="day" />일<input type="button" value="확인" onclick="dateWrite(this)"/>
+	</body>
+	
+	<script>
+		
+		function dateWrite(obj){
+			var date = new Date();
+			var dateObj = document.querySelector("[name=day]");
+			console.log(dateObj.value);
+			date.setDate(date.getDate()+parseInt(dateObj.value));
+			document.write(date);
+		}
+		</script>
+</html>

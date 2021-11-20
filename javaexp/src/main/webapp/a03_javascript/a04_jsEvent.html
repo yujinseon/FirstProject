@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style>
+		
+		</style>
+		<script>
+		</script>
+	</head>
+	<body>
+		<h2>마우스 올려 보세요</h2>
+		<!-- 
+		this.src='./media/banana.png'
+		this:현재 마우스를 올린 img 객체..
+		this.src : img의 속성 src를 지칭
+		this.serc='./media/banana.png' : img의 속성을 변경..
+		
+		
+		html의 모든 내용을 객체로 인식해서, 처리.
+		onmouseover : 마우스 커서를 해당 이미지에 올릴 때. 
+		onmouseout : 마우스 커서를 해당 이미지에서 벗어 날 때.
+		 -->
+		<hr>
+		<img src="./media/apple.png"
+			onmouseover="this.src='./media/banana.png'"
+			onmouseout="this.src='./media/apple.png'"/>
+			
+		<h2 onclick="chColor(this)" style="color:blue;background-color:orange;">클릭해보세요</h2>
+	</body>
+		<script>
+			function chColor(obj){
+				// 매개변수로 객체를 받음..
+				// 클릭해서 this라는 이름으로 전달하면 h2의 모든 객체 메모리가 전달된다
+				obj.style.backgroundColor="yellow";
+				
+			}
+		</script>
+</html>

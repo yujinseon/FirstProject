@@ -1,0 +1,149 @@
+# javascript knowledge map
+1. 개요
+	환경 설정.
+	javascript의 웹 프로그램에서 역할, 실행 단계..
+	에러 트래킹 f12, console.log("")
+	외부설정 js 호출 방법
+	처리순서 : 라인별 순차적으로 처리된다.
+		dom의 경우, 태그가 호출되어 메모리가 로딩된 후,
+		document.querySelector(),
+		document.querySelectorAll()을 이용해서 호출하여야 한다.
+		함수 호출은 상단에 선언하더라고, 태그 객체들이 메모리로 로딩된 상황이기에 가능하다.
+2. 기본 문법
+	변수 선언
+	데이터 유형(5가지) : typeof(변수명)
+		문자열(string), 숫자(number), boolean, 함수(function), 객체(object)-배열
+	형변환 : 자동형변환(연산자),
+		"2" * "3" ==> 6,
+		"2" + "3" ==> "23" 
+		+ 연산자만 기본적으로 연결처리해주고,
+		연산을 하기위해, 형변환 함수(parseInt(),parseDouble(),
+			Number())를 처리해주어야 한다.
+			
+	연산자-대입/비교/논리
+	삼항연산자 - (비교/논리)?true일떄 처리: false일떄 처리;
+	# undefined 자료형
+	- 선언이 되지 않는 변수 호출시는 에러 발생,
+	- 선언이 되었으나 데이터를 할당하지 않는 경우, undefined 메시지 출력
+	NaN(Not a number) : 숫자형이 아닌데 연산처리할 때, 발생하는 에러..
+		parseInt("이십오");
+3. 조건문
+	if else, swtich 자바와 동일
+4. 반복문
+	for(), while(), do{}while() 자바와 동일
+	for(var idx in 배열)
+	for(var prop in 객체)
+	내장함수를 통해서 배열을 효과적으로 처리하고 있다.forEach();
+----------------
+5. 함수
+	익명함수
+	선언함수
+	내장함수 : setInterval: 시간당 반복 처리, setTimeout: 특정 시간 후, 수행
+			forEach : 배열의 데이터를 단위 데이터로 처리할 때, 사용된다
+6. 객체
+	json형태 객체 처리
+	var jObj = {속성:속성값, 속성2:속성2값};
+	jObj.속성
+	
+7. 생성자 함수(객체)
+	함수형으로 객체의 구조를 선언하고, 호출 처리하는 형태
+	function Person(name, age, loc){
+		// 자바스크립트의 객체에 필드를 선언하고, 할당할 때 this.을 활용한다.
+		this.name = name;
+		this.age = age;
+		this.loc = loc;
+		this.show=function(){
+			console.log("이름:"+this.name);
+			console.log("나이:"+this.age);
+			console.log("사는곳:"+this.loc);
+		};
+	}
+	var p01 = new Person("홍길동",25,"서울");
+	p01.name;
+	p01.show();
+	
+8. 내장 객체
+	Math.floor()
+	Math.ceil()
+	Math.round()
+	Math.random()
+	Math.floor(Math.random()*경우의 수 + 시작 수);
+	
+	Date (날짜처리 객체)
+	String (문자처리 객체)
+	
+9. 브라우저 객체 모델(BOM) : 윈도우 창
+	window.open("","",""); 브라우저 창이 새롭게 로딩되어 처리.
+	
+10. *** 문서 객체 모델(DOM) : 화면 출력
+	태그를 객체화하여 속성을 변경하여 여러가지 동적인 처리
+	<h1 align="center" style="color:green;">안녕하세요</h1>
+	<h1 align="center" style="color:green;">반갑습니다</h1>
+	
+	var obj = document.querySelector("선택자");
+	ex) var h1Obj = document.querySelector("h1");
+		h1Obj.innerText="좋은날 시작입니다!";
+		h1Obj.align="center";
+		h1Obj.sylte.color="blue";
+		// 자바스크립트 프로그램으로 속성을 지정하는 것은 특정 이벤트(click, 키입력 등)을
+		통해서 속성을 동적으로 변경되게 처리하기 위함이다. 
+		
+	var arry = document.querySelectorAll("선택자");
+	같은 태그 이름으로 화면에 여러 객체가 있는 경우 활용. 태그, 클래스
+	ex) var h1Arry = document.querySelectorAll("h1");
+	h1Arry[0].innerText="첫번쨰 h1";
+	h1Arry[1].innerText="두번쨰 h1";
+	
+	
+	# 선택자(css에서 사용되는 선택자)
+	1. 태그명 : document.querySelector("h1");
+	2. 아이디명 : 화면단위 유일한 식별자를 속성으로 지정했을 때, 
+		<input id="in01"/>
+		document.querySelector("#in01");
+	3. 클래스명 : 화면에 하나의 묶을 단위로 처리할 때, 지정형식
+		<td class="cls01"></td>
+		<td></td>
+		<td class="cls01"></td>
+		<td></td>
+		<td class="cls01"></td>
+		var cls01Arr = document.querySelectorAll(".cls01");
+		cls01Arr[0]
+		cls01Arr[1]
+		cls01Arr[2]
+	# DOM 객체의 속성들.
+	1) 화면출력 처리 DOM
+		.innerText : 출력할 내용을 할당하거나, 가져올 수 있다.
+		.innerHTML : html 코드를 포함해서 랜더링을 할 필요가 있을 때..
+			cf) div01.innerText="<h2>안녕</h2><p>내용</p>"
+					태그를 포함한 내용 그대로 출력
+			cf) div01.innerHTML="<h2>안녕</h2><p>내용</p>"
+					태그가 적용되어(랜더링) 해당 태그의 기능 내용을 포함해서 출력.
+	2)	.속성 = 속성값;
+		ex) tab.align="center"; // 테이블이나 h1 객체의 기본속성으로 중앙정렬처리.
+			imgObj.src = "img01.png"; // 이미지 태그에 이미지 변경 처리..
+			idObj.value="하이맨"; // input type의 입력값을 강제로 할당 처리.
+	3) .style.css속성 = css속성값( style 속성 )
+			tdObj.style.textAlign = "center";
+				td의 정렬을 중앙정렬 처리
+			tdObj.style.background = "yellow";
+				td의 배경색상을 노랑색으로 처리.
+			
+	
+11. 이벤트 : 클릭, 마우스, 키보드 입력..
+	1) 이벤트 핸들러 함수 : 이벤트가 일어날 때, 처리할 내용
+	2) 이벤트 : 특정한 액션으로 이벤트 핸들러 함수를 호출하게 하는 기능
+	3) 구조
+		<태그 on이벤트명 = "핸들러 함수()" />
+		var obj = document.querySelector("#btn01");
+		// DOM객체에 익명핸들러 함수를 지정하여 처리할 수 있다.
+		obj.onclick=function(){
+			alert("이벤트 호출");
+		};
+		
+12. 예외처리
+	try{
+	
+	}catch(exception e){
+	
+	}
+

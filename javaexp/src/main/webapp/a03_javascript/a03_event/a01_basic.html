@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+			<script type="text/javascript">
+				function callEvent(){
+					alert("이벤트 수행");
+				}
+			</script>
+		<style>
+		
+		</style>
+		<script>
+		</script>
+	</head>
+	<body>
+		<!-- 
+		이벤트대상 on이벤트명 = "이벤트핸들러함수()" 
+		 -->
+		<h2 onclick="callEvent()">
+			이벤트 대상은 h2, 클릭(click)은 이벤트명, 클릭을 통한 함수는 핸들러</h2>
+		<!-- 
+		# 이벤트 처리.
+		1. 자바스크립트에서의 이벤트는 이벤트 대상, 이벤트 종류, 이벤트를 통해서 처리할 내용,
+			이벤트와 이벤트 핸들러의 연결로 구성된다.
+		2. 이벤트 처리는
+			1) 대상 on이벤트명 = "이벤트핸들러함수()"
+			2) var tarObj = document.querySelector("선택자");
+			   tarObj.on이벤트명 = function(){
+			   	익명이벤트 핸들러 처리 내용.
+			   };	
+		 -->
+		 <h3 align="center">DOM객체를 통한 이벤트 처리..</h3>
+		 <h4 align="center">경고창 출력</h4>
+		 
+		 <!-- script영역 -->
+		 <script type="text/javascript">
+		 	var h3Obj = document.querySelector("h3");
+		 	h3Obj.onclick=function(){
+		 		// this : 클릭한 현재 객체를 지칭
+		 		// 배경색상과 타이틀을 변경 처리..
+		 		this.style.background="pink";
+		 		this.innerText="이벤트 수행 완료!!";
+		 	};
+		 	
+		 // ex) h4를 만들어서 경고창으로 안녕하세요!! 뜨게하기 
+		 
+		 	var h4Obj=document.querySelector("h4");
+		 	h4Obj.onclick=function(){
+		 		alert("안녕하세요!!");
+		 	};
+		 </script>
+	</body>
+</html>

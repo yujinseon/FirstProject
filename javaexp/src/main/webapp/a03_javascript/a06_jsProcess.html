@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style>
+		
+		</style>
+		<script>
+		/*
+		# js에서 데이터 입력 처리.
+		1. confirm("boolean값을 결과/취소")
+			boolean값을 확인과 취소에 따라 가져온다.
+			
+		*/
+			// 확인 창을 띄운다
+		//	var isTrue= confirm("성공입니까?"); // 확인을 누르면 true, 취소를 누르면 false
+		//	console.log("결과값:"+isTrue);
+		
+		
+		/*
+		2. prompt("메시지", "초기값")
+			확인시, 입력한 데이터값을 가져온다.
+			취소시, null을 가져온다.
+		*/
+		//	var name = prompt("이름을 입력하세요","여기에");
+		//	console.log("입력한 이름:"+name);
+		
+		
+		/*
+		if(조건){
+			조건식일 때.
+		}
+		for(var 초기변수;반복조건;증감연산자){
+			
+		}
+		*/
+		var grade = prompt("구구단의 단수를 입력하세요:","2");
+		for(var cnt=1;cnt<=9;cnt++){
+			console.log(grade+" X "+cnt+ " = " +(grade*cnt));
+		}
+		
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>
