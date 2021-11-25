@@ -1,7 +1,5 @@
 package javaexp.a00_exp;
 
-import java.util.*;
-
 public class A06_1105 {
 
 	public static void main(String[] args) {
@@ -154,7 +152,7 @@ public class A06_1105 {
 		
 		//14번
 		House h1 = new House("푸르지오");
-		h1.setName(new Person("장훈주"));
+		h1.setName(new Person("홍길동"));
 		
 		h1.show();
 	}

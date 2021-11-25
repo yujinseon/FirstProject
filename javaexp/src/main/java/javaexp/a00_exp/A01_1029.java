@@ -17,7 +17,7 @@ public class A01_1029 {
 		 */
 		
 		System.out.println("예제 1번");
-		String name = "장훈주";
+		String name = "홍길동";
 		int age = 25;
 		String hobby = "축구";
 		

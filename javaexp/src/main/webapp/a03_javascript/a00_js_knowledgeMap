@@ -3,47 +3,107 @@
 	환경 설정.
 	javascript의 웹 프로그램에서 역할, 실행 단계..
 	에러 트래킹 f12, console.log("")
-	외부설정 js 호출 방법
+	외부설정 js 호출 방법 : 공통적으로 js 내용이 필요할때, 각 개별화면에서 호춣해서
+		사용할 수 있도록 한다. : <script src ="공통 js.js"/>
 	처리순서 : 라인별 순차적으로 처리된다.
-		dom의 경우, 태그가 호출되어 메모리가 로딩된 후,
-		document.querySelector(),
-		document.querySelectorAll()을 이용해서 호출하여야 한다.
-		함수 호출은 상단에 선언하더라고, 태그 객체들이 메모리로 로딩된 상황이기에 가능하다.
+		1. 라인별 순차적으로 처리된다.
+		2. body의 태그
+			javascript의 DOM 호출
+			dom의 경우, 태그가 호출되어 메모리가 로딩된 후,
+			document.querySelector(),
+			document.querySelectorAll()을 이용해서 호출하여야 한다.
+		3. 함수 호출은 상단에 선언하더라고, 태그 객체들이 메모리로 로딩된 상황이기에 가능하다.
+			function call(){
+				document.querySelector("태그");
+			}
+			<태그 on이벤트 = "call()">
+		4. wondow.load = function(){
+			// 윈도우가 로딩된 상황에서 함수를 호출하기 때문에
+			// 상단에서 DOM 객체를 인식할 수 있다.
+			}
+		입력/출력
+			- 화면에서 입력/출력
+				comfirm():boolean, prompt():입력된 문자열
+				alert():메시지 경고창 출력, document.write(): 화면 출력
+			- 내부적인 console창에서 출력
+				console.log();
 2. 기본 문법
-	변수 선언
+	변수 선언 : var(일반변수선언), let(지역변수/전역변수 구분), const(상수선언)
 	데이터 유형(5가지) : typeof(변수명)
 		문자열(string), 숫자(number), boolean, 함수(function), 객체(object)-배열
 	형변환 : 자동형변환(연산자),
-		"2" * "3" ==> 6,
-		"2" + "3" ==> "23" 
+		"2" * "3" ==> 6, + 연산자 이외는 모두 자동형변환되어 숫자로 연산,
+		"2" + "3" ==> "23" + 연산자는 문자열 연결처리가 된다
+		"안녕하세요" +25+30 ==> 앞에있는 문자열에 영향에 받아 안녕하세요2530 이라는 값이 나옴
+		 
 		+ 연산자만 기본적으로 연결처리해주고,
 		연산을 하기위해, 형변환 함수(parseInt(),parseDouble(),
 			Number())를 처리해주어야 한다.
-			
+		ex)	parseInt("25")+parseInt("30") ==> 55
+		parseInt()의 경우 실수형을 정수형으로 casting 해주는 기농도 포함하고 있다
+	
+	if("25" == 25 ) : 논리/비교연산식에서 자동형변환이 일너난다 이경우 true로 처리
+	if("25" == 25 ) : 논리/비교연산식에서 ===, !==를 이용해서 데이터 유형과 데이터값이 같은지
+		여부를 확인한다. 이 경우는 false로 처리
 	연산자-대입/비교/논리
 	삼항연산자 - (비교/논리)?true일떄 처리: false일떄 처리;
+		ex) var result = point>=70?"합격":"불합격";
+		
 	# undefined 자료형
 	- 선언이 되지 않는 변수 호출시는 에러 발생,
 	- 선언이 되었으나 데이터를 할당하지 않는 경우, undefined 메시지 출력
 	NaN(Not a number) : 숫자형이 아닌데 연산처리할 때, 발생하는 에러..
 		parseInt("이십오");
+		==> 숫자인지 여부를 확인해서 데이터를 조건처리하는 함수 지원 isNaN() : is not a number?
+		if( !isNaN(parseInt("25"))){//숫자 데이터일 떄, 처리할 조건
+			/ not isNaN으로 숫자형일 때 처리
+		}
 3. 조건문
 	if else, swtich 자바와 동일
 4. 반복문
 	for(), while(), do{}while() 자바와 동일
-	for(var idx in 배열)
-	for(var prop in 객체)
+	for(var idx in 배열){
+		idx : 배열의 index : 주의 index가 문자열 형태로 호출된다
+		배열[idx] : 배열에 해당 index의 값
+	}
+	for(var prop in 객체){
+		prop : 객체의 속성
+		객체[prop] : 객체의 속성에 대한 값
+	}
 	내장함수를 통해서 배열을 효과적으로 처리하고 있다.forEach();
+	ex) 배열.forEach(function(data, index, arry){
+	    	data : 배열 안에 있는 단위 데이터 가져오기
+	    	index : 배열의 index 가져오기
+	    	arry : 베열의 전체 데이터 가져오기
+	    });
 ----------------
 5. 함수
 	익명함수
+		var fun01 = function(){};
 	선언함수
+		function fun02(){}
 	내장함수 : setInterval: 시간당 반복 처리, setTimeout: 특정 시간 후, 수행
 			forEach : 배열의 데이터를 단위 데이터로 처리할 때, 사용된다
+		var set01 = setInterval(function(){
+			if(조건문){
+				clearInterval(set01); // 반복을 특정 조건에 의해 중단처리
+			}
+		}, 1000);
+		clearTimeout(); // setTimeout으로 지정한 내용 자우너해제
+		eval("25+30") : 특정 문자열을 실행처리해주는 함수
+			
 6. 객체
 	json형태 객체 처리
-	var jObj = {속성:속성값, 속성2:속성2값};
+	var jObj = {속성:속성값, 속성2:속성2값, 메서드 : function(){}};
 	jObj.속성
+	// 새로운 속성을 추가할 수도 있고,
+	delete jObj 속성 : 저장된 속성을 삭제할 수도 있다
+	
+	var arry1 = [데이터1, 데이터2, 데이터3];
+	var objArry = [{속성: 속성값, 속성2: 속성2값},
+					{속성: 속성값, 속성2: 속성2값},
+					{속성: 속성값, 속성2: 속성2값}];
+	
 	
 7. 생성자 함수(객체)
 	함수형으로 객체의 구조를 선언하고, 호출 처리하는 형태
@@ -61,22 +121,63 @@
 	var p01 = new Person("홍길동",25,"서울");
 	p01.name;
 	p01.show();
-	
+	// ecma6 이후 버전에서는 아래와 같은 class 형태도 지원한다
+	class Product{
+		constuctor(name, price, cnt ){자바와 달리 생성자를 constructor 키워드 사용
+			this.name = name;
+			this.price = price;
+			this.cnt = cnt;
+		}
+		buy(){
+			console.log(this.name);//반드시 필드는 this. 이라는 접두어를 이용해서 사용
+			console.log("총계:"+(this.price*this.cnt))
+		}
+	}
+	var prod = new Product ("사과",3000,2);
+	prod.buy();
 8. 내장 객체
-	Math.floor()
-	Math.ceil()
-	Math.round()
-	Math.random()
+	Math.floor() : 내림
+	Math.ceil() : 올림
+	Math.round() : 반올림
+	Math.random() : 임의의 수 
 	Math.floor(Math.random()*경우의 수 + 시작 수);
+	parseInt(Math.random()*경우의 수 + 시작 수);
 	
 	Date (날짜처리 객체)
 	String (문자처리 객체)
 	
+	function call(){
+		arguments : 함수객체안에 사용되는 내장객체로 매개변수를
+					배열로 받아서 처리할 수 있다.
+		arguments[0],
+		arguments[1],
+		arguments[2]
+	}
+	call(30); // 가변적으로 매개변수를 사용할 수 있고, 해당 값을 순서에 따라 
+			  // 내장 객체인 arguments에 배열의 순서별로 할당해서 사용한다.
+	call(2,5);
+	call(4,2,4);
+	arguments
 9. 브라우저 객체 모델(BOM) : 윈도우 창
 	window.open("","",""); 브라우저 창이 새롭게 로딩되어 처리.
 	
 10. *** 문서 객체 모델(DOM) : 화면 출력
 	태그를 객체화하여 속성을 변경하여 여러가지 동적인 처리
+	1. 선택자의 유형
+		태그 속성		선택형식
+		id="아이디명" document.querySelector("#아이디명");
+		class="클래스명" document.querySelectorAll(".클래스명");
+		name="속성값" document.querySelector("[name=속성값]");
+		태그명 		document.querySelector("태그명");
+		    		document.querySelectorAll("태그명");
+		<상위태그> 
+			<하위태그> document.querySelector("상위태그 하위태그");
+			
+	2. 다중 선택 여부
+		하나의 객체 : document.querySelector
+		여러개의 객체 : document.querySelectorAll
+	
+	
 	<h1 align="center" style="color:green;">안녕하세요</h1>
 	<h1 align="center" style="color:green;">반갑습니다</h1>
 	
@@ -123,6 +224,7 @@
 			imgObj.src = "img01.png"; // 이미지 태그에 이미지 변경 처리..
 			idObj.value="하이맨"; // input type의 입력값을 강제로 할당 처리.
 	3) .style.css속성 = css속성값( style 속성 )
+			// css (데쉬)에 의해 구분된 속성은 js에서는 came1 case 형태로 대문자를 추가하여 구분
 			tdObj.style.textAlign = "center";
 				td의 정렬을 중앙정렬 처리
 			tdObj.style.background = "yellow";
@@ -132,6 +234,10 @@
 11. 이벤트 : 클릭, 마우스, 키보드 입력..
 	1) 이벤트 핸들러 함수 : 이벤트가 일어날 때, 처리할 내용
 	2) 이벤트 : 특정한 액션으로 이벤트 핸들러 함수를 호출하게 하는 기능
+		click : 마우스 클릭시
+		mouseover/ mouseout : 마우스 커서의 이동을 대상 위치에 있는지 없는지에 따라
+		keyup/keydown - event.keyCode : 키보드의 고유값으로 식별하여 이벤트 처리
+		focus : 특정 요소객체에 focus를 위치 시켰을때, 발생하는 이벤트
 	3) 구조
 		<태그 on이벤트명 = "핸들러 함수()" />
 		var obj = document.querySelector("#btn01");

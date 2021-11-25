@@ -1,0 +1,105 @@
+1단계 1
+url에 서버가 있는 주소에 특정한 페이지를 호출
+http://www.google.com/show ==> http://192.168.23.0:700/show.jsp
+http://192.168.23.0:700/show.jsp 
+--> 고정아이피로 웹서버를 현재 pc에서 처리결과를 확인할 때 사용한다
+해당 페이지에서 전달되는 html문자열을 브라우저로 가져와서 html 문자열에 있는 태그들을 랜더링 하여 화면에 출력한다.
+1단계 2
+html/css :클라이언트에서 브라우저를 통해서 랜더링
+javascript : 클라이언트의 브라우저를 통해서 실행처리 한다
+java(jsp) : 서버단에서 서버 컨테이너 안에서 컴파일되고 실행된다
+
+1단계 3
+브라우저 호출시 jsp/java --> javascript --> html/css 
+요청값을 받은 처리, db 서버에 접속해서 db 데이터를 객체로 변환해서 
+메모리에 올렸다가 jsp를 통해서 중간중간에 데이터를 html 태그와 함께
+표현해서, 최종적으로 html 페이지를 만들어 클라이언트에서 전달한다.
+jsp안에는 html태그,css,javascript,java가 다 포함되어 있다
+
+1단계 4
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+</style>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>물건 등록</h1>
+	<form action="a06_exp.jsp">
+		물건명:<input type="text" name="pname" autofocus="autofocus"/><br>
+		가격:<input type="text" name="price"/><br>
+		갯수:<input type="number" name="num"/><br>
+		<input type="button" value="등록" onclick="commit()"/><br>
+	</form>
+	<script>
+		function commit(){
+			var nameObj = document.querySelector("[name=pname]");
+			var priceObj = document.querySelector("[name=price]");
+			var numObj = document.querySelector("[name=num]");
+			var frmObj = document.querySelector("form");
+			frmObj.submit();
+		}
+	</script>
+</body>
+</html>
+
+출력되는 페이지
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<%
+	String pname = request.getParameter("pname");
+	String price = request.getParameter("price");
+	String num = request.getParameter("num");
+	%>
+	<h2>입력한 물건명: <%=pname%></h2>
+	<h2>입력한 가격: <%=price%></h2>
+	<h2>입력한 갯수: <%=num%></h2>
+</body>
+</html>
+
+1단계 5
+	function commit(){
+			var nameObj = document.querySelector("[name=pname]");
+			var priceObj = document.querySelector("[name=price]");
+			var numObj = document.querySelector("[name=num]");
+			
+			if(nameObj.value==""){
+				alert("물건명을 입력해주세요");
+				return; 
+			}
+			if(priceObj.value==""){
+				alert("가격을 입력해주세요");
+				return; 
+			}
+			if(numObj.value==""){
+				alert("갯수를 입력해주세요");
+				return; 
+			}
+			var frmObj = document.querySelector("form");
+			frmObj.submit();
+		
+		}
+1단계 6
+var age = prompt("나이를 입력해주세요","여기에");
+if(age>=18){
+	console.log("입력한 나이는 "+age+" 이므로 성인입니다");
+}else{
+	console.log("입력한 나이는 "+age+" 이므로 성인이 아닙니다");
+}
+
+2단계 7
+for(var i=1;i<=50;i++){
+	
+}	

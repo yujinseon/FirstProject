@@ -1,6 +1,5 @@
 package javaexp.a00_exp;
 
-import java.util.*;
 public class A02_1101 {
 	
 	//8번의 메소드 선언
@@ -64,7 +63,7 @@ public class A02_1101 {
 		//ex) 리턴 유형이 없는 메서드1 인사말
 		Hello();
 		//ex) 매개변수로 받은 문자열 출력 @@@님 안녕하세요
-		Hello2("장훈주");
+		Hello2("홍길동");
 		
 		//1번
 		/*

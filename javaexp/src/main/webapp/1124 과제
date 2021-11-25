@@ -1,0 +1,61 @@
+1.1 문자열을 대소문자 처리 함수를 기능별로 기술하세요
+initcat() : 첫자만 대문자 upper(ename) ==> ename을 대문자로 lower(ename) ==> ename을 소문자로
+1.2 사원명[] 직책명[] [검색] 화면에 데이터를 입력받아 조회하는 처리에 필요한 sql을 작성
+
+입력받은 데이터들을 전부 대문자/ 소문자로 변환하여 데이터 베이스 안에서 검색
+where lower(ename) = lower(데이터) AND lower(job)=lower(데이터);
+
+입력데이터 '홍길동','사원'
+입력데이터 'clerk','manager'
+1) ename, job 저장된 데이터가 대문자일수도 있고
+소문자일수도 있고, 대소문자가 혼합되어도 모두 다 소문자로 인식하게 하면
+일관성 있는 데이터로 조건 검색을 할 수 있다
+
+where lower(ename) like '%'|lower(데이터)|'%' and lower(job) like '%'|lower(데이터)|'%'
+
+
+
+1.3 length(), lengthb()의 차이점으로 한글을 기준으로 설명하세요
+length는 테이블에 들어있는 데이터의 길이를 의미한다
+lengthb는 입력된 데이터의 byte 값으로 반환/ 한글 한글자에 3byte로 저장된다
+
+영문 한자 : 1byte
+한글 한자 : 3byte 
+length() : 글자 단위로 데이터 확인하고자 할 때, 사용된다. 글자 수를 가져온다
+lengthb() : byte 단위로 데이터의 길이를 가져올 떄 사용된다.
+ex) length('himan') : 5, lengthb('안녕하세요') : 15
+    lengthb('himan') : 5, length('안녕하세요') : 5
+
+1.4 직책명의 최소크기를 확인하여, where 조건문으로 검색하여 데이터를 나타내세요
+SELECT job, LENGTH(job) "직책의 길이"
+FROM emp
+where length(ename)=(
+  select min(length(job))
+  from emp
+);
+-----------------------------
+select min(length(ename)) * from emp 
+1.5 concat와 || 차이점을 기술하세요
+select 문에 문자열을 입력할때 || 같은경우 => '사원이름은 '||ename||'이고 '||empno||' 은 번호'
+라고 입력하고
+concat 같은경우 concat(CONCAT(CONCAT('사원이름은',ename),'이고'),empno)... 식으로 여러괄호 사용
+
+1.6 '070080100' 문자의 3자리씩을 추출하여 국어, 영어, 수학 점수를 표시하세요
+SELECT  
+	substr('070080100',1,3) 국어, 
+	substr('070080100',4,3) 영어, 
+	substr('070080100',7,3) 수학
+FROM dual;
+
+1.7 instr를 조건으로 이용하여 직책에 'MAN 키워드가 있는데이터를 검색하세요
+SELECT job ,instr(job, 'MAN') "MAN 위치"
+FROM emp;
+
+1.8 lpad함수와 ltrim 함수의 차이점을 예제로 기술하세요
+lpad 왼쪽 기준으로 해당 크기보다 못한 데이터일 때 지정한 문자열 추가 하는 함수이고
+ltrim은 왼쪽 기준으로 지정 문자를 삭제할 때 사용되는 함수이다
+	
+1.9 숫자형 함수중에 trunc와 floor의 차이점을 기술하세요
+floor 같은 경우 123.4 를 등록하면 소수점을 내림처리하는 정수형 함수이다 ==>123
+trunc 같은 경우 trunc(123.4,1) 소수점 한자리 제외하고 나머지 소수들을 내림처리하는 함수이다
+(-3 천자리 -2백자리 -1 십자리 1 소수점한자리 2 소수점두번쨰자리)

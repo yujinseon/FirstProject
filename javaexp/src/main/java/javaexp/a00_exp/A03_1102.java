@@ -83,7 +83,7 @@ public class A03_1102 {
 		//void는 리턴 값 없이 바로 호출하여 사용한다
 		Hello();
 		//매개변수를 받아 호출하여 사용한다
-		Hello1("장훈주");
+		Hello1("홍길동");
 		
 		//2번. 메서드의 매개변수에 따른 데이터를 처리를한다. 매개변수를 처리하는 3가지 유형을 기술하시오
 		/*
@@ -97,12 +97,12 @@ public class A03_1102 {
 		 	void setPerson(String name, int age, String loc){}
 		 		setPerson("홍길동", 25, "서울 강남");
 		 */
-		callName("장훈주");
+		callName("");
 		callAge(25);
 		callWeight(60.8);
 		
 		//3번
-		memberReg("wkdgnswn", "aa1234", "장훈주", 15);
+		memberReg("wkdgnswn", "aa1234", "", 15);
 		
 		//4번
 		student("김미미", 90,51,64);

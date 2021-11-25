@@ -28,6 +28,5 @@
 		<tr><th>갯수</th><td><%=cnt%></td></tr>
 	</table>
 <body>
-
 </body>
 </html>

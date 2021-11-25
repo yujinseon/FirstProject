@@ -1,0 +1,54 @@
+1단계 1 정렬처리의 기본형식을 기술하세요
+SELECT *
+FROM EMP
+ORDER BY 컬럼 ASC|DESC ;
+
+1단계 2 데이터베이스에서 조건문에서 사용되는 비교연산자 종류를 기술하세요
+!= : 같지 않을 때, 조건문에서 검색해준다
+not (조건문) : 해당 조건문이 아닐때의 데이터를 검색해준다
+컬럼명 is not null : null이 아닌 데이터를 검색해준다
+
+1단계 3 부서번호가 10이 아니고 직책이 SALESMAN인 정보를 기술하세요
+SELECT *
+FROM emp
+WHERE deptno !=10 AND job='SALESMAN';
+
+1단계 4 부서정보가 10이고 급여가 1000에서 4000사이인 사원정보를 출력하세요
+SELECT *
+FROM emp
+WHERE deptno =10 
+AND sal BETWEEN 1000 AND 4000; 
+
+1단계 5 null값이 무엇인지 database에서 사용되는 개념을 기술하고 조건문이나 데이터 처리에서 활용되는 키워드를 기술
+데이터베이스에서 null
+숫자일때  0인 경우와 null인 경우로 구분되지만, 이 내용을 객체로 처리된 경우에는 동일하게 처리
+참고로 문자열인 경우에는 프로그램이나 DB나 둘다 NULL일 경우와 ""인 경우를 구분
+저장된 데이터가 비슷한 키워드를 포함할 때, 검색되게 하는 것을 keyword검색이라고 한다
+
+1단계 6 null값이 있는 데이터를 연산식을 처리할 때, 함수를 이용한다 null인 데이터의 연산식에서 문제와 효과적으로 처리할 수 있는 이는 함수를 예제를 통해 기술
+SELECT *
+FROM emp 
+WHERE mgr IS NULL OR nvl(comm,0)=0;
+--- nvl(comm,0)= 0 을 통해서 0이거나 null인 값을 검색가능
+nvl(컬럼명, null일때 데이터) : 해당 컬럼에 데이터가 null일때, null 대신에 나타날 
+데이터를 지정하여 처리하는 함수로, 컬럼에 해당하는 데이터 유형으로 null 대체할 데이터를 설정하여야한다
+숫자형 nvl(comm,0) : comm이 숫자유형이기에 0으로 null값을 대체할 수 있다
+문자열형 nvl(job,'') : job이 문자유형이기에 ''으로 null값을 대체할 수 있게 하였다.
+1단계 7
+SELECT *
+FROM EMP e 
+WHERE ename IN ('ALLEN','CLARK','FORD');
+
+1단계 8
+SELECT *
+FROM EMP e 
+WHERE MGR IN (
+	SELECT MGR 
+	FROM EMP e 
+	WHERE DEPTNO =30
+);
+
+1단계 9
+SELECT *
+FROM EMP e
+WHERE job LIKE '%MAN'OR ENAME LIKE '%ER';

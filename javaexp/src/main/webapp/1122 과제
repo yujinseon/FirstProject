@@ -1,0 +1,40 @@
+1단계 1 sql의 기본형식을 기술하세요
+select* 컬럼명, 컬렁명2
+from 테이블명
+where 조건
+group by 컬럼
+	having 조건
+order by desc asc 오르 내림 차순 
+
+1단계 2 사원번호와 이름을 함께 출력하고 연봉의 1/12를 출력하세요.
+SELECT empno "사원번호", ename "이 름", ROUND(sal/12)||'만원' "연봉"
+FROM emp;
+
+1단계 3 부서테이블 dept이용하여 alias를 출력
+SELECT deptno "부서 번호", dname "부서 이름", loc AS 지역
+FROM emp;
+
+1단계 4 아래의 컬럼을 출력
+SELECT ename||'님의 사원번호는 '||empno||'이고, 올해 연말보너스는 연봉의 20%인 '||(sal*0.2)||'만원 입니다'
+FROM emp;
+
+SELECT ename||'님의 이번달 보너스는 연봉의 '||deptno||'% 기준으로 '||(sal*(deptno/100))||'만원 지급합니다'
+FROM emp;
+
+SELECT ename||'님의 입사일은 '||HIREDATE||'이고 현재 연봉의 1/13인 월급여 '||ROUND(sal/13)||'만원'
+FROM emp;
+
+1단계 5 급여가 2000 이상 4000 이하 사원번호 직책명 급여를 출력
+SELECT empno "사원 번호", job AS 직책명, sal "급 여"
+FROM emp
+WHERE sal>=2000 AND sal<=4000;
+
+1단계 6 직책이 salesman 인상원의 사원명, 직책명, 부서번호 출력
+SELECT ename 사원명, job AS 직책명, deptno "부서 번호"
+FROM EMP
+WHERE job ='SALESMAN';
+
+1단계 7 부서번호가 10인 사원의 이름과 급여의 80% 출력
+SELECT ename 사원명, round(sal*0.8) "급 여" 
+FROM EMP
+WHERE deptno =10;

@@ -1,0 +1,99 @@
+1.1 setTimeout과 setInterval의 차이점
+setTimeout 함수는 해당 시간후 실행할 함수 처리를 해주고
+setInterval 함수는 해당 시간마다 실행할 함수 처리 해준다
+setTimeout은 시간후 한번의 실행을 하고 setInterval은 입력 시간 마다 실행된다
+-------------------------------
+var set1 = setTimeout(함수,1/1000초)
+	시간이후에 수행할 함수를 지정하는 처리를 한다
+	clearTimeout(set1) : 수행할 함수를 메모리 제거
+var set2 = setInterval(함수,1/1000초)
+	해당 시간마다 반복할 함수를 지정하는 처리를 한다.
+	clearInterval(set2) : 반복 수행한 함수 메모리 제거
+1.2/3 [20]+[5] = [] 로 화면을 구성하고 화면이 로딩된지 5초 안에 입력하면
+	입력성공, 그렇지 못하면 입력 실패 처리
+<body>
+	[20] + [5] = [<input type="text" name="num" value="입력해주세요" onclick="checkNum(this)" />]
+	<input type="button" onclick="checkClick(this)" value="숫자입력"/>
+	
+	<script>
+
+	function checkNum(obj){
+		console.log(obj.value);
+		var numObj =document.querySelector("[name=num]");
+		var set01 = setTimeout(function(){
+			alert("입력종료!!");
+			if(numObj.value==""){
+				alert("숫자가 입력이 되지 않았습니다");
+			}else if(numObj.value =="25"){
+				alert(numObj.value+" 정답입니다");
+			}else{
+				alert(numObj.value+" 틀렸습니다");
+			}
+			obj.value ="입력해주세요";
+			clearTimeout(set01);
+		},5000);
+	}
+	</script>
+
+1.4 forEach의 기본 형식과 매개변수에 대해 기술
+1. 배열 데이터 for in 구문을 단위 데이터의 처리와 index에 대한 문자열 처리로 불편한 경우가 많다.
+2. forEach 함수를 활용하면 효과적인 처리가 가능하다.
+함수를 매개변수로 받고, 그 함수의 매개변수로 단위 데이터, 숫자형 index, 전체 배열을 받아 처리할 수 있다
+function(price, idx, arry){}
+
+1.5 forEach를 활용하여 멜론 차트 1~3위 음악을 배열로 선언하고 h3 또는 테이블로 출력
+	<table align="center" id="tab01" width="400px" height="400px" border="3">
+			<tr><th>순위</th><th>곡이름</th><th>가수명</th></tr>
+
+	</table>
+	<script>
+
+	var chat =[{title:"회전목마",name:"소코도모"},
+		{title:"쉬어",name:"비오"},
+		{title:"Wake up",name:"개코"}
+	];
+	var listHtml ="";
+	chat.forEach(function(ch,idx){
+		listHtml+="<tr>";
+		listHtml+="<td>"+(idx+1)+"</td>";
+		listHtml+="<td>"+ch.title+"</td>";
+		listHtml+="<td>"+ch.name+"</td>";
+		listHtml+="</tr>";
+	});
+	document.querySelector("#tab01").innerHTML+=listHtml;
+
+1.6 날짜 객체를 이용하여 기념일을 출력하세요, 오늘로부터 []일 확인 클릭시 하단에 해당 날짜 h2로 출력	
+	오늘로 부터 [<input type="text" name="d_day" value="" style="width:30px" />]
+	<input type="button" onclick="checkClick()" value="확인"/>
+	<h2></h2>
+	<script>
+	
+	function checkClick(obj){
+		var dayObj =document.querySelector("[name=d_day]");
+		var date = new Date();
+		date.setDate(date.getDate()+dayObj.value);
+		var year = date.getFullYear();
+		var mon = date.getMonth()+1;
+		var resultObj =document.querySelector("h2");
+		var days = ["일","월","화","수","목","금","토"];
+		resultObj.innerText= year+"년 "+mon+"월 "+date.getDate()+"일"+days[date.getDay()]+"요일";
+	}
+	
+1.7 
+	<input type="button" onclick="openWin()" value="버튼1"/>
+	<input type="button" onclick="openWin2()" value="버튼2"/>
+	<script>
+	function openWin(){
+		var win=window.open("a04_Date.html","","height=300, width=300");
+	}
+	function openWin2(){
+		var win=window.open("a02_property.html","","height=300, width=300");
+		
+	}
+1.8
+<h2 onclick=events()">이벤트 기본형식</h2>
+<script>
+function event(){
+	alert("이벤트 수행");
+}
+</script>
