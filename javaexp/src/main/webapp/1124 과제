@@ -30,11 +30,12 @@ ex) length('himan') : 5, lengthb('안녕하세요') : 15
 SELECT job, LENGTH(job) "직책의 길이"
 FROM emp
 where length(ename)=(
-  select min(length(job))
+  select min(length(ename))
   from emp
 );
 -----------------------------
 select min(length(ename)) * from emp 
+
 1.5 concat와 || 차이점을 기술하세요
 select 문에 문자열을 입력할때 || 같은경우 => '사원이름은 '||ename||'이고 '||empno||' 은 번호'
 라고 입력하고
@@ -42,18 +43,19 @@ concat 같은경우 concat(CONCAT(CONCAT('사원이름은',ename),'이고'),empn
 
 1.6 '070080100' 문자의 3자리씩을 추출하여 국어, 영어, 수학 점수를 표시하세요
 SELECT  
-	substr('070080100',1,3) 국어, 
+	substr('070080100',1,3) 국어, ==>to_number(substr('070080100',1,3))
 	substr('070080100',4,3) 영어, 
 	substr('070080100',7,3) 수학
 FROM dual;
 
 1.7 instr를 조건으로 이용하여 직책에 'MAN 키워드가 있는데이터를 검색하세요
+instr(데이터|열,'찾을문자') : 특정한데이터의 문자열의 시작위치를 return 해준다
 SELECT job ,instr(job, 'MAN') "MAN 위치"
 FROM emp;
 
 1.8 lpad함수와 ltrim 함수의 차이점을 예제로 기술하세요
-lpad 왼쪽 기준으로 해당 크기보다 못한 데이터일 때 지정한 문자열 추가 하는 함수이고
-ltrim은 왼쪽 기준으로 지정 문자를 삭제할 때 사용되는 함수이다
+lpad(데이터|컬럼 ,기준크기,추가할문자) 왼쪽 기준으로 해당 크기보다 못한 데이터일 때 지정한 문자열 추가 하는 함수이고
+ltrim(데이터|컬럼 ,'절삭할문자')은 왼쪽 기준으로 지정 문자를 삭제할 때 사용되는 함수이다
 	
 1.9 숫자형 함수중에 trunc와 floor의 차이점을 기술하세요
 floor 같은 경우 123.4 를 등록하면 소수점을 내림처리하는 정수형 함수이다 ==>123
