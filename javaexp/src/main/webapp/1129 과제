@@ -1,0 +1,106 @@
+1.1 case문의 기본형식 2가지 예제를 통해 기술
+
+1. SELECT ENAME , DEPTNO,
+CASE WHEN DEPTNO =10 THEN sal*0.2
+WHEN DEPTNO =20 THEN sal*0.5
+WHEN DEPTNO =30 THEN sal*0.7
+ELSE sal*1.2
+END show
+FROM emp;
+2. SELECT ENAME, HIREDATE, to_char(hiredate,'Q') "분기",sal,
+CASE to_char(hiredate,'Q')
+WHEN '1' THEN sal * 0.3
+WHEN '2' THEN sal * 0.2
+WHEN '3' THEN sal * 0.1
+else sal*0.05
+END 보너스
+FROM emp;
+
+1.2 decode문과 case문의 차이 기술
+decode의 확장된 함수 형식을 표현식 또는 컬럼 값 '=' 비교를 통해
+조건의 일치하는 경우에만 다른 값으로 대치하지만, case 함수에서는
+산술 연산, 관계 연산, 논리 연산과 같은 다양한 비교가 가능하다.
+또한 case when 은 앞에서 선언 조건식을 제외한 조건을 처리한다.
+
+1.3 입사별 마지막 날짜를 출력하세요 2월은 29일 30일 나오는 월, 그외는
+다 31일(decode 활용)
+SELECT ename, decode(to_char(HIREDATE,'MM'),2,29,4,30,6,30,9,30,11,30,31)
+FROM emp;
+
+1.4 sal, 5000이상(상) 2000~5000미만(중) 2000미만(하)
+이름 연봉 등급 case when 구문으로 처리해서 출력
+SELECT ename, sal,
+CASE WHEN sal>=5000 THEN '상'
+WHEN sal>=2000 THEN '중'
+else '하'
+END 등급
+FROM emp;
+
+1.5 그룹함수 처리 기본형식을 기술하세요
+select 컬럼명, 그룹함수1, 그룹함수2..
+from 테이블명
+where 조건
+group by 그룹할 컬럼
+having 그룹함수의 조건
+order by 정렬할 컬럼
+
+1.6 그룹함수의 종류를 기술하세요
+count() : 행의 갯수
+max() : null을 제외한 모든 행의 최댓값
+min() : null을 제외한 모든 행의 최솟값
+max() : null을 제외한 모든 행의 합
+max() : null을 제외한 모든 행의 평균값
+stddev() :null을 제외한 모든 행의 표준편차
+variance() :null을 제외한 모든 행의 분산
+
+1.7 직책별, 평균급여 출력
+SELECT job, floor(avg(sal))
+FROM emp
+GROUP BY job
+ORDER BY floor(avg(sal));
+
+1.8 월별 최대 급여와 최저급여를 출력
+SELECT TO_CHAR(hiredate,'MM') "월",max(sal) "최고급여",min(sal) "최저급여"
+FROM emp
+GROUP BY TO_CHAR(hiredate,'MM')
+ORDER BY TO_CHAR(hiredate,'MM');
+
+1.9 사원번호의 홀/짝수별 사원의 수와 최고연봉을 출력
+SELECT decode(mod(empno,2),1,'홀수',0,'짝수'),count(*) 사원의수,max(sal) "최고연봉"
+FROM emp
+GROUP BY decode(mod(empno,2),1,'홀수',0,'짝수');
+
+1.10 1)입사월별 최고연봉자가 1000이상인 경우만 출력
+SELECT TO_CHAR(hiredate,'MM') "월",max(sal) "최고급여"
+FROM emp
+GROUP BY TO_CHAR(hiredate,'MM')
+HAVING max(sal)>=1000
+ORDER BY TO_CHAR(hiredate,'MM');
+
+```
+2)직책별 인원이 3명이상인 직책과 인원을 출력
+SELECT job 직책,count(job) 인원
+FROM EMP e
+GROUP BY job
+HAVING count(job)>=3;
+
+```
+
+1.11 char, varchar2의 근본적인 차이점을 예제를 통해서 기술하시요
+civilnum char(13) 데이터를 만들고 만약 ('9112251802718')('1') 두값을 insert 해서
+LENGTH(civilnum) ==> 13 길이를 가진다. 더 작은 값을 입력해도 고정 데이터를 갖게됨
+
+varchar2의 경우  civilnum char(13) ,  ('9112251802718')('1') 값을 insert 하면
+LENGTH(civilnum) ==> 13, 1 이라는 길이를 가진다
+
+1.12 프로야구의 팀 순위를 저장하는 테이블(팀명, 승, 무, 패, 승률, 등록일)을
+만들고 데이터를 입력하세요
+CREATE TABLE baseball2(
+name varchar2(8),
+vic number(3),
+draw number(3),
+lose number(3),
+winrate number(4,3),
+dates date
+);
+INSERT INTO baseball2 values('두산',71,8,65,0.522,sysdate);
