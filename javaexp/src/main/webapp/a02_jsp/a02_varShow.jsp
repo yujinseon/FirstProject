@@ -13,9 +13,9 @@ td{text-align: center;}
 <body>
 	<%--ex) 이름, 나이, 사는곳을 변수로 선언한여 테이블에 출력하세요. --%>
 	<%
-	String name = "장훈주";
+	String name = "유진선";
 	int age = 25;
-	String loc = "김포";
+	String loc = "수원";
 	%>
 	
 	<h2 align="center">회원 정보</h2>

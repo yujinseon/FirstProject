@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>css 둥근 모서리</title>
+		<style>
+      		p{background:#90D000; padding:20px;width:300px;}
+      		#round1{border-radius: 50px;}
+      		#round2{border-radius:0px 20px 40px 60px;}
+      		#round3{border-radius:0px 20px 40px;}
+      		#round4{border-radius:0px 20px;}
+      		#round5{border-radius:50px;}
+		</style>
+		<script>
+			window.onload=function(){
+			var h2Obj = document.querySelector("h2");
+			h2Obj.innerText = "radius 둥근 모서리";
+			}            
+		</script>
+	</head>
+    <body>
+    	<h2 align="center"></h2>
+    	<hr>
+    	<p id="round1">모서리 반지름이 50px인 경우</p>
+    	<p id="round2">모서리 반지름이 0,20,40,60px인 경우</p>
+    	<p id="round3">모서리 반지름이 0,20,40,20px인 경우</p>
+    	<p id="round4">모서리 반지름이 0,20px인 경우</p>
+    	<p id="round5">모서리 반지름이 50px인 경우</p>
+    </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>선택자-selector</title>
+		<style>
+      		/*
+      		# 태그 이름 셀렉터
+      		1. 태그 이름은 그대로 셀렉터로 사용할 수 있다.
+      			- 같은 이름의 모든 태그에 css3 스타일 시트 적용
+      		*/
+      		h2, li{color:brown;}
+      		.warning{color:red;}
+      		body.main{background:aliceblue;}
+      		#list{background:mistyrose;}
+      		div#etc{background:pink;}
+		</style>
+		<script>
+			window.onload=function(){
+			var h2Obj = document.querySelector("h2");
+			h2Obj.innerText = "web Programming";
+			}            
+		</script>
+	</head>
+    <body class="main">
+    	<h2 align="center"></h2>
+    	<hr>
+    	<div>
+    		<div>2학년<strong>학습내용</strong></div>
+    		<ul id="list">
+    			<li>HTML5</li>
+    			<li><strong>CSS</strong></li>
+    			<li>javascript</li>
+    		</ul>
+    		<div class="warning">60점 이하는 F!</div>
+    		<div id="etc">frount end 과목입니다</div>
+    	</div>
+	</body>
+</html>

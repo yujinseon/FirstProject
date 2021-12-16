@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>텍스트 꾸미기 css설정</title>
+		<style>
+      		h2{text-align:right;}/* 오른쪽 정렬처리*/
+      		span{text-decoration:line-through;}/*중간줄 /사선 처리*/
+      		strong{text-decoration:overline;}/*윗줄*/
+      		.p1{text-indent:3em; text-align:justify;}/*3 글자 들여쓰기*/
+			.p2{text-indent:1em; text-align:center;}/*1글자 들여쓰기*/
+		</style>
+		<script>
+			window.onload=function(){
+			var h2Obj = document.querySelector("h2");
+			h2Obj.innerText = "텍스트 꾸미기 css설정";
+			}            
+		</script>
+	</head>
+    <body>
+    	<h2 align="center"></h2>
+    	<hr>
+    	<p class="p1">
+    	html의 태그만으로 기존의 워드 프로세스와 같이 들여쓰기, 정렬, 공백
+    	간격 등의 세밀한 <span>텍스트 제어</span>를 할 수 없다. 
+    	</p>
+    	<p class="p2"><strong>스타일 시트</strong>는 이를 가능하게 한다. 들여쓰기, 정렬에 대해서 알아본다</p>
+    	<p>
+    	<a href="http://www.naver.com">밑줄이 없는 네이버 태그</a>
+    	</p>
+	</body>
+</html>

@@ -1,0 +1,114 @@
+1.1 서브쿼리란 무엇인가 기본 형식을 기술하세요
+하나의 sql 명령문의 결과를 다른 sql 명령문에 전달하기 위해 두 개 이상의
+sql명령문을 하나의 sql명령문으로 연결하여 처리하는 방법
+
+SELECT *
+FROM EMP e 
+WHERE sal = (
+	SELECT max(sal)
+	FROM emp
+);
+1.2 inline view란 무엇인가 ? 기본 예제를 통해 기술하세요
+inline view라고 사용자 정의 query를 가상의 테이블(뷰)로 만들어 연관관계 있는 테이블과 조인해서 데이터를 처리하는 것을 말한다.
+SELECT *
+from(
+	SELECT DEPTNO, max(sal) msal
+	FROM EMP e 
+	GROUP BY DEPTNO 
+) a,
+emp e 
+WHERE a.deptno = e.DEPTNO 
+AND a.msal = e.sal;
+
+1.3 아래와 같은 문제를 해결하기 위하여 서브쿼리를 이용해서 처리해보자
+	최저 급여자의 사원정보조회
+	1) 최저 급여 처리
+	2) 최저 급여에 해당하는 사원정보 처리
+SELECT *
+from(
+	SELECT DEPTNO, min(sal) msal
+	FROM EMP e 
+	GROUP BY DEPTNO 
+) a,
+emp e 
+WHERE a.deptno = e.DEPTNO 
+AND a.msal = e.sal
+ORDER BY a.DEPTNO ;
+
+1.4 연봉이 2000~4000인 사원의 부서번호, 사원명, 사원번호,
+	이름의 서브쿼리 테이블(inline view)과 부서테이블과 join하여 출력하세요
+SELECT *
+FROM(
+	SELECT deptno, ename,empno,sal
+	FROM EMP e 
+	WHERE sal BETWEEN 2000 AND 4000
+) a, dept b
+WHERE a.deptno = b.deptno;
+
+
+1.5 부서별 최저연봉의 사원 정보와 부서정보를 join하여 출력하세요
+SELECT *
+FROM (
+	SELECT deptno,min(sal) sal
+	FROM EMP
+	GROUP BY DEPTNO
+) a, dept d, emp e
+WHERE a.deptno = d.deptno 
+AND d.deptno= e.deptno
+AND a.deptno= e.deptno
+AND a.sal = e.sal;
+
+1.6 복사테이블을 만드는 형식 2가지를 기술하세요
+--데이터+구조 전부 복사
+CREATE  table 테이블명
+as 
+select*from 테이블명
+--구조만 복사
+CREATE TABLE emp102
+AS
+SELECT *FROM EMP e 
+WHERE 1=0;
+
+1.7 emp99(데이터+구조), emp98(구조)만 복사 테이블을 만드세요
+CREATE TABLE emp99
+AS
+SELECT * FROM emp;
+
+CREATE TABLE emp98
+AS
+SELECT *FROM EMP e 
+WHERE 1=0;
+
+1.8 데이터 입력 기본형식을 기술하고, emp99에 전체 데이터를 입력하고,
+	일부 컬럼을 입력하여 처리하세요
+insert into 테이블명(컬럼1, 컬럼2..) values(데이터1, 데이터2);
+insert into 테이블명 values (데이블 구조 순서에 따른 데이터1, 데이터2);
+
+INSERT INTO emp99(empno,ename,sal) VALUES(7911,'유진선',3500);
+
+1.9 테이블의 수정/삭제 기본형식을 기술하세요
+update 테이블명
+ 		set 컬럼1 = 변경할데이터,
+ 		set 컬럼2 = 변경할데이터,
+ 		set 컬럼3 = 변경할데이터
+where 조건문
+
+delete 
+from 테이블 
+where 비교조건
+
+1.10 복사데이터가 있는 emp99을 기준으로 1/4분기에 입사한 사람의 보너스(comm)는 급여의 30%로 수정하세요
+UPDATE EMP99 
+	set
+	comm = sal*1.3
+WHERE to_char(hiredate,'Q') ='1';
+
+1.11 날짜데이터의 처리형식을 기술하고 emp99에 특정한 날짜로 등록/수정처리하세요
+to_date('문자열 데이터', '문자열데이터의 입력형식')
+
+INSERT INTO emp99(ename, HIREDATE) VALUES ('유진선',to_date('1997/01/15','YYYY/MM/DD'));
+
+UPDATE EMP99 
+	set
+	hiredate = to_date('1996/12/07','YYYY/MM/DD')
+WHERE ename='유진선';

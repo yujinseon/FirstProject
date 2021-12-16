@@ -81,3 +81,9 @@ SELECT rtrim('****sql****','*') FROM dual;
 
 SELECT ltrim(ename,'A'), RTRIM(job,'N')  
 FROM emp;
+
+select *
+from emp
+where ltrim(ename,' ') ='HIMAN';
+'	HIMAN','HIMAN' ==> 검색을 해서 처리 해준다
+where ename = ltrim('	HIMAN', ' ');

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="UTF-8">
+      <title></title>
+      <style>
+      
+      </style>
+      <script>
+      window.onload=function(){
+         var h2Obj = document.querySelector("h2");
+         h2Obj.innerText = "버튼 활용";
+      }            
+      </script>
+   </head>
+   <body>
+      <h2 align="center"></h2>
+      <!-- 
+      # 버튼 만둘기
+      1. 버튼은 아래와 같은 두가지 형식으로 처리할 수 있다
+      	1) <input type="button|reset|submit|image" value="버튼의 문자열>
+      	2) <button type ="button|reset|submit"> 버튼의문자열</button>
+      2. 속성
+      	name : 버튼 이름 지정
+      	value : 버튼의 레이블 표현
+      	src : type="image" 일경우 이미지가 있는 경로 설정
+       -->
+       <form>
+       		검색 : <input type="text" size="10" value="">
+       			  <input type="button" value="Q1">
+       			  <button type="button">Q2</button><br>
+       		submit 버튼 : <input type="submit" value="전송1">
+       			  <button type="button">전송2</button><br>
+       		reset 버튼 : <input type="reset" value="리셋1">
+       			  <button type="reset">리셋2</button><br>
+       		이미지 버튼 : <input type="image" src="media/button.png" alt="이미지 버튼">
+       			  <button type="button"><img src="media/button.png" alt="이미지 버튼2"></button><br>
+       </form>
+   </body>
+</html>

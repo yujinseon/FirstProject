@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="UTF-8">
+      <title></title>
+      <style>
+      
+      </style>
+      <script>
+      window.onload=function(){
+         var h2Obj = document.querySelector("h2");
+         h2Obj.innerText = "시간 정보 입력 폼 요소";
+      }            
+      </script>
+   </head>
+   <body>
+      <h2 align="center"></h2>
+      <p> 초기 세팅 : 2022년 1월 1일 9시 20분으로 설정하기</p>
+      <form>
+      	<pre>
+      		month:<input type="month" name="YYYYMM" value="2022-01"><br>
+      		week:<input type="month" value="2022-w1"><br>
+      		date:<input type="date" value="2022-01-01"><br>
+      		time:<input type="time" value="09:30"><br>
+      		local:<input type="datetime-local" value="2022-01-01T09:30:00:00"><br>
+      	</pre>
+      <!-- 
+      2022-01-01T09:30:00:00
+      ISO 형식으오 날짜T기간을 나타낸다
+       -->	
+      </form>
+      <!-- 
+      ex) 생일축하합니다
+      당신의 생일은 2000년 05월 20일입니다. 틀리면 수정하시고
+      파티시간과 장소를 입력하세요
+      생일 : [  ] ==> 생일 년도 월일 선택
+      생일 파티시간 : [ ] ==> 시간 선택
+      장소 : [   ] ==> 장소 text로 입력
+      [생일 파티 등록] ==> 등록시, a24_birthday.jsp로 출력
+       -->
+       <!-- 
+       name = "YYYYMMDD"
+       name="hhmi"
+       name="partyloc"
+        -->
+       <form action="a24_birthday.jsp" method="post">
+       		생일 : <input type="date" name="YYYYMMDD" value="2000-05-20"><br>
+       		생일 파티시간 : <input type="time" name="hhmi" value="00:00"><br>
+       		장소 : <input type="text" name="partyloc" value=""><br>
+       		<input type="submit" value="생일 파티 등록"> 
+       
+       </form>
+   </body>
+</html>

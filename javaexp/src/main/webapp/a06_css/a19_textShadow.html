@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>텍스트 쉐도우</title>
+		<style>
+      		div{font:normal 24px verdano;}
+      		.dropText{text-shadow:3px 3px;}
+      		.redText{text-shadow:3px 3px red;}
+      		.blurText{text-shadow:3px 3px 5px skyBlue;}
+      		.glowEffect{text-shadow:0px 0px 5px red;}
+      		.wordArtEffect{color:white; text-shadow:0px 0px 5px darkBlue;}
+      		.threeDEffect{color:white; text-shadow:2px 2px 4px black;}
+      		.multiEffect{color:yellow; 
+      			text-shadow:2px 2px 2px black, 0px 0px 25px blue,0px 0px 5px darkblue;}
+      		.menu1{color:blue;text-shadow:0px 0px 5px skyblue;}
+		</style>
+		<script>
+			window.onload=function(){
+			var h2Obj = document.querySelector("h2");
+			h2Obj.innerText = "텍스트 쉐도우";
+			}            
+		</script>
+	</head>
+    <body>
+    	<h2 align="center"></h2>
+    	<div class="dropText">DropText</div>
+    	<div class="redText">redText</div>
+    	<div class="blurText">blurText</div>
+    	<div class="glowEffect">glowEffect</div>
+    	<div class="wordArtEffect">wordArt Effect</div>
+    	<div class="threeDEffect">threeD Effect</div>
+    	<div class="multiEffect">multi Effect</div>
+    	<div class="menu1">삼겹살</div>
+    	<div class="menu2">족발</div>
+    	<div class="menu3">치킨</div>
+	</body>
+</html>

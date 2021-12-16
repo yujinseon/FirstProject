@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+      
+		</style>
+		<script>
+			window.onload=function(){
+			var h2Obj = document.querySelector("h2");
+			h2Obj.innerText = "부모 스타일 상속";
+			}            
+		</script>
+	</head>
+    <body>
+    	<h2 align="center"></h2>
+    	<!-- 
+    	# 태그의 css는 계층 관계로 상위에 선언된 냉요르 상속에 의해서 
+    	하위 태그에서도 적용이된다
+    	# 하위 태그에서는 추가적인 css를 선언할 수 있다
+    	-->
+    	<p style="color:green;">자식 태그는 부모의 스타일을
+    		<em style="font-size:25px;">상속</em>받는다.
+    	</p>
+	</body>
+</html>

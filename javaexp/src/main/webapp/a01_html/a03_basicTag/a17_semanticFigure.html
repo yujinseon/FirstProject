@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="UTF-8">
+      <title></title>
+      <style>
+      
+      </style>
+      <script>
+      window.onload=function(){
+         var h2Obj = document.querySelector("h2");
+         h2Obj.innerText = "figure 태그 활용";
+      }            
+      </script>
+   </head>
+   <body>
+      <h2 align="center"></h2>
+   	  <figure><!-- 본문에 사진, 소스 코드 등을 그림과 설명으로 나타날 때 활용 -->
+   	  	<figcaption>alert()함수 활용</figcaption>
+   	  	<pre><!-- br &nbsp 없이 화면에 코딩한 그대로 출력하게 해주는 태그 --></pre>
+   	  		<code><!-- 코드내용을 그대로 화면에 보이고자 할때, 처리하는 내용.. 실행 되지않음 -->
+   	  			function fun01(){
+   	  				alert("경고합니다");
+   	  			}
+   	  		</code>
+   	  		<pre>
+   	  			<img src="media/alert.png" alt="실행결과"/>
+   	
+   	  		</pre>
+   	  
+   	  </figure>
+   </body>
+</html>

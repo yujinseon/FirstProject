@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<style>
+		
+		</style>
+		<title> </title>
+		<script>
+		window.onload=function(){
+			
+		};
+		</script>
+	</head>
+	<body>
+	<!-- 
+	# hyper link의 속성 target
+	1. a href="" target="속성값" 로 속성을 지정할 수 있다
+	2. 속성값 유형
+		_blank : 링크된 문서를 새로운 윈도나 탭에서 오픈함
+		_self : 링크된 문서를 링크가 위치한 현재 프레임에서 오픈함. 기본값으로 생략 가능
+		_parent : 링크된 문서를 현재 프레임의 부모 프레임에서 오픈함
+		_top : 링크된 문서를 현재 윈도우 전체에서 오픈함
+		프레임이름 : 링크된 문서를 명시도니 프레임에서 오픈함
+		
+	 -->
+		
+		<a href="/javaexp/a01_html/a04_form/a01_formBasic.html" target="frame01">[메뉴1]</a>
+		<a href="/javaexp/a01_html/a03_basicTag/a02_paragraph.html" target="frame01">[메뉴2]</a>
+		<a href="/javaexp/a01_html/a03_basicTag/a08_show.html" target="frame01">[메뉴3]</a>
+		<a href="/javaexp/a01_html/a03_basicTag/a01_fontTag.html" target="frame01">[메뉴4]</a><br>
+		<iframe name="frame01" width="400" height="400"></iframe>
+		
+		<a href="/javaexp/a02_jsp/a01_object.jsp" target="frame02">[메뉴1]</a>
+		<a href="/javaexp/a02_jsp/a02_varShow.jsp" target="frame02">[메뉴2]</a>
+		<a href="/javaexp/a02_jsp/a05_show.jsp" target="frame02">[메뉴3]</a>
+		<a href="/javaexp/a02_jsp/a01_object.jsp" target="frame02">[메뉴4]</a><br>
+		<iframe name="frame02" width="400" height="400"></iframe>
+	</body>
+</html>

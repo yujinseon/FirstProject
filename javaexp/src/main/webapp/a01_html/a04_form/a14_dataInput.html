@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="UTF-8">
+      <title></title>
+      <style>
+      
+      </style>
+      <script>
+      window.onload=function(){
+         var h2Obj = document.querySelector("h2");
+         h2Obj.innerText = "";
+      }            
+      </script>
+   </head>
+   <body>
+      <h2 align="center"></h2>
+      <form>
+      		<!-- value 값을 설정해주면 초기에 데이터를 입력된 상테에서 화면이 로딩된다 -->
+      		이름 : <input type="text" name="name" size="5" value=""/><br>
+      		암호 : <input type="password" name="pass" value="" maxlength="4"/><br>
+      		자소서: <br>
+      		<!-- textarea도 서버에 데이터를 넘기기 위해서는 name="속성"이 필요 
+      			placeholder : 초기값 표시 , 클릭시 사라짐
+      		-->
+      		<textarea name="intro" cols="20" rows="5" >이곳에 자기소개서 작성</textarea>
+      </form><br>
+      
+     <!-- 
+     # datalist
+     1. 목록 리스트를 작성하는 태그
+     	option 태그로 항목 하나표현
+     2. input type="text"에 입력가능한 데이터 목록 리스트
+     
+      -->
+      나라: <input type="text" list="countries">
+      <datalist id="countries">
+      	<option value="가나">
+      	<option value="스위스">
+      	<option value="브라질">
+      </datalist><br>
+      <!-- 사는 지역 : 전국 도단위로 선택 -->
+      사는곳 : <input type="text" list="do">
+      <datalist id="do">
+      	<option value="경기도">
+      	<option value="강원도">
+      	<option value="충청북도">
+      	<option value="충청남도">
+      </datalist>	
+   </body>
+</html>

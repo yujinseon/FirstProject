@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="UTF-8">
+      <title></title>
+      <style>
+      
+      </style>
+      <script>
+      window.onload=function(){
+         var h2Obj = document.querySelector("h2");
+         h2Obj.innerText = "caption 예제";
+      }            
+      </script>
+   </head>
+   <body>
+      <h2 align="center"></h2>
+      <!-- 
+      # caption 개념
+      1. 특정한 폼하위 요소객체와 이 요소객체에 대한 레이블 지정할 떄, 활용되는 개념이다
+      2. 두가지 형식을 가지고 있다
+      	1) <label> 캡션 : <input 요소객체></label>
+      	2) <label for="요소객체 아이디">캡션</label>
+      			<input id="요소객체 아이디"
+       -->
+      <form>
+            <label>사용자 id : <input type="text" name="id" size="15"></label><br>
+     		<label for="pass">비밀번호:</label>
+     		<input type="password" id="pass" size="15">
+     		<input type="submit" value="제출">
+      </form>
+      <form>
+            <label>선수명 : <input type="text" name="name" size="15"></label><br>
+     		<label for="grade">지난해 성적:</label>
+     		<input type="text" id="grade" size="15">
+     		<input type="submit" value="제출">
+      </form>
+
+
+
+   </body>
+</html>

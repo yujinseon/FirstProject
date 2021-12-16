@@ -191,7 +191,7 @@ FROM EMP e;
 3.NULLIF(데이터1, 데이터2)
 두개의 매개변수로 받는 데이터를 비교하여 동일하면 null로 반환하고, 동일하지 않으면
 첫번째 데이터1을 반환처리하는 함수를 말한다.
-- /
+*/
 SELECT nullif('a','a') show1,
 nullif('a','b') show2,
 nvl(nullif('a','a'),'동일') show3,
@@ -218,7 +218,7 @@ decode(데이터,case1, case1에해당할떄처리,
 case2, case2에해당할떄처리,
 case3, case3에해당할떄처리,
 위내용에 해당하지않을 때 처리할데이터)
-- /
+*/
 SELECT ename, deptno,
 decode(deptno,10,'인사과',
 20,'총무',
@@ -226,6 +226,10 @@ decode(deptno,10,'인사과',
 '부서정하지않음') 부서명
 FROM emp;
 -- ex) 사원번호를 기준으로 짝수이면 홍팀, 홀수이면 청팀으로 처리하여 출력
+-- # 중첩함수 : 함수에서 그결과를 가지고 다시 포함하는 함수의 매개변수로 전달해서 데이터를 처리
+-- 1. 함수적용1 : 짝수 0, 홀수 1 - 이러한 0, 1의 결과값을 가지고 
+-- 2. 함수적용2 : decode라는 함수를 통해서 0일때는 홍팀이 처리되게 하고,
+-- 
 SELECT ename,empno, decode(MOD(empno,2),1,'청팀',
 0,'홍팀')
 FROM emp;
@@ -266,7 +270,7 @@ FROM emp;
     when 데이터2 then 처리할데이터
     else 그외데이터
     end
-- */
+*/
 -- 부서번호에 따라 처리하는 데이터를 다르게 할떄
 SELECT ENAME , DEPTNO,
 CASE WHEN DEPTNO =10 THEN sal*0.2
@@ -297,21 +301,21 @@ END "등급"
 FROM emp;
 
 SELECT ENAME ,DEPTNO, sal,
-CASE DEPTNO  --특정한 컬럼 지정
-WHEN 10 THEN sal*0.2 -- 해당 deptno가 값을 나타낼때(부서별로 보너스지정)
-WHEN 20 THEN sal*0.5
-WHEN 30 THEN sal*0.7
-ELSE sal*1.2
-END 보너스
+	CASE DEPTNO  --특정한 컬럼 지정
+		WHEN 10 THEN sal*0.2 -- 해당 deptno가 값을 나타낼때(부서별로 보너스지정)
+		WHEN 20 THEN sal*0.5
+		WHEN 30 THEN sal*0.7
+		ELSE sal*1.2
+	END 보너스
 FROM emp;
 
 --ex)입사 분기별로 sal 기준으로 보너스를 지정할려고 할때,
 --	1/4 30%, 2/4 20% 3/4 10% 4/4 5% 처리 출력
 SELECT ENAME, HIREDATE, to_char(hiredate,'Q') "분기",sal,
 CASE to_char(hiredate,'Q')
-WHEN '1' THEN sal * 0.3
-WHEN '2' THEN sal * 0.2
-WHEN '3' THEN sal * 0.1
-else sal*0.05
-END 보너스
+	WHEN '1' THEN sal * 0.3
+	WHEN '2' THEN sal * 0.2
+	WHEN '3' THEN sal * 0.1
+	else sal*0.05
+END "보너스"
 FROM emp;

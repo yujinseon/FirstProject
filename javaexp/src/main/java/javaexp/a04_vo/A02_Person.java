@@ -1,5 +1,5 @@
 package javaexp.a04_vo;
-
+//javaexp.a04_vo.A02_Person
 public class A02_Person {
 	// 필드값을 private로 설정하여 외부의 직접적인 접근을 막는다
 	private String name;

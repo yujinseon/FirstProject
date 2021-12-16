@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="UTF-8">
+      <title></title>
+      <style>
+      
+      </style>
+      <script>
+      window.onload=function(){
+         var h2Obj = document.querySelector("h2");
+         h2Obj.innerText = "시작";
+      }            
+      </script>
+   </head>
+   <body>
+      <h2 align="center"></h2>
+      <!-- 
+      [1단계:개념] 1. form 요소의 속성에 대하여 기술하세요.
+      	1) name = form의 이름을 지정한다. 주로 js에서 속성을 호출할 때 사용된다. id="form아이디"
+		2) method : form의 하윙 데이터를 웹 서버에 전송하는 형식을 지정한다
+			default로 get 방식으로 url에 key=value 형식으로 전송을 한다
+			post방식은 url에 보이지 않고, 내부적으로 요청값을 key=value 형식으로 전달하는 방식을 말한다
+				보안적인 필요성과 대량의 요청값이 있을 때 활용된다
+		3) action : form 하위에 요청 데이터를 특정한 서버의 자우너에 지정해서 호출할 때 사용된다
+			서버에서 이런 요청값을 받는 프로그램을 통해서 전달할 수 있다. 일단적으로 응용프로그램인 java, jsp
+			php 으로 보낸다.
+			jsp 페이지를 form화면으로 구현한 경우에는 action값을 설정하지 않았을 때, 현재 페이지로 요청값을 
+			전달할 수 있다
+		4) enctype : 폼 데이터를 웹 서버로 전송할 떄 암호화 방식을 지정하거나 요소객체 중에 파일을 stream으로
+			서버에 전송할 때, 속성을 지정하여야 한다.
+		5) target : 웹 서버 응용프로그램으로부터 전송 받은 데이터를 출력할 윈도우나 프로엠을 지정할 때, 사용한다
+      [1단계:개념] 2. form 요소와 하위요소객체가 서버에 특정한 소스로 전송되는 프로세스를 속성값과 요소객체의 속성값과 함께 기술하세요
+        ?속성=속성값&속성2=속성값2
+        String 단일요청 = request.getParameter("요청키");
+        String 다중요청 = request.getParameterValues("요청키");
+      
+      [1단계:개념] 3. input type="text" 요소객체의 기본 속성을 기술하세요.
+       	type="text"
+        name="" 요소의 이름을 명시
+        size="" 눈에 보이는 길이 조정
+        value="" 요소의 초깃값(value)을 명시
+        id="" 요소를 식별
+        maxlength 글자 입력 최대길이
+        placeholer 최초로 보이는 글자 , 입력시 사라짐
+      
+      [1단계:개념] 4. input의 type의 종류를 기술하고, 그 특징을 기술하세요.
+      <input type="text"> 한줄 텍스트 입력창
+      <input type="password"> 암호 입력을 위한 한 줄 텍스트 입력창
+      <input type="button"> 단순 버튼
+      <input type="submit"> 웹 서버로 폼 데이터를 전송시키는 버튼
+      <input type="reset"> 입력된 폼 데이터를 초기화시키는 버튼
+      <input type="image"> 이미지 버튼
+      <input type="checkbox|radio"> 체크박스와 라디오 버튼
+      <select> 드롭다운 리스트를 가진 콤보박스 
+      <input type="month|week|date|time|datetime-local"> 년 , 월, 일, 시간 등의 시간 정보 입력 창 
+      <input type="number|range"> 스핀 버튼과 슬라이드바로 편리한 숫자 입력창 
+      <input type="color"> 색 입력을 쉽게 하는 컬러 다이얼 로그 
+      <input type="email|url|tel|search"> 이메일,url, 전화번호, 검색키워드 등 형식 검사 기능을 가진 텍스트 입력창 
+      <input type="file"> 로컬 컴퓨터의 파일을 선택하는 폼요소 
+      <input type="button|reset|submit"> 단순 버튼, reset, submit 버튼 
+      <textarea> 여러 줄의 텍스트 입력창 
+      
+    [1단계:개념] 5. textarea의 속성은 어떤 것이 있고, 일반 input 요소객체와 차이점을 기술하세요.
+	여러줄의 텍스트 영역으로, 영역 크기보다 많이 입력하면 스크롤바가 나타난다.
+        cols : 열의 크기
+        rows : 행의 크기
+	
+	[1단계:확인] 6. input와 textarea를 이용하여 온라인 일기를 등록해보세요.
+	 <form action="">
+        제목 : <input type="text" size="29"><br>
+        내용 : <textarea cols="30" rows="10">내용을 입력해주세요</textarea>
+    </form>
+	[1단계:개념] 7. input type="text" datalist와의 관계를 기술하세요.
+	사용자가 input요소에 데이터를 입력할 때 미리 정의된 옵션을 드롭다운 리스트로 보여줌으로써 자동완성 기능을 제공한다.
+	[1단계:확인] 8. input 물건명/가격/갯수에서 가격은 1000/2000/4000, 갯수 1~10 datalist를 활용하여 처리하여 다음 페이지에 출력하세요.
+	  <form action="a06_product.jsp" method="post">
+                물건명: <input type="text" name="pname" value="">
+                가격: <input type="text" list="price" name="price">
+                    <datalist id="price">
+                        <option value="1000">
+                        <option value="2000">
+                        <option value="4000">
+                    </datalist>
+                갯수: <input type="text" list="cnt" name="cnt">
+                    <datalist id="cnt">
+                        <option value="1">
+                        <option value="2">
+                        <option value="3">
+                        <option value="4">
+                        <option value="5">
+                        <option value="6">
+                        <option value="7">
+                        <option value="8">
+                        <option value="9">
+                        <option value="10">
+                    </datalist>    
+                    <input type="submit"/>
+            </form>
+        -------jsp-----
+        <h2>넘어온 물건정보</h2>
+        <h3>${param.pname }</h3>
+        <h3>${param.price }</h3>
+        <h3>${param.cnt }</h3>
+	
+	[1단계:개념] 9. button을 처리하는 form하위 요소객체의 종류들과 특징을 기술하세요.
+	button : 단순 버튼
+    image : 이미지 버튼
+    reset : 입력된 폼 데이터를 초기에 설정된 값으로 초기화시키는 버튼
+    submit : 웹 서버로 폼 데이터를 전송시키는 버튼
+	[1단계:개념] 10. type의 radio와 checkbox의 차이를 기술하고, 서버에서 호출되는 방식까지 기술하세요.
+	radio박스는 다중 선택이 지원되고 name속성 값이 같은 라이도버튼들이 하나의 그룹을 형성한다. check박스는 다중 선택이 지원된다.
+    "post" "get" 방식이 있다 post는 데이터를 전송할 때 길이 제한이 따로 없어 용량이 큰 데이터를 보낼 떄 사용하거나
+    get처럼 데이터가 외부적으로 드러나는건 아니라서 보안이 필요한 부분에 많이 사용된다.
+	[1단계:개념] 11. select의 속성을 기술하세요
+	option : 목록 생성
+    size : 리스트에 표시되는 갯수
+    multiple : 다수 항목 선택 가능
+    selected : 초기 선택 상태
+	[2단계:확인] 12. 온라인 사이트의 회원가입 항목들을 확인하여, 오늘 배운 form하위 요소객체를 이용하여 회원가입하고, 가입된 내용을 출력처리하세요.
+     <form action="a06_membership.jsp" method="post">
+            아이디: <input type="text" name="id" value=""><br>
+            비밀번호: <input type="password" name="pass" maxlength="16"><br>
+            비밀번호 확인: <input type="password" name="passcheck" maxlength="16"><br>
+            이름: <input type="text" name="name" value=""><br>
+            휴대전화: <input type="text" list="pnum" size="2" name="pnum">
+            <datalist id="pnum">
+                <option value="010">
+                <option value="011">
+                <option value="017">
+                <option value="018">
+                <option value="019"></datalist>
+            -<input type="text" name="pnum01" size="2">-<input type="text" name="pnum02" size="2"><br>
+            이메일: <input type="text" name="email"><br>
+            <input type="submit" value="회원가입">
+        </form>
+        -------jsp-----
+        <body>
+            <h2>회원가입 정보</h2>
+            <h3>${param.id }</h3>
+            <h3>${param.pass }</h3>
+            <h3>${param.passcheck }</h3>
+            <h3>${param.name }</h3>
+            <h3>${param.pnum }</h3>
+            <h3>${param.pnum01 }</h3>
+            <h3>${param.pnum02 }</h3>
+            <h3>${param.email }</h3>
+        </body>   
+       
+       -->
+   </body>
+</html>

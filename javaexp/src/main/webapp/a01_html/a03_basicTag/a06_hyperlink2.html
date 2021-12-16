@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<style>
+		
+		</style>
+		<title> </title>
+		<script>
+		window.onload=function(){
+			
+		};
+		</script>
+	</head>
+	<body>
+		<!-- 
+		1. hyperlink
+			다른 페이지를 이동하게 해주는 태그
+		2. 기본 형식
+			<a href="이동할페이지> 표시되는 문자열</a>
+		3. 이동 경로설정
+			1) 기본적으로 현재 페이지와 동일한 폴드를 쓰는 페이지는
+				바로 이동이 가능하다
+			2) 상위 폴더에 있는 파일
+				../start.html :상위 폴더 경로로 이동
+			3) 하위 폴더에 있는 파일로 이동
+				./a01_sub/a01_sub.html
+				현재 폴더의 하위폴더 a01_sub에 있는 a01_sub.html
+		 -->
+		<h2 align="center">하이퍼링크(기본 경로-현재폴더)</h2>
+		<p align="center"><a href="a01_fontTag.html">첫번쨰 페이지</a></p>
+		<p align="center"><a href="../start.html">상위경로로 이동</a></p>
+		<p align="center"><a href="./a01_sub/a01_sub.html">하위경로로 이동</a></p>
+		
+		<p align="center"><a href="a05_poem.html">첫번쨰 페이지</a></p>
+		<p align="center"><a href="../a04_javascript.html">상위경로로 이동</a></p>
+		<p align="center"><a href="./a01_sub/a02_sub2.html">하위경로로 이동</a></p>
+	
+		<!-- 절대경로설정 
+		1) 서버(tomcat/웹서버)를 기동했을때
+			- 지정한 서버내 웹 실행의 default 경로가 절대경로로 설정이 되어 다른 페이지를 접근할 수 있따
+			- 웹서버의 절대경로
+			http://localhost:7080/javaexp
+			이 경로가 default 경로이다
+				파일의 위치 :  javaexp\src\main\webapp
+				서버로딩시 위치: http://localhost:7080/javaexp/
+				이 두경로는 웹서버가 기동될 때, 같은 위치로 설정되는 default 경로이다
+				
+			해당 내용으로 페이지가 호출되면 default경로 내에 default 설정 파일이 호출된다
+			web.xml에서 default파일
+			 <welcome-file-list>
+		        <welcome-file>index.html</welcome-file>
+		        <welcome-file>index.htm</welcome-file>
+		        <welcome-file>index.jsp</welcome-file>
+		    </welcome-file-list>
+			
+		2) 서버를 기동하지 않고 실핼할 때(vscode)
+			- 운영체제의 파일접근방식으로 접근이 된다. c:\\
+			
+		3)  
+		
+		-->
+		<h3>웹서버를 활용하여 절대 경로 호출</h3>
+		<p align="center"><a href="http://localhost:7080/javaexp/index.html">초기 index.html</a></p>
+		<p align="center"><a href="/javaexp/a01_html/a03_basicTag/a05_poem.html">같은 서버내에서 호출하기에 생략 가능</a></p>
+		
+		<p align="center"><a href="/javaexp/a01_html/a04_form/a05_formElements.html">form </a></p>
+	</body>
+</html>

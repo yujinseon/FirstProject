@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="UTF-8">
+      <title></title>
+      <style>
+      
+      </style>
+      <script>
+      window.onload=function(){
+         var h2Obj = document.querySelector("h2");
+         h2Obj.innerText = "form 요소객체들";
+      }
+      function chColor(obj){
+    	  //boby 태그의 모든 하위의 글자색상을 지정
+    	  document.body.style.color=obj.value;
+    	  
+      }
+      </script>
+   </head>
+   <body>
+   <!-- 
+   1. 색상은 16진수로 R(두자리)G(두자리)B(두자리)로 조합하여
+   	코드로 처리할 수 있다
+   2. form 하위 요소객체 중에 type="color"인 경우, value 값으로 색상의
+   	코드값을 지정할 수 있을 뿐만 아니라, html5 지원되는 브라우저인 경우에는
+   	색상 선택 ui를 확인할 수 있다.
+    -->
+      <h2 align="center"></h2>
+      <h3>색상을 나타내는 요소객체</h3>
+      색상1:<input type="color" value="#00ff00" 
+      		onchange="document.body.style.color=this.value"><br>
+      색상2:<input type="color" value="#00ff00" 
+      		onchange="chColor(this)"><br>
+      
+      <!-- 
+      1. js의 이벤트 할당
+      	onchange : 데이터값을 변경했을 때, 이벤트처리.
+      2. document.body.style.color
+      	현재 화면에 body의 모든 글자 색상을 설정
+      3. this.value : 현재 이벤트가 일어나고 있는 대상 객체의 값
+       -->
+      
+   </body>
+</html>

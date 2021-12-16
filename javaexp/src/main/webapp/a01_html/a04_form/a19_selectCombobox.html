@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="UTF-8">
+      <title></title>
+      <style>
+      
+      </style>
+      <script>
+      window.onload=function(){
+         var h2Obj = document.querySelector("h2");
+         h2Obj.innerText = "select 콤보박스";
+      }            
+      </script>
+   </head>
+   <body>
+      <h2 align="center"></h2>
+      <form>
+      	<select name="lunch">
+      		<option>한식</option>
+      		<option>중식</option>
+      		<option>일식</option>
+      		<option selected>패스트부드</option>
+      		<!-- selected : 기본 선택 옵션.. -->
+      	</select>
+      	<input type="submit">
+      	
+      	<select name="lunch2" size="2">
+      		<option>한식</option>
+      		<option>중식</option>
+      		<option>일식</option>
+      		<option selected>패스트부드</option>
+      		
+      	</select>
+      	<input type="submit">
+      	
+      	<select name="lunch3" size="3" multiple>
+      		<option>한식</option>
+      		<option>중식</option>
+      		<option>일식</option>
+      		<option selected>패스트부드</option>
+      		<!-- 
+      		multiple : 하나의 항목에 ctrl 누른 상태에서 두가지 이상 선택이 가능하다 
+      		-->
+      	</select>
+      	<input type="submit">
+      </form>
+   </body>
+</html>

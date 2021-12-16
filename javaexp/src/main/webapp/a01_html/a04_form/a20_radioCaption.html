@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="UTF-8">
+      <title></title>
+      <style>
+      
+      </style>
+      <script>
+      window.onload=function(){
+         var h2Obj = document.querySelector("h2");
+         h2Obj.innerText = "radio 캡션";
+      }            
+      </script>
+   </head>
+   <body>
+      <h2 align="center"></h2>
+      <!-- 이미자와 해당 radio가 연결되어 데이터를 처리하고 있다 -->
+      <form>
+            <label>
+            <input type="radio" name="china" value="짜장">
+            짜장<img src="media/jajang.png">
+            </label><br>
+     		<label>
+            <input type="radio" name="china" value="짬뽕">
+            짬뽕<img src="media/jjambbong.png">
+            </label><br>
+            <label>
+            <input type="radio" name="china" value="탕수육">
+            탕수육<img src="media/tangsuyuk.png">
+            </label><br>
+            <!-- 
+            # 추후에 js를 통해서 이미지 클릭시, 연결된 데이털 가져와서
+            여러가지 동적인 처리를 할 때, 필요한 부분이다.
+             -->
+      </form>
+   </body>
+</html>

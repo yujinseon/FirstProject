@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="UTF-8">
+      <title></title>
+      <style>
+      
+      </style>
+      <script>
+      window.onload=function(){
+         var h2Obj = document.querySelector("h2");
+         h2Obj.innerText = "폼";
+      }            
+      </script>
+   </head>
+   <body>
+      <h2 align="center"></h2>
+      <hr>
+      <form name="fo" method="get" action="a11_rev.jsp">
+      		사용자 id : <input type="text" name="id" size="15" value=""/><br>
+      		비밀번호 : <input type="password" name="pass" size="15" value=""/><br>
+      		<input type="submit" value="완료"/>
+      </form>
+      <!-- 
+      # form 요소객체
+      1. form태그는 하위에 요소객체에서 입력한 데이터를 서버 특정한 자원에
+      		전달할 목적으로 사용된다.
+      		form 하위에 type="submit" 인 속성을 가진 버튼을 클릭되었을시에 포함하고 있는 모든 요소 객체들을
+      		name="키" value="값" 을 기준으로 
+      		페이지?키=값 형식으로 전송이된다
+      2. form 주요 속성
+      		1) name = form의 이름을 지정한다. 주로 js에서 속성을 호출할 때 사용된다. id="form아이디"
+      		2) method : form의 하윙 데이터를 웹 서버에 전송하는 형식을 지정한다
+      			default로 get 방식으로 url에 key=value 형식으로 전송을 한다
+      			post방식은 url에 보이지 않고, 내부적으로 요청값을 key=value 형식으로 전달하는 방식을 말한다
+      				보안적인 필요성과 대량의 요청값이 있을 때 활용된다
+      		3) action : form 하위에 요청 데이터를 특정한 서버의 자우너에 지정해서 호출할 때 사용된다
+      			서버에서 이런 요청값을 받는 프로그램을 통해서 전달할 수 있다. 일단적으로 응용프로그램인 javva, jsp
+      			php 으로 보낸다.
+      			jsp 페이지를 form화면으로 구현한 경우에는 action값을 설정하지 않았을 때, 현재 페이지로 요청값을 
+      			전달할 수 있다
+      		4) enctype : 폼 데이터를 웹 서버로 전송할 떄 암호화 방식을 지정하거나 요소객체 중에 파일을 stream으로
+      			서버에 전송할 때, 속성을 지정하여야 한다.
+      		5) target : 웹 서버 응용프로그램으로부터 전송 받은 데이터를 출력할 윈도우나 프로엠을 지정할 때, 사용한다
+       -->
+      
+   </body>
+</html>

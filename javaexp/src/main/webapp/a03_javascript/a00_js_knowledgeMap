@@ -17,7 +17,7 @@
 				document.querySelector("태그");
 			}
 			<태그 on이벤트 = "call()">
-		4. wondow.load = function(){
+		4. window.onload = function(){
 			// 윈도우가 로딩된 상황에서 함수를 호출하기 때문에
 			// 상단에서 DOM 객체를 인식할 수 있다.
 			}

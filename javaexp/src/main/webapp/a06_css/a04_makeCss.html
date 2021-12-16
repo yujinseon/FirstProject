@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+	      /*
+	      # css 선언형태
+	      1. <style> 태그 안에 스타일 시트 작성
+	      2. 태그에 속성으로 style="속성: 속성값" 형태로 선언
+	      3. 외부에 선언된 별도 파일로 작성
+	      	linkt @ import
+	      */
+	      body{background-color:mistyrose;
+	      		color:blueviolet;
+	      		margin-left:30px;
+	      		margin-right:30px;
+	      }
+			</style>
+			<script>
+			window.onload=function(){
+			var h2Obj = document.querySelector("h2");
+			h2Obj.innerText = "css 선언";
+			}            
+		</script>
+		<link type="text/css" rel="stylesheet" href="mystyle1.css">
+		<style>
+			@import url(mystyle2.css);
+			@import url(mystyle3.css);
+		</style>
+	</head>
+	<body>
+    	<h2 align="center"></h2>
+    	<hr>
+    	<p>css 예시문</p>
+    	<p style="color:magenta;font-size:30px;">css 예시문2</p>
+    	<h3>외부파일로 css 불러오기1</h3>
+    	<h4>외부파일로 css 불러오기2</h4>
+	</body>
+</html>

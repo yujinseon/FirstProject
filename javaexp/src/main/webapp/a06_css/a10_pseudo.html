@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+        	/*
+        	# 가상클래스 선택자
+        	1. 선택자:가상클래스선택자명{속성:속성값;}
+        	*/
+        	h3:first-letter{/* 첫번째 글자를 red로 처리*/
+        	color:red;
+        	}
+        	
+        	li:hover{
+        		background:yellowgreen; 
+        		/* 커서를 위치 시켰을 떄 배경색을 yellowgreen 처리 */
+        	}
+        	
+        	li:active{
+        		color:blue; font-size:15pt;
+        		/* 해당 요소객체를 클릭시, 변경될 내용*/
+        	}
+        	input[type=text]:focus{
+        		background:yellow;
+        		/*해당 요소 객체에 커서를 포커스 시켰을 떄 / 주로 form 요소객체에 사용된다*/
+        	}
+        	ul > li:nth-child(even){background:pink;}
+        		/*같은 부모를 가진 요소객체의 짝수번째*/
+        	ul > li:nth-child(1){background:red;}
+        		/*같은 부모를 가진 요소객체의 첫번째 글자색상 빨강*/
+		</style>
+		<script>
+			window.onload=function(){
+			var h2Obj = document.querySelector("h3");
+			h2Obj.innerText = "가상 클래스 선택자 활용";
+			}            
+		</script>
+	</head>
+    <body>
+    	<h3 align="center"></h3>
+    	이름 : <input type="text" name="name"><br>
+    	<div>
+    		<div>2학년<strong>학습내용</strong>입니다.</div>
+    		<ul id="list">
+    			<li><span>HTML5</span></li>
+    			<li><strong>CSS</strong></li>
+    			<li>javascript</li>
+    			<li>javascript</li>
+    			<li>javascript</li>
+    			<li>javascript</li>
+    		</ul>
+    		<ul id="list2">
+    			<li><span>HTML5</span></li>
+    			<li><strong>CSS</strong></li>
+    			<li>javascript</li>
+    			<li>javascript</li>
+    			<li>javascript</li>
+    			<li>javascript</li>
+    		</ul>
+    		<div class="warning">60점 이하는 F!</div>
+    		<div>frount end 과목입니다</div>
+    	</div>
+	</body>
+</html>

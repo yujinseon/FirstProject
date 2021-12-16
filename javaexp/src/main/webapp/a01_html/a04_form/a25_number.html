@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="UTF-8">
+      <title></title>
+      <style>
+      
+      </style>
+      <script>
+      window.onload=function(){
+         var h2Obj = document.querySelector("h2");
+         h2Obj.innerText = "home 제어 시스템 - 온도";
+      }            
+      </script>
+   </head>
+   <body>
+      <h2 align="center"></h2>
+      <form>
+      		지속시간(0.0~10.0시간) :
+      		<input type="number" min="0.0" max="10.0" step="0.5"><br><br>
+      		온도설정 : 10&deg;
+      		<input type="range" min="10" max="30" list="temperatures">30&deg;
+      		<datalist id="temperatures">
+      			<option value="12" lable="Low">
+      			<option value="20" lable="Medium">
+      			<option value="28" lable="Hight">
+      		</datalist>
+      </form>
+      	
+      <form>
+      가격 :<input type="number" min="4500" max="7200" step="500" list="price"><br>
+      <datalist id="price">
+      			<option>4500
+      			<option>5000
+      			<option>6500
+      			<option>7200
+      	</datalist><br>
+      크기 : <input type="range" min="1" max="3" list="sizes"> 
+      <datalist id="sizes">
+      			<option value="1" lable="small">
+      			<option value="2" lable="medium">
+      			<option value="3" lable="large">
+      </datalist>
+      </form>
+      
+   </body>
+</html>

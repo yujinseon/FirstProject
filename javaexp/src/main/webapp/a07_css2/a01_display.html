@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>display 예시</title>
+		<style>
+      		div{
+      			border:2px solid yellowgreen;
+      			color:blue;
+      			background: aliceblue;
+      		}
+      		span{
+      			border:3px dotted red;
+      			background: yellow;
+      		}
+		</style>
+		<script>
+			window.onload=function(){
+			var h2Obj = document.querySelector("h2");
+			h2Obj.innerText = "display 예시";
+			}            
+		</script>
+	</head>
+    <body>
+    	<h2 align="center"></h2>
+    	<hr>
+    	<!-- 
+    	display:none; : 해당 요소객체를 보이지 않고, 공간도 잡지 않게 처리
+    	 -->
+    	나는 <div style="display:none;">div(none)</div>입니다<br>
+    	나는 <div style="display:inline;">div(inline)</div>입니다<br>
+    	나는 <div style="display:inline-block; height:50px;">div(inline-block)</div>입니다<br>
+    	<!-- 
+    	line-block은 요소객체가 라인으로 출력하지만, width/height 속성을 설정할 수 있다
+    	 -->
+    	
+    	나는 <div>
+    		<span style="display:block;">span(block)</span>
+    		<span style="display:block;">span(block)</span>
+    		</div>입니다<br>
+    	
+	</body>
+</html>

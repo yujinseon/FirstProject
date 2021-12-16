@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="UTF-8">
+      <title></title>
+      <style>
+      
+      </style>
+      <script>
+      window.onload=function(){
+         var h2Obj = document.querySelector("h2");
+         h2Obj.innerText = "details와 summary";
+      }            
+      </script>
+   </head>
+   <body>
+      <h2 align="center"></h2>
+      Q &amp: A 리스트
+      <hr>
+      <details><!-- 상세정보를 담는 시멘틱 블록 태그 -->
+      	<summary>Question 1</summary><!-- 타이틀과 내용으로 처리 -->
+      	<p>웹 개발자가 알아야 하는 front단 언어 3가지?</p>
+      </details>
+      <details>
+      	<summary>Answer 1</summary>
+      	<p>HTML5, css3, javascript</p>
+      </details>
+      <hr>
+      <h3>여러가지 인라인 태그</h3>
+      <p>내일 <mark>HTML5 시험</mark><br> <!-- 중요한 테스트표시 -->
+      시간 <time>09:00</time><br><!-- 시간을 표시 -->
+      난이도<meter value="0.8" max="1.0">80%</meter><br><!-- 특정한 범위 표기 -->
+      자료 업로딩(20%)
+      <progress value="2" max="10"></progress><!-- 진행정도 표기 -->
+      </p>
+   </body>
+</html>

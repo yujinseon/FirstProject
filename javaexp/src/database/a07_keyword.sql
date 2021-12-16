@@ -26,3 +26,7 @@ SELECT ENAME , DEPTNO
 FROM EMP e
 WHERE ENAME LIKE 'S%';
 
+SELECT *
+FROM EMP e
+where ename like '%'||'WAR'||'%';
+

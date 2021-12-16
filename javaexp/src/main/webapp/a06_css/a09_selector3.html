@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>전체선택자와 속성 선택자</title>
+		<style>
+      		*{color:blue;}/* 전체 글자 색상을 노랑색으로 처리 */
+      		input[type=password]{background:pink;}
+      		/*타입이 password인 것의 배경색상을 pink로 처리*/
+		</style>
+		<script>
+			window.onload=function(){
+			var h2Obj = document.querySelector("h2");
+			h2Obj.innerText = "전체선택자와 속성 선택자";
+			}            
+		</script>
+	</head>
+    <body>
+    	<h2 align="center"></h2>
+    	<h3>회원 등록</h3>
+    	아이디: <input type="text" name="id"><br>
+    	패스워드: <input type="password" name="pass"><br>
+	</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>계층 관계 선택자</title>
+		<style>
+      		.warning{color:red;}
+      		div > strong{background:yellow;}
+      		/* div를 부모로 하는 strong 태그의 배경색상을 노랑색*/
+      		ui strong{color:dodgerblue;}
+      		/* ul을 조상으로 하는 strong 태그의 글자색상으로 dodgerblue */
+		</style>
+		<script>
+			window.onload=function(){
+			var h2Obj = document.querySelector("h2");
+			h2Obj.innerText = "웹 프로그래밍";
+			}            
+		</script>
+	</head>
+    <body>
+    	<h2 align="center"></h2>
+    	<div>
+    		<div>2학년<strong>학습내용</strong>입니다.</div>
+    		<ul id="list">
+    			<li><span>HTML5</span></li>
+    			<li><strong>CSS</strong></li>
+    			<li>javascript</li>
+    		</ul>
+    		<div class="warning">60점 이하는 F!</div>
+    		<div>frount end 과목입니다</div>
+    	</div>
+	</body>
+</html>
