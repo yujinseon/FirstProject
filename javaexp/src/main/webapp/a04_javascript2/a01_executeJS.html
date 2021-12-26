@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+      
+		</style>
+		<script>
+			window.onload=function(){
+			var h2Obj = document.querySelector("h2");
+			h2Obj.innerText = "자바스크립트의 실행방식";
+			}            
+		</script>
+	</head>
+    <body>
+    	<h2 align="center"></h2>
+    	<h3>1.html태그의 이벤트 리스터 속성에 작성</h3>
+    	<hr>
+    	<p>마우스 올려보세요.</p>
+		<img src="media/apple.png" alt="이미지"
+			onmouseover="this.src='media/banana.png'"
+			onmouseout="this.src='media/apple.png'">
+		<!-- 
+			onmouseover: 이벤트 리스너 속성으로 마우스 커서를 올렸을때
+			onmouseout : 마우스 커서를 다론 곳으로 욺겼을때
+			this.src="" : this: 현재이벤트가 일어나고 있는 객체 즉, 마우스가 올려진 이미지객체를 지정
+					.src="이미지" : 이미지객체의 이미지 파일을 지정하여 데이터를 할당처리
+					동적으로 src를 바꾸어 주는 역할을 한다.
+		
+		 -->
+		
+	</body>
+</html>

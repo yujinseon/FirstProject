@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+      	/*
+      	# ecma6 버젼에서 지원하는 표현식
+      	1. ``(어포스토로피) : 문자열을 표현할 수 있다
+      	2. ''문자열에서는 변수를 ${변수명} 으로 활용할 수 있다
+      	*/
+		</style>
+		<script>
+			window.onload=function(){
+				var h2Arr = document.querySelectorAll("h2");
+				let name = "홍길동";
+				let age = 25;
+				const num01 = 10;
+				const num02 = 20;
+				
+				h2Arr[0].innerText = `이름 : ${name}`;
+				h2Arr[1].innerText = `나이 : ${age}`;
+				h2Arr[2].innerText = `연산 : ${num01+num02}`;
+			}            
+		</script>
+	</head>
+    <body>
+    	<h2></h2>
+    	<h2></h2>
+    	<h2></h2>
+	</body>
+</html>

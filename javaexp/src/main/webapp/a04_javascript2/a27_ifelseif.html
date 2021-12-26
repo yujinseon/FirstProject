@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>if-else if</title>
+		<style>
+      
+		</style>
+		<script>
+			window.onload=function(){
+				var h2Arr = document.querySelectorAll("h2");
+				var score = prompt("점수를 입력하세요",0);
+				var grade;
+				if(score>=90){
+					grade ="A";
+				}else if(score>=80){
+					grade="B";
+				}else if(score>=70){
+					grade="C";
+				}else if(score>=60){
+					grade="D";
+				}else{
+					grade="F";
+				}
+				h2Arr[0].innerText = "점수는 "+score+", 등급은 "+grade;
+				
+				var price = 50000;
+				var age = prompt("나이를 입력하세요",0);
+				if(age<5 && age<=65){
+					price = 0;
+				}else if(age<=8){
+					price = price*0.5;
+				}else if(age<=18){
+					price = price*0.3;
+				}else{
+					price = 50000;
+				}
+				h2Arr[1].innerText = "나이는 "+age+", 가격은 "+price;
+			}            
+		</script>
+	</head>
+    <body>
+    	<h2></h2>
+    	<h2></h2>
+	</body>
+</html>

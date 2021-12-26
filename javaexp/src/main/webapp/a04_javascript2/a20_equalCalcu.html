@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+      	/*
+      	# 두개의 변수의 데이터를 비교연산식에 의해 비교하여 결과값으로
+      	boolean 값을 가져오는 것을 비교연산자라고 한다
+      	*/
+		</style>
+		<script>
+			window.onload=function(){
+				var h2Arr = document.querySelectorAll("h2");
+				var age = prompt("나이를 입력하세요","1");
+
+				h2Arr[0].innerText = "성년나이(==)?"+(age==18);
+				h2Arr[1].innerText = "성년나이가 아닌지(!=)?"+(age!=18);
+				h2Arr[2].innerText = "성년인지(>=)?"+(age>=18);
+				h2Arr[3].innerText = "미성년인지(<)?"+(age<18);
+				h2Arr[4].innerText = "성년나이 초과(>)?"+(age>18);
+				h2Arr[5].innerText = "입력한 나이"+(age);
+				
+			}            
+		</script>
+	</head>
+    <body>
+    	<h2></h2>
+    	<h2></h2>
+    	<h2></h2>
+    	<h2></h2>
+    	<h2></h2>
+    	<h2></h2>
+	</body>
+</html>

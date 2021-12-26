@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>변수선언</title>
+		<style>
+      
+		</style>
+		<script>
+			window.onload=function(){
+				var h2Obj = document.querySelector("h2");
+				h2Obj.innerText = "변수선언과 활용";
+				
+				var name;
+				var age,loc;
+				var date = "2021/12/21";
+				console.log(name);
+				console.log(date);
+				//console.log(no);
+				
+				var score; //js에서는 데이터유형을 선언하지 않는다
+				//int num01; js에서는 java와 같이 데이터 유형을 선언하는 순간 에러 방생
+				var var01=25;
+				console.log(typeof(var01)+":"+var01);
+				var01 = "문자열";
+				console.log(typeof(var01)+":"+var01);
+				var01 = function(){};
+				console.log(typeof(var01)+":"+var01);
+				// 이와 같이 js에서는 데이터를 할당하는 순간 해당 변수의 데이터 유형이 결정된다
+				
+			}            
+		</script>
+	</head>
+    <body>
+    	<h2></h2>
+	</body>
+</html>

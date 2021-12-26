@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>a link 호출</title>
+		<style>
+      
+		</style>
+		<script>
+			window.onload=function(){
+				var h2Obj = document.querySelector("h2");
+				h2Obj.innerText = "url link를 통한 js 호출";
+			}  
+			function call(str){
+				alert(str);
+			}
+		</script>
+	</head>
+    <body>
+    	<h2 align="center"></h2>
+    	<!--href="javascript:함수명()" 형식으로 a link를 통해 js를 호출할 수 있다 -->
+    	<a href="javascript:alert('js내장 함수 호출')">a link로 js호출!!</a><br>
+    	<a href="javascript:call('안녕')">js 선언함수 호출</a>
+		
+	</body>
+</html>

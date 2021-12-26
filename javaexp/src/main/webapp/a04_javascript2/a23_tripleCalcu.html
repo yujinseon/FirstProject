@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+      	/*
+      	(조건)?결과1:결과2
+      	조건이 true일 떄는 결과 1을 처리 조건이 false일때는 결과2를 
+      	바로 처리하여 출력할 때 사용된다
+      	*/
+		</style>
+		<script>
+			window.onload=function(){
+				var h2Arr = document.querySelectorAll("h2");
+				var age=25;
+				
+				h2Arr[0].innerText = "나이:"+age;
+				h2Arr[1].innerText = "구분:"+(age>=18)?"성년":"미성년";
+				
+				var age2=prompt("나이를 입력해주세요","");
+				h2Arr[2].innerText = "나이:"+age2;
+				h2Arr[3].innerText = "구분:"+((age2<5||age2>=65)?"무료":"유료");
+			}            
+		</script>
+	</head>
+    <body>
+    	<h2></h2>
+    	<h2></h2>
+    	<h2></h2>
+    	<h2></h2>
+	</body>
+</html>

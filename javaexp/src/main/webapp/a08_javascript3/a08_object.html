@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>객체</title>
+		<style>
+      	
+		</style>
+		<script>
+			window.onload=function(){
+				var h2Arr = document.querySelectorAll("h2");
+				//#내장코어 객체
+				//1. new 키워드를 이용하여 객체 생성
+				var toDay = new Date();//날짜와 시간 정보를 출력하는 객체..
+				
+				h2Arr[0].innerText = "날짜 객체: "+toDay;
+				h2Arr[1].innerText = "LocaleString: "+toDay.toLocaleString();
+				/*
+					get/set 호출과 저장
+					FullYear, Month, Date, getDay(setDay x), Hours, Minutes, Seconds
+
+				*/
+				//오늘로 부터 10일후
+				toDay.setDate(toDay.getDate()+10);
+				h2Arr[2].innerText = "오늘로부터 10일 후: "+toDay.toLocaleString();
+			}            
+		</script>
+	</head>
+    <body>
+    	<h2></h2>
+    	<h2></h2>
+    	<h2></h2>
+    	<h2></h2>
+    	<h2></h2>
+	</body>
+</html>

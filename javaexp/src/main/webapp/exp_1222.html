@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+      
+		</style>
+		<script>
+			window.onload=function(){
+				var ulObj = document.querySelector("ul");
+				ulObj.innerText = "주문하신 음식 리스트"
+				do{
+					var orderMenu = prompt("주문하실 음식은?","");
+					ulObj.innerHTML += "<li>"+orderMenu+"</li>";
+					
+				}while(confirm("계속하시겠습니까?"));
+			}
+			
+		</script>
+	</head>
+    <body>
+    	<ul>
+    		
+    	</ul>
+    	<!--
+    	[1단계:확인] 1. if else문을 활용하여 입력받은 성별과 나이에 따라 구분하여 입장을 처리하게 출력하세요. 
+                	  성별: 남/여 ==> 나이 18세이상 신사/숙녀, 18세미만 소년/소녀
+        		var gender = prompt("성별 입력 남/여","남")
+                var age = prompt("나이 입력",15)
+                
+                if (gender=="남"&&age>=18){
+                    h2Obj.innerText = "신사";
+                }else if(gender=="여"&&age>=18){
+                    h2Obj.innerText = "숙녀";
+                }else if(gender=="남"&&age<18){
+                    h2Obj.innerText = "소년";
+                }else if(gender=="여"&&age<18){
+                    h2Obj.innerText = "소녀";
+                }
+		[1단계:확인] 2. switch case break를 활용하여 부서번호에 따른 부서명을 출력하세요. 10~40(인사/재무/회계/기획)
+		 <script>
+         window.onload = function(){
+            var h2Arr = document.querySelectorAll("h2");
+            var deptno = prompt("부서번호를 입력하세요",10)
+            switch(deptno){
+               case "10" :h2Arr[0].innerText="부서번호는"+deptno+",인사과입니다";break;
+               case "20" : h2Arr[0].innerText="부서번호는"+deptno+",재무과입니다";break;
+               case "30" : h2Arr[0].innerText="부서번호는"+deptno+", 회계과입니다";break;
+               case "40" : h2Arr[0].innerText="부서번호는"+deptno+", 기획과입니다";break;
+               default : h2Arr[0].innerText = "부서번호 입력범위는 1~40입니다";
+            }
+            
+         }
+      </script>
+		<body>
+      		<h2></h2>
+      
+   		</body>
+		
+		[1단계:확인] 3. for문과 배열을 활용하여, 무지개 색상을 배경으로 h3로 글자와 함께 출력하세요
+		<script>
+            var h3Arr = document.querySelectorAll("h3");
+            var color = ["red","orange","yellow","green","blue","navy","purple"]
+            for(var i=0; i<7; i++) {
+                h3Arr[i].innerText = color[i];
+                h3Arr[i].style.background = color[i];
+            }
+        </script>
+        <body>
+        	<h3></h3>
+	        <h3></h3>
+	        <h3></h3>
+	        <h3></h3>
+	        <h3></h3>
+	        <h3></h3>
+	        <h3></h3>
+        </body>
+		[1단계:확인] 4. 물건명과 가격을 입력받아 for문을 활용하여 1개~10개까지의 가격을 출력하세요 @@@ @@개 @@@원
+		 <script>
+            window.onload = function(){
+                var h2Arr = document.querySelectorAll("h2");
+                var pname = prompt("물건명을 입력하세요", "");
+                var price = prompt("가격을 입력하세요", 3000);
+                for(var i=1;i<=10;i++){
+                    h2Arr[i].innerText = pname+"을(를) "+i+"개 구매시: "+(price*i)
+                }
+                
+            }
+        </script>
+         <body>
+	        <h2></h2>
+	        <h2></h2>
+	        <h2></h2>
+	        <h2></h2>
+	        <h2></h2>
+	        <h2></h2>
+	        <h2></h2>
+	        <h2></h2>
+	        <h2></h2>
+	        <h2></h2>
+    	</body>
+		[1단계:확인] 5. while문과 prompt를 활용하여 주문한 음식리스트를 ul/li를 통해서 출력하세요
+		<script>	
+			var ulObj = document.querySelector("ul");
+				ulObj.innerText = "주문하신 음식 리스트"
+				do{
+					var orderMenu = prompt("주문하실 음식은?","");
+					ulObj.innerHTML += "<li>"+orderMenu+"</li>";
+					
+				}while(confirm("계속하시겠습니까?"));
+		</script>
+		<body>
+	    	<ul>
+	    		
+	    	</ul>
+	    </body>
+		[1단계:개념] 6. 함수의 구성요소별로 기본 예제를 통해서 기술하세요.
+			function 함수이름(arg1, arg2,,){
+			    .. 프로그램 코드
+			    결과를 리턴하는 return 문
+			}
+			var exx6 = ex6(3000,2000)
+			function ex6(num01, num02){
+                var sum = num01+num02;
+                return sum
+			} 
+		[1단계:확인] 7. 밑면과 높이를 입력받아 삼각형의 면적을 구하는 함수를 정의하고 호출하여 그 결과값을 출력하세요.
+    	 <script>
+            function calu(bottom, high) {
+                var triangle = bottom*high/2;
+                return triangle;
+            }
+            var h2Obj = document.querySelector("h2");
+            var bottom;
+            var high;
+            var triangle = calu(bottom=prompt("밑면을 입력하세요",""), high=prompt("높이를 입력하세요", ""));
+            h2Obj.innerText = "밑면 : " + bottom + ", 높이 : " + high + ", 총 면적 : " + triangle;
+        </script>
+    	 
+    	 <body>
+    	 <h2></h2>
+    	 </body>
+    	 
+    	 -->
+	</body>
+</html>

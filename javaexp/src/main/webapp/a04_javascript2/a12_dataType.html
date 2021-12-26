@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>js 데이터 유형</title>
+		<style>
+      
+		</style>
+		<script>
+			window.onload=function(){
+				var h2Obj = document.querySelector("h2");
+				h2Obj.innerText = "js 데이터 유형";
+				
+				var num01=25;
+				document.write("<h3>"+num01+" : "+typeof(num01)+"</h3>");
+				var isTrue = num01>=20;
+				document.write("<h3>"+isTrue+" : "+typeof(isTrue)+"</h3>");
+				var name = "홍길동";
+				document.write("<h3>"+name+" : "+typeof(name)+"</h3>");
+				var obj01 = {name:"김길동",age:25};
+				document.write("<h3>"+obj01.age+" : "+typeof(obj01)+"</h3>");
+				var fun01 = function(){return 30;};
+				document.write("<h3>"+fun01()+" : "+typeof(fun01)+"</h3>");
+				var arry = [30,40,50];
+				document.write("<h3>"+arry+" : "+typeof(arry)+"</h3>");
+				
+			}            
+		</script>
+	</head>
+    <body>
+    	<h2></h2>
+    	
+	</body>
+</html>

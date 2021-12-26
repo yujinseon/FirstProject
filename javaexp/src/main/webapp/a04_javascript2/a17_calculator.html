@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+      
+		</style>
+		<script>
+			window.onload=function(){
+				var h2Arr = document.querySelectorAll("h2");
+				
+				var num01 = 25;
+				var num02 = 7;
+				//js는 기본적으로 + 이외에는 형변환을 처리한다
+				h2Arr[0].innerText = num01+" + "+num02+" = "+(num01+num02);
+				h2Arr[1].innerText = num01+" - "+num02+" = "+(num01-num02);
+				h2Arr[2].innerText = num01+" x "+num02+" = "+(num01*num02);
+				//js에서 나머지 값은 일단 소숫점이하를 표현한다
+				h2Arr[3].innerText = num01+" / "+num02+" = "+(num01/num02);
+				h2Arr[4].innerText = num01+" % "+num02+" = "+(num01%num02);
+			}            
+		</script>
+	</head>
+    <body>
+    	<h2></h2>
+    	<h2></h2>
+    	<h2></h2>
+    	<h2></h2>
+    	<h2></h2>
+	</body>
+</html>

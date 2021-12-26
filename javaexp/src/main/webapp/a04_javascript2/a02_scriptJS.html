@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+      	/*
+			#script
+			1. js는 head나 boby에 어디서든지 스크립트로 실행이 가능하다
+			2. 웹페이지 내에 여러번 삽입이 가능하다
+		*/
+		</style>
+		<script>
+			window.onload=function(){
+			var h2Obj = document.querySelector("h2");
+			h2Obj.innerText = "script 태그로 실행예제";
+			}         
+			function chText(obj){
+				obj.innerText="안녕하세요!(글자변경)";
+			}
+			function chColor(obj){
+				obj.style.color="navy";
+			}
+		</script>
+	</head>
+    <body>
+    	<h2 align="center"></h2>
+    	<h3 onclick="chText(this)">글자가 바뀌어라</h3>
+    	<h3 onclick="chColor(this)">색상이 바뀌어라</h3>
+    	<h4 onclick="chAll(this)">색상이 바뀌어라</h4>
+    	
+    	
+    	<script>
+	    	function chAll(obj){
+	    		obj.innerText="모든걸 바꿈";
+	    		obj.style.background="yellow";
+	    		obj.style.color="red";
+	    	}
+    	</script>
+    	
+	</body>
+</html>

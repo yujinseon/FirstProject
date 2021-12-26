@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+      
+		</style>
+		<script>
+			window.onload=function(){
+				var h2Arr = document.querySelectorAll("h2");
+				//1. 변수형 함수
+				// var 함수명 = function(){}; 형태로 선언후, 호출이 가능하다
+				var fun01 = function(num01,num02){
+				//	alert(num01+" + "+num02+" = "+(num01+num02));
+					return num01+" + "+num02+" = "+(num01+num02);
+				}
+				// 호출
+				h2Arr[0].innerText = fun01(30,25);
+				
+				// 2. 화살표 함수
+				//	  함수명 = (매개변수1,매개변수2) =>리턴값;
+				const multi = (num01,num02) =>num01*num02;
+				h2Arr[1].innerText = multi(20,30);
+				
+				//ex
+				var agech = (age) =>(age>=18)?"성인입니다":"미성년입니다";
+				h2Arr[2].innerText = agech(20);
+				
+				//ex2
+				var agech2 = (age) =>(age<5||age>=65)?"무료입니다":"유료입니다";
+				h2Arr[3].innerText = agech2(5);
+				
+				var inputAge = prompt("나이 입력",1);
+				var agech3 = (age) =>(age<5||age>=65)?"무료입니다":"유료입니다";
+				h2Arr[4].innerText = agech3(inputAge);
+			}            
+		</script>
+	</head>
+    <body>
+    	<h2></h2>
+    	<h2></h2>
+    	<h2></h2>
+    	<h2></h2>
+    	<h2></h2>
+	</body>
+</html>

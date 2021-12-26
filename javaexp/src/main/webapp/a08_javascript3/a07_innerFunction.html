@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>내장함수</title>
+		<style>
+      
+		</style>
+		<script>
+			window.onload=function(){
+				var h2Arr = document.querySelectorAll("h2");
+				//1. eval() : 문자열을 코드로 실행 처리.
+				var calStr="2*3+4"
+				h2Arr[0].innerText = calStr+" = "+eval(calStr);
+				//2. parseInt(""): 숫자형 문자열을 정수로 변환
+				// cf) parseFloat("") : 숫자형 문자영을 실수로 변환
+				var num1Str ="25";
+				var num2Str ="25.75";
+				var tot = parseInt(num1Str)+parseInt(num2Str);
+				h2Arr[1].innerText = num1Str+" + "+parseInt(num2Str)+" = "+tot;
+				var tot2 = parseFloat(num1Str) +parseFloat(num2Str);
+				h2Arr[2].innerText = num1Str+" + "+num2Str+" = "+tot2;
+				//3. isNaN() : is not a number? 숫자가 아닌지 여부를 확인하는 함수
+				//			형변환시, 숫자형문자열이 아닐때를 확인하고, 형변환할때 사용된다
+				var numStr = prompt("숫자를 입력하세요","0");
+				if (isNaN(numStr)=="true"){
+					alert("숫자가 아닙니다!\n 숫자형으로 입력하세요");
+				}else{
+					alert("5를 합산한 결과:"+(parseInt(numStr)+5));
+				}
+				//ex
+				var inputNum1 = prompt("숫자를 입력해주세요","0");
+				var inputNum2 = prompt("숫자를 입력해주세요","0");
+				var inputNum3 = prompt("숫자를 입력해주세요","0");
+				var tot = parseInt(inputNum1)+parseInt(inputNum2)*parseInt(inputNum3);
+				if (isNaN(inputNum1)&&isNaN(inputNum2)&&isNaN(inputNum3)){
+					alert("숫자가 아닙니다!\n 숫자형으로 입력하세요");
+				}else{
+					h2Arr[3].innerText = inputNum1+" + "+inputNum2+" x "+inputNum3+" = "+tot;
+				}
+			}  
+			
+		</script>
+	</head>
+    <body>
+    	<h2></h2>
+    	<h2></h2>
+    	<h2></h2>
+    	<h2></h2>
+	</body>
+</html>

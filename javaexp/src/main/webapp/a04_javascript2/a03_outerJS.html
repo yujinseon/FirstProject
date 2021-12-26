@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+      
+		</style>
+		<!-- 외부에서 선언된js를 불러올때는 따로 script를 선언하고 속성
+		src를 통해서 해당 파일을 불러와야한다 -->
+		<script>
+			window.onload=function(){
+			var h2Obj = document.querySelector("h2");
+			h2Obj.innerText = "외부파일호출";
+			}            
+		</script>
+		<script type="text/javascript" src="z01_outer.js">
+		
+		</script>
+	</head>
+    <body>
+    	<h2 onclick="call()"></h2>
+    	
+	</body>
+</html>

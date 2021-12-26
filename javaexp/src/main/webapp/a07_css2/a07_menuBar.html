@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>메뉴바 만들기</title>
+		<style>
+      		#menubar{background: olive;}
+      		#menubar ul{
+      			margin:0;padding: 0;width:567px;
+      		}
+      		#menubar ul li{
+      			display:inline-block; /*새 줄로 넘어가지 않게*/
+      			padding:0px 15px; /*상하 패딩 0, 좌우 패딩 15px*/
+      		}
+      		#menubar ul li a{
+      			color:white; text-decoration: none; /*기본 링크 언더바 보이지 않게 처리*/
+      		}
+      		#menubar ul li a:hover{
+      			color:violet;
+      		}
+		</style>
+		<script>
+			window.onload=function(){
+			var h2Obj = document.querySelector("h2");
+			h2Obj.innerText = "메뉴바 만들기";
+			}            
+		</script>
+	</head>
+    <body>
+    	<h2 align="center"></h2>
+    	<nav id="menubar">
+    		<ul>
+    			<li><a href="#">Home</a></li>
+    			<li><a href="#">Espresso</a></li>
+    			<li><a href="#">Cappuccino</a></li>
+    			<li><a href="#">Cafe Latte</a></li>
+    			<li><a href="#">F.A.Q</a></li>
+    		</ul>
+    	
+    	</nav>
+	</body>
+</html>

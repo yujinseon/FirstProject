@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+      
+		</style>
+		<script>
+			window.onload=function(){
+				var s01 = new student("홍길동",80,70,60);
+				s01.records();
+			} 
+			// 학생 이름/국어/영어/수학점수 필드와 h2로 출력
+			// 메서드 records를 선언하고
+			// 객체 생성시, 필드값을 할당하고, records()메서드를 통해 출력처리
+			function student(name,kor,eng,math){
+				this.name=name;
+				this.kor=kor;
+				this.eng=eng;
+				this.math=math;
+				this.records=function(){
+					var h2Arr = document.querySelectorAll("h2");
+					h2Arr[0].innerText = this.name;
+					h2Arr[1].innerText = this.kor;
+					h2Arr[2].innerText = this.eng;
+					h2Arr[3].innerText = this.math;
+					
+				}
+			}
+		</script>
+	</head>
+    <body>
+    	<h2></h2>
+    	<h2></h2>
+    	<h2></h2>
+    	<h2></h2>
+	</body>
+</html>

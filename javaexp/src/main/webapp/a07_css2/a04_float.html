@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+      		/*
+      		# float
+      		1. 오른쪽이나 왼쪽에 다른 요소객체와 함께 공간을 잡고 처리 될때, 사용된다.
+      		2. float:right -화면의 오른쪽에 설정되어 출력
+      		
+      		# float 속성 해체하기
+      		1. float의 속성으로 left/right을 하면 계속 다음 속성이 정렬이 되는데
+      			어느 순간 더이상 요소객체를 정렬을 필요가 없는 경우가 있다
+      		2. 이때 clear/both 속성값을 통해서 그 전으로 되돌리고자 할 때 사용된다
+      			clear:both; 오른쪽/왼쪽을 취소
+      			clear:left; 왼쪽을 취소   
+      			clear:right; 오른쪽을 취소  
+      		*/
+      		#float{
+      			float:right; border:1px dotted black;
+      			width:8em; padding: 0, 25em; margin:1em;
+      		}
+		</style>
+		<script>
+			window.onload=function(){
+			var h2Obj = document.querySelector("h2");
+			h2Obj.innerText = "float 학기말 공지";
+			}            
+		</script>
+	</head>
+    <body>
+    	<h2 align="center"></h2>
+    	<p id="float">
+    		24일은 피아니스트 조성진의 크리스마스 특별 연주가 있습니다.
+    	</p>
+    	<p>
+    		이제 곧 겨울방삭이 시작됩니다. 학기중 못다한 java , c+프로그래밍 열심히 하기바랍니다
+    		인턴을 준비하는 학생들은 프로젝트 개발에 더욱 힘쓰세요. 그럼 다음 학기에 만나요.
+    	</p>
+	</body>
+</html>

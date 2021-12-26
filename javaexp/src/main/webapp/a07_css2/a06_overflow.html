@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>overflow</title>
+		<style>
+      		/*
+      		# overflow 속성
+      		1. 요소객체로 설정한 넓이나 높이보다, 내용 문자열이나 요소객체들이 더 많을때
+      			이에대한 처리 옵션을 설정한다.
+      			div, p, 
+      		*/
+      		p{width:200px;height:150px;background: yellow;}
+			.hidden{overflow:hidden;} /*보이지 않게 처리*/
+			.visible{overflow:visible;}/*그냥 내용 보이게 처리*/
+			.scroll{overflow:scroll;}/*스크롤이 생성 처리*/
+			 span:active{visibility:hidden;}/*공간을 잡고 보이지 않게 처리*/
+		</style>
+		<script>
+			window.onload=function(){
+			var h2Obj = document.querySelector("h2");
+			h2Obj.innerText = "overflow";
+			}            
+		</script>
+	</head>
+    <body>
+    	<h2 align="center"></h2>
+    	<!--  
+    	<p>
+    		스프링 프레임워크(영어: Spring Framework)는 자바 플랫폼을 위한 오픈 소스 애플리케이션 프레임워크 1쿼터 초반, 하미두 디알로가 연속 득점을 올린 디트로이트가 기선을 제압했다. 기세를 탄 디트로이트는 사딕 베이까지 득점하며 두 자릿수 점수 차로 도망갔다. 뒤처지던 인디애나는 할러데이의 3점슛 2방으로 분위기를 바꿨다.
+    	</p>
+    	-->
+    	<p class="hidden">
+    		스프링 프레임워크(영어: <span>Spring Framework</span>)는 자바 플랫폼을 위한 오픈 소스 애플리케이션 프레임워크 1쿼터 초반, 하미두 디알로가 연속 득점을 올린 디트로이트가 기선을 제압했다. 기세를 탄 디트로이트는 사딕 베이까지 득점하며 두 자릿수 점수 차로 도망갔다. 뒤처지던 인디애나는 할러데이의 3점슛 2방으로 분위기를 바꿨다.
+    	</p>
+    	<p class="visible">
+    		스프링 프레임워크(영어: Spring Framework)는 자바 플랫폼을 위한 오픈 소스 애플리케이션 프레임워크 1쿼터 초반, 하미두 디알로가 연속 득점을 올린 디트로이트가 기선을 제압했다. 기세를 탄 디트로이트는 사딕 베이까지 득점하며 두 자릿수 점수 차로 도망갔다. 뒤처지던 인디애나는 할러데이의 3점슛 2방으로 분위기를 바꿨다.
+    	</p>
+    	<p class="scroll">
+    		스프링 프레임워크(영어: Spring Framework)는 자바 플랫폼을 위한 오픈 소스 애플리케이션 프레임워크 1쿼터 초반, 하미두 디알로가 연속 득점을 올린 디트로이트가 기선을 제압했다. 기세를 탄 디트로이트는 사딕 베이까지 득점하며 두 자릿수 점수 차로 도망갔다. 뒤처지던 인디애나는 할러데이의 3점슛 2방으로 분위기를 바꿨다.
+    	</p>
+	</body>
+</html>

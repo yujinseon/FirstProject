@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>z-index로 요소의 우선순위 설정</title>
+		<style>
+      	/*
+      	# z-index 속성
+      	1. 요소객체들 간에 position을 절대 위치(absolute)를 지정할 때,
+      		겹쳐서 화면에 나올 때가 있는데, 이 겹친 요소객체의 화면에 나오는 우선순위를
+      		지정할 때, 활용된다.
+      	2. z-index의 값이 높을 수록 화면에서 나타내는 우선 순위가 높아진다.
+      	*/
+      	div, img{position:absolute;}
+      	div{z-index:3;background: yellow; color:red;}
+      	img{height:140px; width:100px;}
+      	#spadeA{left:10px; top:20px;}
+      	#spade2{z-index:1; left:40px; top:30px;}
+      	#spade3{z-index:2;left:80px; top:40px;}
+      	#spade7{left:120px; top:50px;}
+		</style>
+		<script>
+			window.onload=function(){
+			var h2Obj = document.querySelector("h2");
+			h2Obj.innerText = "z-index로 요소의 우선순위 설정";
+			}
+			function change(obj) {
+				obj.style.zIndex = "-1";
+			}
+			
+		</script>
+	</head>
+    <body>
+    	<h2 align="center"></h2>
+    	<img id="spadeA" src="media/spade-A.png" alt="스페이드A" onclick="change(this)">
+    	<img id="spade2" src="media/spade-2.png" alt="스페이드2" onclick="change(this)">
+    	<img id="spade3" src="media/spade-3.png" alt="스페이드3" onclick="change(this)">
+    	<img id="spade7" src="media/spade-7.png" alt="스페이드7" onclick="change(this)">
+    	
+    	<div>안녀하세요</div>
+	</body>
+</html>

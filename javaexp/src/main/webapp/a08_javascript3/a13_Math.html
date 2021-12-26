@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Math 객체</title>
+		<style>
+      
+		</style>
+		<script>
+			window.onload=function(){
+				var h2Arr = document.querySelectorAll("h2");
+				/*
+				# Math 객체
+				1. 기능 메서드
+					.floor(): 정수형 내림
+					.ceil(): 정수형 올림 
+					.random(): 0~1사이 랜덤
+					.round(): 반올림
+				*/
+				//1~10까지 임의의 수 출력
+				//Math.random()*경우의수+시작수
+				var ran01 = Math.floor(Math.random()*10+1);
+				h2Arr[0].innerText = "1~10까지 임의의 수:"+ran01;
+				var games=["가위","바위","보"];
+				var ranIdx = Math.floor(Math.random()*3);
+				h2Arr[1].innerText = "가위바위보:"+games[ranIdx];
+				h2Arr[ranIdx].style.background="pink";
+			}            
+		</script>
+	</head>
+    <body>
+    	<h2></h2>
+    	<h2></h2>
+    	<h2>안녕하세요</h2>
+	</body>
+</html>

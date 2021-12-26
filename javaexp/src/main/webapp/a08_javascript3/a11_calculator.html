@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>계산기</title>
+		<style>
+      		td{height:50px;}
+		</style>
+		<script>
+			window.onload=function(){
+				var h2Arr = document.querySelectorAll("h2");
+				h2Arr[0].innerText = "계산기";
+			}
+			function calcu(obj){
+				var show = document.querySelector("#show");
+				if(show.innerText=="0"){
+					show.innerText="";
+				}
+				if(obj.innerText=="="){
+					show.innerText = eval(show.innerText);
+				}else if(obj.innerText=="C"){
+					show.innerText ="0";
+				}else{
+					show.innerText += obj.innerText;
+				}
+				
+			}
+		</script>
+	</head>
+    <body>
+    	<h2></h2>
+    	<table align="center" width="30%" cellpadding="10px" border >
+    		<col width="25%"><col width="25%"><col width="25%"><col width="25%">
+    		<tr><td id="show" colspan="4" style="text-align:right">0</td></tr>
+    		<tr><td onclick="calcu(this)">7</td>
+    			<td onclick="calcu(this)">8</td>
+    			<td onclick="calcu(this)">9</td>
+    			<td onclick="calcu(this)">+</td>
+    		</tr>
+    		<tr><td onclick="calcu(this)">4</td>
+    			<td onclick="calcu(this)">5</td>
+    			<td onclick="calcu(this)">6</td>
+    			<td onclick="calcu(this)">-</td>
+    		</tr>
+    		<tr><td onclick="calcu(this)">1</td>
+    			<td onclick="calcu(this)">2</td>
+    			<td onclick="calcu(this)">3</td>
+    			<td onclick="calcu(this)">*</td>
+    		</tr>
+    		<tr><td onclick="calcu(this)">=</td>
+    			<td onclick="calcu(this)">0</td>
+    			<td onclick="calcu(this)">C</td>
+    			<td onclick="calcu(this)">/</td>
+    		</tr>
+    	</table>
+	</body>
+</html>

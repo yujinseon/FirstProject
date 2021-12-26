@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>상수</title>
+		<style>
+      
+		</style>
+		<script>
+			window.onload=function(){
+				var h2Arr = document.querySelectorAll("h2");
+				h2Arr[0].innerText = "리터럴(상수)";
+				//js에서는 15라는 데이터는 숫자형 데이터를 가지고 있는 리터럴 상수이다
+				//즉, 값 자체를 가지고 있다. 그래서 var 변수에 할당하여 사용한다.
+				var oct =015;//8진수 15를 가지고 있는 상수값을 변수 oct에 할당
+				var hex= 0x15; //16진수 15를 가지고 있는 상수값을 변수 hex에 할당
+				var condition = true; //boolean 상수 true를 condition에 할당
+				h2Arr[1].innerText = "8진수 015는 십진수로:"+oct;
+				h2Arr[2].innerText = "16진수 015는 십진수로:"+hex;
+				h2Arr[3].innerText = "boolean:"+condition;
+				//문자열은 "", '' 둘다 사용할 수 있다
+				//1) 혼합 사용
+				h2Arr[4].innerText = "오늘은 좋은날'야호'!!~~";
+				h2Arr[5].innerText = '오늘은 좋은날"야호"!!~~';
+				h2Arr[6].innerText = "오늘은 좋은날\"야호\"!!~~";
+				h2Arr[7].innerText = '오늘은 좋은날\'야호\'!!~~';
+			
+			}            
+		</script>
+	</head>
+    <body>
+    	<h1 onclick="alert('클릭!')">클릭해보세요</h1>
+    	<h2></h2>
+    	<h2></h2>
+    	<h2></h2>
+    	<h2></h2>
+    	<h2></h2>
+    	<h2></h2>
+    	<h2></h2>
+    	<h2></h2>
+	</body>
+</html>

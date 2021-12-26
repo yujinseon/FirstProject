@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>생성자형 객체</title>
+		<style>
+      
+		</style>
+		<script>
+			window.onload=function(){
+				var h2Arr = document.querySelectorAll("h2");
+				
+				var p01 = new Person("홍길동",25,"서울");
+				h2Arr[0].innerText = "이름: "+p01.name;
+				h2Arr[1].innerText = "나이: "+p01.age;
+				h2Arr[2].innerText = "사는곳: "+p01.loc;
+				
+				var order1 = new ChRes("짜장면",5000,3);
+				order1.show();
+				
+				/*
+				h2Arr[3].innerText = "메뉴: "+order1.menu;
+				h2Arr[4].innerText = "가격: "+order1.price;
+				h2Arr[5].innerText = "갯수: "+order1.cnt;
+				*/
+				
+			}
+			// 프로토타입형 객체 생성
+			//1. 틀을 만들고 객체를 생성 처리
+			function Person(name,age,loc){
+				this.name = name;
+				this.age = age;
+				this.loc = loc;
+				//생성자의 매개변수로 온 데이터를 this.속성에 할당
+				//js에서는 속성(필드,메서드)은 반드시 this를 접두어로 사용하여야 한다
+				
+			}
+			function ChRes(menu,price,cnt){
+				this.menu = menu;
+				this.price = price;
+				this.cnt = cnt;
+				this.show = function(){
+					var h3Arry = document.querySelectorAll("h3");
+					h3Arr[0].innerText = this.menu;
+					h3Arr[1].innerText = this.price;
+					h3Arr[2].innerText = this.cnt;
+				}
+			}
+		</script>
+	</head>
+    <body>
+    	<h2></h2>
+    	<h2></h2>
+    	<h2></h2>
+    	<h3></h3>
+    	<h3></h3>
+    	<h3></h3>
+	</body>
+</html>

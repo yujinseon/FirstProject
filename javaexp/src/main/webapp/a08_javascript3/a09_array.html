@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>배열</title>
+		<style>
+      
+		</style>
+		<script>
+			window.onload=function(){
+				var h2Arr = document.querySelectorAll("h2");
+				//js의 배열의 선언과 호출
+				var arry=["월","화","수","목","금","토","일"]
+				//배열의 호출..
+				//1.배열명.length : 배열의 길이
+				//2.배열명[index] : 배열의 구성요소
+				
+				
+				h2Arr[0].innerText = "배열 default 출력:"+arry;
+				h2Arr[1].innerText = "배열의 길이:"+arry.length;
+				h2Arr[2].innerText = "배열의 첫번쨰 데이터:"+arry[0];
+			}            
+		</script>
+	</head>
+    <body>
+    	<h2></h2>
+    	<h2></h2>
+    	<h2></h2>
+    	<h2></h2>
+	</body>
+</html>

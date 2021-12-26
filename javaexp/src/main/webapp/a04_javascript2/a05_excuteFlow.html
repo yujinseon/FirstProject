@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>js 실행순서</title>
+		<style>
+      	/*
+      	# js의 실행 순서 규칙
+      	1. js의 모든 코드는 기본적으로 위에서 부터 아래라인으로 실행된다
+      	2. DOM객체는 일단, 해당 객체가 태그로 선언한 후에 인식 할 수 있다
+      		1)DOM객체는 일단, 해당 객체가 태그로 선언한 후에 인식할 수 있다
+      		2)DOM객체 호출 document.querySelector(); document.querySelectorAll();  
+      	3. window.onload=function(){}를 사용하면 이벤트가 화면에 다 로딩된 후,실행하는 것이기
+      		때문에 body에 있는 모든 태그를 DOM으로 인식 할 수 있다
+      		실생 순서도, 이 함수 block에 있는 내용이 맨 마지막에 실행된다
+      	4. 선언된 함수
+      		함수의 호출은 일단, 다 로딩된 상황에서 호출하는 것이기 때문에 위에 있는 순서와 상관없이
+      		호출하여 실행할 수 있다.
+      	*/
+		</style>
+		<script>
+			console.log("실행1");
+			
+			window.onload=function(){
+				var h2Obj = document.querySelector("h2");
+				h2Obj.innerText = "js 실행순서";
+			}  
+			console.log("실행2");
+			function callFun(){
+				alert("함수 호출");
+				var h1Obj = document.querySelector("h1");
+				h1Obj.style.background="yellow";
+			}
+		</script>
+	</head>
+    <body>
+    	<h1 onclick="callFun()">안녕</h1>
+    	<script type="text/javascript">
+    		alert("DOM객체 호출 직전!")
+    		var h1Obj = document.querySelector("h1");
+    		h1Obj.innerText="hello(변경)-DOM인식";
+    	</script>
+    	<h2 align="center"></h2>
+    	
+	</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>함수의 활용</title>
+		<style>
+      
+		</style>
+		<script>
+			window.onload=function(){
+				var h2Arr = document.querySelectorAll("h2");
+				h2Arr[0].innerText = "함수사용";
+			} 
+			function call01(){
+				alert("함수호출");
+			}
+			function call02(n){
+				alert("숫자 전송:"+(n*5));
+			}
+			function call03(name){
+				alert("문자 전송:"+name);
+			}
+			function call04(pname, price, cnt){
+				alert("문자와 숫자 전송:"+pname+", 총계: "+(price*cnt));
+			}
+			function call05(n1,n2){
+				alert("사과 갯수:"+n1+", 바나나 갯수: "+n2);
+			}
+			function call06(s1,n1){
+				alert("선수 이름:"+s1+", 성적: "+n1);
+			}
+			function cal(){
+				var num01 = document.querySelector("[name=num01]").value;
+				var num02 = document.querySelector("[name=num02]").value;
+				var sum = Number(num01)+Number(num02);
+				var show = document.querySelector("h4");
+				show.innerText = num01 +" + "+num02+" = "+sum;
+			}
+		</script>
+	</head>
+    <body>
+    	<h2></h2>
+    	<h3 onclick="call01()">함수호출1</h3>
+    	<h3 onclick="call02(5)">함수호출2</h3>
+    	<h3 onclick="call03('홍길동')">함수호출3</h3>
+    	<h3 onclick="call04('사과',3000,2)">함수호출4</h3>
+    	<h3 onclick="call05(5,6)">함수호출5</h3>
+    	<h3 onclick="call06('홍길동',0.354)">함수호출6</h3>
+    	<input type="text" name="num01" value="0" size="3">
+    	+<input type="text" name="num02" value="0" size="3"><br>
+    	<input type="button" value="합산" onclick="cal()">
+    	<h4></h4>
+	</body>
+</html>

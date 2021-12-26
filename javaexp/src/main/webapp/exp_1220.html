@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+      
+		</style>
+		<script>
+			window.onload=function(){
+				var h2Obj = document.querySelector("h2");
+				h2Obj.innerText = "시작";
+				
+				var id=prompt("아이디를 입력하세요","아이디");
+				var pass=prompt("패스워드를 입력하세요","패스워드");
+				var name=prompt("이름를 입력하세요","이름");
+				var point=prompt("포인트를 입력하세요","포인트");
+				if(id!=null && pass!=null && name!=null && point!=null ){
+					document.write("<table><tr><th>아이디</th><th>패스워드</th><th>이름</th><th>포인트</th></tr>");
+					document.write("<tr><td>"+id+"</td><td>"+pass+"</td><td>"+name+"</td><td>"+point+"</td></tr></table>")
+				}else{
+					alert("내용을 입력해주세요");
+				}
+			}            
+		</script>
+	</head>
+    <body>
+    	<h2></h2>
+    	<!-- 
+    	[1단계:개념] 1. js의 실행형식 3가지를 예제와 함께 기술하세요.
+    	1.기본 script 실행
+    	<script>
+			window.onload=function(){
+				var h2Obj = document.querySelector("h2");
+				h2Obj.innerText = "시작";
+			}            
+		</script>
+		
+		2. a 링크를 통해 실행
+		<a href="javascript:alert('js내장 함수 호출')">a link로 js호출!!</a>
+    	
+    	3. outer js 호출
+    	<script type="text/javascript" src="z01_outer.js">
+		</script>
+		function call(){
+			alert("외부파일 호출!!"); 
+		}
+		[1단계:개념] 2. js의 DOM의 관계에서 실행 순서의 원칙을 예제를 통해서 기술하세요.
+		1. 실행을 코드 순서로 처리된다.
+            2. DOM은 선언 후, 호출하여야 한다.
+            3. window.onload=fucntion(){} 내용은 맨마지막에 로딩 후, 실행된다.
+                    그래서 body에 있는 모든 DOM을 호출할 수 있다.
+            4. 함수는 로딩된 후 , 이벤트를 통해 처리 되기에 선언적 함수의 경우 순서가 앞에 선언되어도
+                    호출이 된다.
+        <script>
+            console.log("1번째");
+            window.onload = function () {
+                console.log("4번째");
+                var h2Obj = document.querySelector("h2");
+                h2Obj.innerText = "실행 순서";
+                console.log("5번째");
+            };
+            console.log("2번째");
+            function callFun() {
+                alert("함수 호출");
+                var h1Obj = document.querySelector("h1");
+                h1Obj.style.background = "red";
+            }
+        </script>
+        <body>
+            <h1>안녕</h1>
+            <script>
+                alert("DOM객체 호출 직전");
+                var h1Obj = document.querySelector("h1");
+                h1Obj.innerText = "변경";
+            </script>
+        <h2></h2>
+        <script>
+          console.log("3번째");
+        </script>
+        </body>
+		
+		[1단계:확인] 3. 외부파일 z02.outer.js를 만들고, 함수를 정의(현재객체 배경색 변경)한 후, 클릭시, 
+            외부파일의 함수를 호출하여 배경색상이 변경되게 처리하세요.
+        <script type="text/javascript" src="z01_outer.js"></script>
+	    <body>
+	        <h2 onclick="call(this)">안녕하세요</h2>
+	        
+	    </body>
+		
+		/**
+		z01_outer.js
+		 */
+		function call(obj){
+		    obj.style.background = "green"; 
+		}    
+		[1단계:확인] 4. 회원 정보(아이디, 패스워드, 이름, 포인트)를 입력받아 테이블형태로 출력하세요.
+		<script>
+			var id=prompt("아이디를 입력하세요","아이디");
+			var pass=prompt("패스워드를 입력하세요","패스워드");
+			var name=prompt("이름를 입력하세요","이름");
+			var point=prompt("포인트를 입력하세요","포인트");
+			if(id!=null && pass!=null && name!=null && point!=null ){
+				document.write("<table><tr><th>아이디</th><th>패스워드</th><th>이름</th><th>포인트</th></tr>");
+				document.write("<tr><td>"+id+"</td><td>"+pass+"</td><td>"+name+"</td><td>"+point+"</td></tr></table>")
+			}else{
+				alert("내용을 입력해주세요");
+			}
+		</script>
+		
+		[1단계:확인] 5. 성인인지 여부를 확인하여 성인인증완료 미성년자로 나누어 출력되게 하세요.
+		    <script>
+		        var age = prompt("나이를 입력하세요.", "0");
+		        if(age!=null) {
+		            if(age>=20) {
+		                document.write("<h3>성인인증 완료</h3>")
+		            } else {
+		                document.write("<h3>미성년자</h3>")
+		            }
+		        } else {
+		            alert('값을 입력하고 확인 버튼을 클릭하세요.')
+		        }
+		    </script>
+		[1단계:개념] 6. js에서 식별자란 무엇이며, 식별자 선언 규칙을 기술하세요. 
+		   자바스크립트 프로그램의 변수, 상수(리터럴), 함수의 이름을 정의하는 것을 식별자라 한다.
+		    식별자 만드는 규칙
+		        첫 번째 문자 : 알파벳(A-Z, a-z), 언더스코어(), $ 문자만 가능
+		        그 외 : 알파벳, 언더스코어(), 0-9, $ 사용 가능
+		        대소문자 구분
+		            ex) name과 Name은 다른 식별자로 인식
+		        자바스크립트 예약어 사용 불가
+		            ex) if, for, else 등...
+		
+		[1단계:개념] 7. js에서 데이터 유형 5가지를 예제와 함께 기술하세요.
+		 자바스크립트의 데이터 유형
+                - 숫자형
+                - boolean형
+                - 문자형
+                - 객체형
+                - 함수형
+                - 배열형
+		 <script>
+            var num01 = 25; // 숫자형
+            document.write("<h3>" + num01 + ":" + typeof num01 + "</h3>");
+            var isTrue = num01 >= 50; //boolean형
+            document.write("<h3>" + isTrue + ":" + typeof isTrue + "</h3>");
+            var name = "전준혁"; //문자형
+            document.write("<h3>" + name + ":" + typeof name + "</h3>");
+            var obj01 = { name: "김준혁", age: 25 }; //객체형
+            document.write("<h3>" + obj01 + ":" + typeof obj01 + "</h3>");
+            var fun01 = function () {
+             return 40;
+            }; //함수형
+            document.write("<h3>" + fun01 + ":" + typeof fun01 + "</h3>");
+            var arry = [30, 40, 50];//배열형
+            document.write("<h3>" + arry + ":" + typeof arry + "</h3>");
+        </script>
+    	 -->
+    	 <table><tr><th>아이디</th><th>패스워드</th><th>이름</th><th>포인트</th></tr>
+    	 		<tr><td></td><td></td><td></td><td></td></tr>
+    	 </table>
+	</body>
+</html>

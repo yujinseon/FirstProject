@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>문자열 처리</title>
+		<style>
+      
+		</style>
+		<script>
+			window.onload=function(){
+				var h2Arr = document.querySelectorAll("h2");
+				//문자열 처리 객체 두가지 형식
+				var greet1 = new String("안녕하세요");
+				var greet2 = "Hello";
+				//내장된 기능 메서드 활용
+				var greet3=greet1.concat("반갑습니다");
+				
+				h2Arr[0].innerText =  greet1;
+				h2Arr[1].innerText =  greet2;
+				h2Arr[2].innerText =  greet3;
+				h2Arr[3].innerText =  "메서드 처리후(greet1): "+greet1;
+				//문자열의 길이 : .length로 문자열의 길이를 나타낸다
+				//ps) 자바에서는 .length()를 통해 문자열 길이 가져온다
+				//문자열 : 문자의 배열이라는 개념하에 변수명[index번호]를 통해서 각각의 문자데이터를 가져올 수 있다
+				h2Arr[4].innerText=greet1+"의 문자열 길이: "+greet1.length;
+				h2Arr[5].innerText="첫번째 글자: "+greet1[0];
+				/*
+				# 기능메서드
+				.charAt(0) : 첫번째 위치 문자
+				.indexOf("s") : s문자가 나오는 첫번째 index 위치
+				.slice(), substr() : 문자열을 추출
+				.toUpperCase()/toLowerCase() : 대문자/소문자전화
+				.replace() : 문자열의 치환
+				.trim() : 양옆에 공백 문자 삭제 처리.
+				.split(): 문자열로 구분하여 배열로 만드는 처리
+				*/
+				var data="사과^바나나^딸기";
+				var list= data.split("^");
+				h2Arr[5].innerText="문자열을 ^구분하여 배열로 변경: "+list;
+			}            
+		</script>
+	</head>
+    <body>
+    	<h2></h2>
+    	<h2></h2>
+    	<h2></h2>
+    	<h2></h2>
+    	<h2></h2>
+    	<h2></h2>
+    	<h2></h2>
+	</body>
+</html>

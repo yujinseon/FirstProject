@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+      
+		</style>
+		<script>
+			window.onload=function(){
+				var h2Arr = document.querySelectorAll("h2");
+				//h2Arr[0].innerText = "시작";
+			}
+			//...numbers
+			//...변수명 : 가변적으로 매개변수를 받은 데이터를 배열변수명으로 할당한다.
+			function test(...numbers){//numbers라는 배열변수로 매개변수를 받는다
+				// var numbers = [1000];
+				// var numbers = [2000,3000];
+				// var numbers = [5000,6000,7000];
+				
+				console.log("#함수호출");
+				console.log(numbers);
+			}
+			//ex
+			function book(...books) {
+				var pObj = document.querySelector("p");
+				pObj.innerText = books;
+				
+			}
+		</script>
+	</head>
+    <body>
+    	<h2 onclick="test(1000)">매개변수1</h2>
+    	<h2 onclick="test(2000,3000)">매개변수2</h2>
+    	<h2 onclick="test(5000,6000,7000)">매개변수3</h2>
+    	<h3 onclick="book('js')">js</h3>
+    	<h3 onclick="book('프로그래밍','개요')">프로그래밍 개요</h3>
+    	<h3 onclick="book('스프링','오라클','java')">스프링 오라클 java</h3>
+    	<p></p>
+	</body>
+</html>

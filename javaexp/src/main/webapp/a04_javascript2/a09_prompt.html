@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+      
+		</style>
+		<script>
+			window.onload=function(){
+				var h2Obj = document.querySelector("h2");
+				h2Obj.innerText = "시작";
+				
+				var price=prompt("가격을 입력하세요","여기에");
+				var cnt=prompt("갯수를 입력하세요","여기에");
+				if(price!=null && cnt!=null){
+					document.write(price+"X"+cnt+"="+price*cnt);
+				}else{
+					alert("이름을 입력해주세요");
+				}
+				var name = prompt("연예인 이름을 입력하세요","여기에");
+				var age=prompt("나이를 입력하세요","여기에");
+				document.write("<h4> 이름 :"+name+"</h4>");
+				document.write("<h4> 나이 :"+age+"</h4>");
+			}
+			
+			
+		</script>
+	</head>
+    <body>
+    	<h2 align="center"></h2>
+	</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>while</title>
+		<style>
+      
+		</style>
+		<script>
+			window.onload=function(){
+				var pArr = document.querySelectorAll("p");
+				var cnt=1;
+				
+				while(cnt<=10){
+					//pArr[0].innerHTML : 랜더링 하는 html 코드를 추가 처리할 수 있다
+					//p태그에 html코드로 10번 반복하면서 아래의 출력내용을 추가 처리한다
+					// += : 문자열을 누적처리
+					pArr[0].innerHTML += "<h3>"+cnt+"번째 안녕하세요</h3>";
+					cnt++
+				}
+				
+				var c2 =10;
+			
+				while(c2<=20){
+					pArr[0].innerHTML += "<h3>"+c2+"개 "+(2000*c2)+"원 </h3>";
+					c2++;
+					
+				}
+				
+			}            
+		</script>
+	</head>
+    <body>
+    	<p></p>
+    	<p></p>
+	</body>
+</html>

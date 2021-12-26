@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+      	/*
+      	[2단계:확인] 6. button1 [+]  button2 [5] 가 표시(+,5)되고 버튼을 클릭시 마다 하단에 h3에 버튼의 레이블[+,5]출력이 되게 하고
+		               ex) 555 + 55  출력된 h3를 클릭시, 계산 결과가 출력(610)되게 하세요.
+      	*/
+		</style>
+		<script>
+			 function num() {
+	             var h3Arr = document.querySelectorAll("h3");
+	             h3Arr[0].innerText += "5";
+	         }
+	         function plus() {
+	             var h3Arr = document.querySelectorAll("h3");
+	             h3Arr[0].innerText += "+";
+	         }
+	         function result() {
+	             var h3Arr = document.querySelectorAll("h3");
+	             var tot = eval(h3Arr[0].innerText);
+	             h3Arr[0].innerText = tot;
+	         }
+		</script>
+	</head>
+    <body>
+    	<input type="button" value="5" id="button1" onclick="num()" />
+        <input type="button" value="+" id="button2" onclick="plus()" />
+        <h3 onclick="result()"></h3>
+	</body>
+</html>

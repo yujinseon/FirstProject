@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+      
+		</style>
+		<script>
+			window.onload=function(){
+				var divObj = document.querySelector("div");
+				divObj.innerHTML = "<h2>주문 받습니다!!</h2>";
+				do{
+					var orderMenu = prompt("주문하실 음식은?","");
+					divObj.innerHTML += "<h3>"+orderMenu+"</h3>";
+					
+				}while(confirm("계속하시겠습니까?")); //무한 반속 처리
+			}            
+		</script>
+	</head>
+    <body>
+    	<div></div>
+	</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+      
+		</style>
+		<script>
+			window.onload=function(){
+				var h2Arr = document.querySelectorAll("h2");
+				var switchBtn = prompt("붙을 결 버튼을 입력하세요[1~3]",1);
+				switch(switchBtn){
+					case "1":
+						h2Arr[0].innerText = "A번 구역이 불이 켜졌습니다";
+						break;
+					case "2":
+						h2Arr[0].innerText = "B번 구역이 불이 켜졌습니다";
+						break;
+					case "3":
+						h2Arr[0].innerText = "C번 구역이 불이 켜졌습니다";
+						break;
+					default:
+						h2Arr[0].innerText = "버튼을 1,2,3이 있습니다";
+				}
+				var dateBtn = prompt("월을 선택해주세요[1~12]",1);
+				switch(dateBtn){
+				case "1":
+					h2Arr[1].innerText = "마지막날 31일입니다";
+					break;
+				case "2":
+					h2Arr[1].innerText = "마지막날 28일입니다";
+					break;
+				case "3":
+					h2Arr[1].innerText = "마지막날 31일입니다";
+					break;
+				case "4":
+					h2Arr[1].innerText = "마지막날 30일입니다";
+					break;
+				case "5":
+					h2Arr[1].innerText = "마지막날 31일입니다";
+					break;
+				case "6":
+					h2Arr[1].innerText = "마지막날 30일입니다";
+					break;
+				case "7":
+					h2Arr[1].innerText = "마지막날 31일입니다";
+					break;
+				case "8":
+					h2Arr[0].innerText = "마지막날 31일입니다";
+					break;
+				case "9":
+					h2Arr[1].innerText = "마지막날 30일입니다";
+					break;
+				case "10":
+					h2Arr[1].innerText = "마지막날 31일입니다";
+					break;
+				case "11":
+					h2Arr[1].innerText = "마지막날 30일입니다";
+					break;
+				case "12":
+					h2Arr[1].innerText = "마지막날 31일입니다";
+					break;
+				default:
+					h2Arr[1].innerText = "1~12월 사이가 아닙니다";
+			}
+			}            
+		</script>
+	</head>
+    <body>
+    	<h2></h2>
+    	<h2></h2>
+	</body>
+</html>

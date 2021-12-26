@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>대입연산자</title>
+		<style>
+      
+		</style>
+		<script>
+			window.onload=function(){
+				var h2Arr = document.querySelectorAll("h2");
+				//데이터의 할당의 흐름을 일반적으로 왼쪽에서 오른쪽으로 =(대입연산자)를 활용해서
+				//처리가 된다
+				var num01 =20, num02=30;
+				num01 = num02 //num02의 데이터 30을 num01에 대입처리..
+				num01 +=num02; // num01애 num02의 값을 더함
+				var pname=prompt("물건명을 입력하세요","");
+				var cnt=prompt("구매수량를 입력하세요","1");
+				
+				h2Arr[0].innerText = "물건명 :"+pname;
+				h2Arr[1].innerText = "구매수량 :"+cnt;
+				h2Arr[2].innerText = "총비용:"+(cnt*3000);
+				
+				
+			}            
+		</script>
+	</head>
+    <body>
+    	<h2></h2>
+    	<h2></h2>
+    	<h2></h2>
+	</body>
+</html>

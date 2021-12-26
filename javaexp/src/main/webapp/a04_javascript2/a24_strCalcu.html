@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>문자열의 연산 처리</title>
+		<style>
+      
+		</style>
+		<script>
+			window.onload=function(){
+				var h2Arr = document.querySelectorAll("h2");
+				var name1="홍길동";
+				var name2="김길동";
+				h2Arr[0].innerText = "문자열+문자열- "+ (name1+name2);
+				h2Arr[1].innerText = "문자열+숫자- "+ (name1+25);
+				h2Arr[2].innerText = "숫자+숫자- "+ (25+25);
+				h2Arr[3].innerText = 25+25+name01;
+				h2Arr[4].innerText = name01+25+25;
+				//숫자는 가장 앞에 오면 연산이 되나
+				//문자열이 앞에 오면 문자열로 자동 형변환이 된다
+				// ()를 사용하면 이것을 막아준다
+			}            
+		</script>
+	</head>
+    <body>
+    	<h2></h2>
+    	<h2></h2>
+    	<h2></h2>
+    	<h2></h2>
+    	<h2></h2>
+	</body>
+</html>

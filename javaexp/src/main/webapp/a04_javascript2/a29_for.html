@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+      
+		</style>
+		<script>
+			window.onload=function(){
+				var h2Arr = document.querySelectorAll("h2");
+				var tdArr = document.querySelectorAll("td");
+				/*
+				h2Arr[0].innerText = "for문 예제";
+				for(var i=1;i<=5;i++){
+					h2Arr[i].innerText = i+"번째 안녕하세요!!";
+					h2Arr[i].style.fontSize=i*10+"px";
+				}
+				*/
+				var colors=["red","orange","pink"];
+				var chNum = prompt("구구단 단수를 입력해주세요(2~9)","2");
+				h2Arr[0].innerText = "입력단수: "+chNum;
+				tdArr[0].innerText = "입력단수: "+chNum;
+				for(var i=1;i<=9;i++){
+					h2Arr[i].innerText = chNum+" X "+i+" = "+(chNum*i);
+					tdArr[i].innerText = chNum+" X "+i+" = "+(chNum*i);
+					h2Arr[i].style.background=colors[i%3];
+				}
+			}            
+		</script>
+	</head>
+    <body>
+    	<table border>
+    		<tr><td></td></tr>
+    		<tr><td></td></tr>
+    		<tr><td></td></tr>
+    		<tr><td></td></tr>
+    		<tr><td></td></tr>
+    		<tr><td></td></tr>
+    		<tr><td></td></tr>
+    		<tr><td></td></tr>
+    		<tr><td></td></tr>
+    		<tr><td></td></tr>
+    	</table>
+    	<h2></h2>
+    	<h2></h2>
+    	<h2></h2>
+    	<h2></h2>
+    	<h2></h2>
+    	<h2></h2>
+    	<h2></h2>
+    	<h2></h2>
+    	<h2></h2>
+    	<h2></h2>
+	</body>
+</html>

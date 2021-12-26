@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>comfirm</title>
+		<style>
+      	/*
+      	if(confirm("확인하겠습니까?")){} 형태로 
+      	프로세스의 진행을 확인하고자 할떄 주로 활용
+      	중요한 데이터 한번 더 확인을 하고 프로세슷를 진행이 필요한 경우에 쓰인다
+      	*/
+		</style>
+		<script>
+			window.onload=function(){
+				var h2Obj = document.querySelector("h2");
+				h2Obj.innerText = "comfirm 처리";
+				
+				var isUpdate = confirm("수정하시겠습니까?")
+				console.log(isUpdate);
+				if(isUpdate){
+					alert("수정 완료하셨습니다");
+				}else{
+					alert("수정되지 않았습니다");
+				}
+			}            
+		</script>
+	</head>
+    <body>
+    	<h2 align="center"></h2>
+	</body>
+</html>

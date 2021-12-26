@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>지역변수/전역변수</title>
+		<style>
+      	/*
+      	# js에서 지역변수와 전역변수
+      	1. js에서는 {}(중괄호블럭)이 처리되는 모든 블럭에서는 지역변수와 전역변수개념을
+      		사용한다. ex) 함수, 조건문, 반복문, 이중조건/이중반복문, 객체 등
+      	2. {}의 계층관계에 의해서 상/하위 관계에 의해 지역변수/전역변수 개념이 상대적으로 나타낼 수 있다
+      	
+      	*/
+		</style>
+		<script>
+			window.onload=function(){
+				var h2Obj = document.querySelector("h2");
+				h2Obj.innerText = "지역변수/전역변수";
+				//함수의 경우 예
+				var num01; //전역변수
+				function fun01(){
+					var num02; //지역변수
+					num02 = 10; //지역변수에 데이터 할당
+					num01 = 20; //전역변수에 데이터 할당
+					num03 = 30; //전역변수에 데이터 할당
+					console.log("## 함수 내부 변수 ##");
+					console.log("num01:"+num01);
+					console.log("num02:"+num02);
+					console.log("num03:"+num03);
+					console.log("## 함수 내부 변수 ##");
+				}
+				fun01();
+				console.log("## 함수 외부 변수 ##");
+				console.log("num01:"+num01);
+				//console.log("num02:"+num02); 지역변수이기에 에러 발생..
+				console.log("num03:"+num03);
+				console.log("## 함수 외부 변수 ##");
+			}            
+		</script>
+	</head>
+    <body>
+    	<h2></h2>
+	</body>
+</html>
