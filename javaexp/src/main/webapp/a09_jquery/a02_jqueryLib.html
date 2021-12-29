@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>jquery lib</title>
+		<style>
+      
+		</style>
+		<script src="/javaexp/a00_com/jquery-3.6.0.js" type="text/javascript"></script>
+		<script>
+			$("document").ready(function(){
+				$("h2").text("jquery lib으로 시작");
+				//기본속성
+				//1. 기본구조.
+				//s	$("선택자").action메서드("속성","속성값")
+				//2. 선택자
+				//	1) css의 선택자 형태 - #id, .class, 태그명
+				//	2) 단위 데이터(가상선택자 활용) : eq(0), :first, :last
+				//3. action메서드
+				//	1) $("선택자").css("css속성","속성값")
+				$("h2").css("background","yellow");
+				$("h2").attr("align","center");
+				$("h2:eq(1)").css("color","blue");
+				
+				$("h3:eq(0)").css("background","blue");
+				$("h3:eq(0)").attr("align","center");
+				//$("선택자").메서드1().메서드2(); 기능메서드 chainning
+				// .eq(index번호) : 기능메서드 지원
+				$("h3:eq(1)").css("background","yellow").attr("align","right");;
+				$("h3").eq(2).css("background","pink");
+				$("h3").eq(2).attr("align","center");
+				$("h3").eq(0).text("사과");
+				$("h3").eq(1).text("자전거");
+				$("h3").eq(2).text("공원");
+			});  
+			
+				
+				
+		       
+		</script>
+	</head>
+    <body>
+    	<h2></h2>
+    	<h2></h2>
+    	<h3></h3>
+    	<h3></h3>
+    	<h3></h3>
+	</body>
+</html>

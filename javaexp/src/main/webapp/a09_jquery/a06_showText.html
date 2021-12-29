@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+      
+		</style>
+		<script src="/javaexp/a00_com/jquery-3.6.0.js" type="text/javascript"></script>
+		<script>
+			$("document").ready(function(){
+				$("h2").text("화면에 데이터 처리 기능 메서드");
+				/*
+				# 데이터 처리..
+				0. 기본원리
+					-읽기와 쓰기 구분되어 처리 ex) html("쓰기처리"), html() : 읽기처리
+					-html코드를 랜더링을 하느냐/하지않느냐 구분
+					-다중에 선택자에 대한 call back 함수의 지원
+					
+				1. 화면에 출력
+					-text(), text("저장") : 랜더링을 하지 않는 출력관련 객체에 대한 적용
+						ex) 저장시 html 코드는 그대로 코드 형태로 출력되고,
+							html 코드가 포함된 대상객체는 html코드를 제외하고 가져온다
+					-html(), html("html코드") : html태그를 랜더링 하는 코드에 대한 적용
+					-append():
+						js의 innerHTML +="추가할 코드"
+				2. form하위 요소객체의 value 값을 정리
+					-val(), val("value값 저장")
+				3. .clone()
+					-요소객체를 append를 통해서 다른 요소객체에 할당하면, 해당 위치에서 포함될 위치로
+					바뀌어 버린다. 이때 해당 위치에 있는 요소객체를 그래도 두고 복사해서 대상객체로
+					추가할때, clone()(복사) 처리 후에 하여야 한다
+				*/
+				$("h3").eq(0).click(function(){
+					alert($("div").eq(0).text());//div에 있는 내용을 읽기 처리
+					alert($("div").eq(0).html());//div에 있는 html코드 포함 읽기 기능
+				});
+				$("h4").eq(0).click(function(){
+					alert($("div").eq(1).text());
+					alert($("div").eq(1).html());
+					// .append() 데이터를 추가처리하된 html코드가 있으면 래더링해준다
+					$("div").eq(2).append( $("div").eq(1).text());
+					$("div").eq(2).append( $("div").eq(1).html());
+				});
+				
+			});              
+		</script>
+	</head>
+    <body>
+    	<h2></h2>
+    	<h3>div text()/html()로 가져오기</h3>
+    	<div>
+    		<h3>안녕하세요</h3>
+    		<p>반갑습니다. 좋은 하루 시작입니다</p>
+    	</div>
+    	<h4>구매물건</h4>
+    	<div>
+    		<h3>사과</h3>
+    	</div>
+    	<div></div>
+	</body>
+</html>

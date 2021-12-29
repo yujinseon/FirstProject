@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+      
+		</style>
+		<script src="/javaexp/a00_com/jquery-3.6.0.js" type="text/javascript"></script>
+		<script>
+			$("document").ready(function(){
+				$("h2").text("클릭하면 시작").click(function(){
+					
+					var idx = 0;
+					var int01 =setInterval(function(){
+						$("td").css("background","");
+						$("td").eq(idx).css("background","yellow");
+						if(flag){
+							idx++;
+						}else{
+							idx--;
+						}
+						
+						if(idx==5){
+							clearInterval(int01);
+						}
+					},1000);
+				});
+		</script>
+	</head>
+    <body>
+	     <!-- 
+	     1)DOM 대상 객체 선언
+	     2)이동하는 index 변수 선언
+	     3) setInterval을 통해서 반복적으로 처리하는 함수 선언
+	     4) setInterval 종료시점 선언
+	    2. 오른쪽 끝에서 다시 왼쪽 끝, 왼쪽 끝에서 다시 오른쪽 끝으로 이동하기
+	    	1) 오른쪽/왼쪽으로 이동하는 flag 선언
+	    	true : 오른쪽, false : 왼쪽
+	    		- index 0 일때 오른쪽 이동 idx++
+	    		- index 4 일때 왼쪽으로 이동 idx--
+	      -->
+	     <script>
+	     /*
+	            var Idx = 0;
+	            var Jdx = 4;
+	            function start(obj){
+	                var tds = document.querySelectorAll("td");
+	                var int1 = setInterval(function(){
+	                    for(var i=0; i<tds.length; i++) {
+	                        tds[i].style.background = "";
+	                    }
+	                        if(Idx<=4) {
+	                            tds[Idx++].style.background = "pink";    
+	                            if(Idx == 5) {
+	                                Jdx = 4;
+	                            }
+	                        }
+	                        if(Idx==5) {
+	                            tds[Jdx--].style.background = "pink";
+	                            if(Jdx==0) {
+	                                Idx = 0;
+	                            }
+	                        }
+	                    },500);
+	                            
+	                var set1 = setTimeout(function() {
+	                    clearInterval(int1);
+	                    obj.innerText = "종료!";
+	                    clearTimeout(set1);
+	                },30000);
+	            };
+	         */
+	     </script>
+        <h2>시작!</h2>
+        <table border width="250px" height="50px">
+            <tr><td></td><td></td><td></td><td></td><td></td></tr>
+        </table>
+    	<!-- 
+    	[1단계:확인] 1. 클래스형 생성자 객체형태로 2021년 연예대상자(이름, 방송사,분야, 상내역)을 필드로 지정하고, show()를 통해서
+            테이블로 출력하세요.
+        window.onload = function () {
+                var et01 = new Enter("전준혁", "SBS", "신인", "신인상");
+                et01.show();
+            };
+            class Enter {
+                constructor(name, brod, field, his) {
+                    this.name = name;
+                    this.bord = brod;
+                    this.field = field;
+                    this.his = his;
+                }
+                show() {
+                    var divObj = document.querySelector("div");
+                    var htmlCode = "<h3>연예대상</h3><table border>";
+                    htmlCode += "<tr><th>이름</th><td>" + this.name + "</td></tr>";
+                    htmlCode += "<tr><th>방송사</th><td>" + this.bord + "</td></tr>";
+                    htmlCode += "<tr><th>분야</th><td>" + this.field + "</td></tr>";
+                    htmlCode += "<tr><th>내역</th><td>" + this.his + "</td></tr></table>";
+                    divObj.innerHTML = htmlCode;
+                }
+            }
+		[2단계:확인] 2. 1X5 테이블을 만들고, 30초동안 배경색상이 왼쪽에서 오른쪽으로 이동, 오른쪽에서 왼쪽으로 이동되게 처리하세요.
+		<script>
+			$("document").ready(function(){
+				$("h2").text("클릭하면 시작");
+			});
+		</script>
+		</head>
+   		 <body>
+	     <script>
+	            var Idx = 0;
+	            var Jdx = 4;
+	            function start(obj){
+	                var tds = document.querySelectorAll("td");
+	                var int1 = setInterval(function(){
+	                    for(var i=0; i<tds.length; i++) {
+	                        tds[i].style.background = "";
+	                    }
+	                        if(Idx<=4) {
+	                            tds[Idx++].style.background = "pink";    
+	                            if(Idx == 5) {
+	                                Jdx = 4;
+	                            }
+	                        }
+	                        if(Idx==5) {
+	                            tds[Jdx--].style.background = "pink";
+	                            if(Jdx==0) {
+	                                Idx = 0;
+	                            }
+	                        }
+	                    },500);
+	                            
+	                var set1 = setTimeout(function() {
+	                    clearInterval(int1);
+	                    obj.innerText = "종료!";
+	                    clearTimeout(set1);
+	                },30000);
+	            };
+	     </script>
+        <h2 onclick="start(this)">시작!</h2>
+        <table border width="250px" height="50px">
+            <tr><td></td><td></td><td></td><td></td><td></td></tr>
+        </table>
+		[1단계:개념] 3. jquery 환경설정 방법 2가지를 기술하세요
+		 1) jquery 라이브러리를 src속성에 url 형태로 입력
+         2) jquery 라이브러리를 이클립스 폴더에 생성 후, src속성에 절대경로 입력
+         
+		[1단계:확인] 4. jquery를 활용한 action 메서드를 활용하여 h7의 배경색상과 글자를 다르게 처리하세요.
+		 <script>
+            $(document).ready(function(){
+                $("h6:eq(0)").text("첫번째").css("background","pink");
+                $("h6:eq(1)").text("두번째").css("background","yellow");
+                $("h6:eq(2)").text("세번째").css("background","purple");
+            });
+         </script>
+            <h6></h6>
+            <h6></h6>
+            <h6></h6>
+		[1단계:개념] 5. jquery의 데이터 출력 메서드들을 기술하세요. 
+		 .text() : 요소내부의 text를 갖고옴. 또는 text 바꿈
+    	 .html() : 요소내부의 html를 String형태로 갖고옴. 또는 html를 바꿈
+          text와 다르게 html태그 기능이 실행
+          
+		[1단계:개념] 6. jquery의 속성설정 메서드들을 기술하세요.
+		 .css() : ( )의 선택 요소의 css속성값을 갖고옴. 또는 style속성 추가
+   		 .attr() : ( )의 선택 요소의 기본속성값을 갖고옴. 또는 기본속성 추가
+		[1단계:확인] 7. jquery로 구구단의 문제를 임의로 input을 통해서 초기 화면에 출력하고, 
+		                답을 입력하고 이에 따라 정답여부를 출력하세요.
+		                [ 5 ]X[ 6 ] = [  ] [정답확인]
+    	 <script src="/javaexp/a00_com/jquery-3.6.0.js" type="text/javascript"></script>
+        <script>
+            $(document).ready(function(){
+                var ranNum01 = Math.floor(Math.random()*9+1);
+                var ranNum02 = Math.floor(Math.random()*9+1);
+                $("[name=num01]").val(ranNum01);
+                $("[name=num02]").val(ranNum02);
+                $("[type=submit]").click(function(){
+                    var inputResult = $("[name=result]").val();
+                    var answer = ranNum01*ranNum02;
+                    if(inputResult == answer){
+                        $("h2").text("정답입니다!")
+                    } else{
+                        $("h2").text("오답입니다!")
+                    }
+                })
+            });
+        </script>
+	    </head>
+	    <body>
+	        <input type="text" name="num01"/>
+	        X <input type="text" name="num02"/>
+	        = <input type="text" name="result"/>
+	        <input id="btn" type="submit" value="결과확인"/>
+	        <h2></h2>
+	        
+	    </body>
+    	 -->
+	</body>
+</html>

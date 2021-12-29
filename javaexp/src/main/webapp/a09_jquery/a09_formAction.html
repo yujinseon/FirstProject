@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+      	span{
+      		border:1px solid blue;
+      	}
+		</style>
+		<script src="/javaexp/a00_com/jquery-3.6.0.js" type="text/javascript"></script>
+		<script>
+			$("document").ready(function(){
+				$("h2").text("jquery lib으로 시작");
+			/*
+			# action 기능 메서드
+			1. wrap() : 특정한 요소객체로 감싸는 처리를 한다
+			2. parent() : 부모객체를 지칭할 때 해당한다
+			
+			*/
+				//$("선택자").on("이벤트명",function(){이벤트 발생했을 떄 처리할 함수})
+				$("input[type=checkbox]").on("click",function(){
+					//$("input[type=checkbox]") : 모든 type='checkbox'인 것을 감싸여 있는것을
+					//없애주는 처리
+					$("input[type=checkbox]").unwrap("span");
+					
+					//checkbox인 것을 클릭시
+					//check가 된것의 값을 가지고 와서, input type이 text인것에 value 값을 할당
+					var ckVal="";//check된 것의 값을 할당하는 변수
+					
+					// 해당 객체를 특정 객체를 감싸는 것을 말한다
+					$("input:checked").wrap("<span></span>");
+					
+					//input type인 ckecked 것의 여러개 인것을 each 구문을 통해서 반복 처리한다
+					$("input:checked").each(function(){
+						//$(this).val() : 각 개별적으로 checked 것들의 value 값을 가져와서
+						//전역변수로 설정한 ckVal에 할당한다
+						ckVal+=$(this).val()+",";
+					});
+					// 누적되어 check가 된 것의 값을 input type="text"의 value에 할당한다
+					$(":text").val(ckVal);
+					//$(":text").val($("input:checked").val());
+				});
+			});              
+		</script>
+	</head>
+    <body>
+    	<h2></h2>
+    	<form>
+    		<fieldset>
+    			사과 <input type="checkbox" checked="checked" value="사과"><br>
+    			배 <input type="checkbox"  value="배"><br>
+    			바나나 <input type="checkbox"  value="바나나"><br>
+    			<input type="text">
+    		</fieldset>
+    	</form>
+	</body>
+</html>

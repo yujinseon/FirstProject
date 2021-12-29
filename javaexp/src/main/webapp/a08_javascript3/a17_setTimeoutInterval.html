@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+      	/*
+			# 시간 이후 및 반복 처리 내장 함수
+			1. var set01 = setTimeout(처리할 함수, 1/1000초)
+				해당 시간(1/1000)초 후에 수행할 내용을 함수에 기술하여 처리하게 한다.
+				자원의 해제는 clearTimeout(set01); 형태로 처리한다
+			2. var int01 = setInterval(반복할 함수, 1/1000초)
+				해당 시간(1/1000)초 마다 수행할 내용을 반복할 함수에 정의한다
+				자원의 해체는 calesInterval(int01); 로 수행한다
+		*/
+		</style>
+		<script>
+			window.onload=function(){
+				var h2Arr = document.querySelectorAll("h2");
+				h2Arr[0].innerText = "시작";
+			}
+			
+			function start(obj){
+				var tds = document.querySelectorAll("td");
+				var int01 =setInterval(function(){
+					//td의 모든 셀의 색상 초기화 처리
+					for(var idx=0;idx<tds.length;idx++){
+						tds[idx].style.background="";
+					}
+					// 임의의 idx 설정(0~9)
+					var ranIdx = Math.floor(Math.random()*9);
+					console.log(ranIdx);
+					// 임의의 td의 색상 필크로 설정
+					tds[ranIdx].style.background="pink";
+				},500)
+				
+				obj.innerText= "시작!!(3초후 종료)";
+				var set01 = setTimeout(function(){
+					//반복종료 10초 후에 var int01 에 선언된 내용을 중단처리
+					clearInterval(int01);
+					obj.innerText="종료";
+					clearTimeout(set01);
+				},10000);
+				
+			}
+		</script>
+	</head>
+    <body>
+    	<h2 onclick="start(this)"></h2>
+    	<table width="300px" height="300px" border>
+    		<tr><td></td><td></td><td></td></tr>
+    		<tr><td></td><td></td><td></td></tr>
+    		<tr><td></td><td></td><td></td></tr>
+    	</table>
+	</body>
+</html>

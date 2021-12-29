@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+      
+		</style>
+		<script src="/javaexp/a00_com/jquery-3.6.0.js" type="text/javascript"></script>
+		<script>
+			$("document").ready(function(){
+				$("h2").text("map 처리 연습").click(function(){
+					var arry = $("h3").map(function(i,el){
+						$(el).css("color","blue");
+						return $(this).text()+"["+(i+1)+"]";
+					});
+					$("span").each(function(i){
+						$(this).text(arry[i]);
+					});
+				});
+				//h2 클릭시 과일명[번호] 형식
+			});              
+		</script>
+	</head>
+    <body>
+    	<h2></h2>
+    	<h3>사과</h3>
+    	<h3>바나나</h3>
+    	<h3>딸기</h3>
+    	<h3>오렌지</h3>
+    	<span></span>
+    	<span></span>
+    	<span></span>
+    	
+	</body>
+</html>

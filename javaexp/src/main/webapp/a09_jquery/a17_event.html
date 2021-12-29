@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+      
+		</style>
+		<script src="/javaexp/a00_com/jquery-3.6.0.js" type="text/javascript"></script>
+		<script>
+			$("document").ready(function(){
+				$("h2").text("jquery event");
+				/*
+				# jquery 이벤트처리
+				1. $("선택자").이벤트명(핸들러 함수);
+				2. $("선택자").on("이벤트명",핸들러 함수);
+				3. $("선택자").on({"이벤트명1":핸들러함수,
+								 "이벤트명2":핸들러함수	
+					});
+				*/
+				$("h2").mouseover(function(){
+					$(this).css("background","yellow");
+				});
+				$("h2").on("mouseout",function(){
+					$(this).css("background","pink");
+				});
+				$("[name]").on(
+					{"focus":function(){//커서가 위치 했을 때
+						$(this).css("background","yellow");
+					},
+					 "blur":function(){// 커서가 벗어났을때
+						 $(this).css("background","");
+					 },
+					 "keyup":function(){//키를 입력했을때
+						 $("div").text( $(this).val() );
+						 $("span").eq(0).text($(this).val().length+"/20");
+					 }
+				});
+				$("textarea").on(
+					{"focus":function(){//커서가 위치 했을 때
+						$(this).css("background","skyblue");
+					},
+					 "blur":function(){// 커서가 벗어났을때
+						 $(this).css("background","");
+					 },
+						
+						"keyup":function(){
+							var ival = $(this).val(); //입력한 데이터
+							$("h4").text("메세지입력("+ival.length+"/10");
+							if(ival.length>10){
+								$(this).css("color","red");
+							}else{
+								$(this).css("color","black");
+							}
+						}
+						
+					}
+						
+					
+				);
+				
+			});              
+		</script>
+	</head>
+    <body>
+    	<h2></h2>
+    	이름:<input type="text" name="name">
+    	<span></span>
+    	<div></div>
+    	 <h4>메시지입력</h4>
+    	 <textarea></textarea>
+   
+	</body>
+</html>

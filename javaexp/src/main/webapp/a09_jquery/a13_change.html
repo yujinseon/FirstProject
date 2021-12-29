@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+      
+		</style>
+		<script src="/javaexp/a00_com/jquery-3.6.0.js" type="text/javascript"></script>
+		<script>
+			$("document").ready(function(){
+				$("h2").text("select의 change 메서드 사용");
+				
+				$("[name=phone]").change(function(){
+					var data = $(":selected").text();
+					$("span").eq(0).text(data);
+				});
+				
+				$("[name=local]").change(function(){
+					var data = $("[name=local] :selected").text()+"("+$("[name=local] :selected").val()+")";
+					$("span").eq(1).text(data);
+				});
+			});              
+		</script>
+	</head>
+    <body>
+    	<h2></h2>
+    	<select name="phone">
+    		<option>010</option>
+    		<option selected="selected">02</option>
+    		<option>070</option>
+    	</select>
+    	<br>
+    	선택한 값 : <span></span>
+    	<br>
+    	<select name="local">
+    		<option value="A01">서울/경기</option>
+    		<option value="A02" selected="selected">충청도</option>
+    		<option value="A03">강원도</option>
+    	</select>
+    	선택한 값 : <span></span>
+	</body>
+</html>
