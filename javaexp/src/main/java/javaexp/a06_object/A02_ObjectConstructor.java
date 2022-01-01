@@ -8,7 +8,7 @@ public class A02_ObjectConstructor {
 		// TODO Auto-generated method stub
 		Product p1 = new Product("사과");
 		p1.buy();
-		
+		p1.buy();
 	}
 
 }
