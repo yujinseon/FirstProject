@@ -1,0 +1,1 @@
+{"resources":{"src/database/a01_startDatabase.sql":{"sql-editor-data-source-id":"oracle_thin-17e27ed200f-53d2118b66fe2f8"},"src/database/a06_where.sql":{"sql-editor-data-source-id":"oracle_thin-17e27ab4f4a-7dc9757c5b944af7","default-datasource":"oracle_thin-17e27ab4f4a-7dc9757c5b944af7","default-schema":"SCOTT"}}}
