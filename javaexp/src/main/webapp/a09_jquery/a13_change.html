@@ -9,6 +9,12 @@
 		<script src="/javaexp/a00_com/jquery-3.6.0.js" type="text/javascript"></script>
 		<script>
 			$("document").ready(function(){
+				var today = new Date();
+				var dday = new Date(2022,03,05);
+				var gap = dday.getTime() - today.getTime();
+				var result = Math.ceil(gap / (1000 * 60 * 60 * 24));
+				$("h2").text(result);
+				/*
 				$("h2").text("select의 change 메서드 사용");
 				
 				$("[name=phone]").change(function(){
@@ -20,6 +26,7 @@
 					var data = $("[name=local] :selected").text()+"("+$("[name=local] :selected").val()+")";
 					$("span").eq(1).text(data);
 				});
+				*/
 			});              
 		</script>
 	</head>

@@ -1,0 +1,327 @@
+# Database 처리..
+0. 환경 설정
+1. dao 작성
+	1) 공통 필드 선언
+		Connection(연결객체),
+		Statement(대화객체), PreparedStatement(준비된 대화객체)
+		ResultSet(결과객체)
+	2) 공통 연결 메서드 선언
+		driver(db처리를 위한 공통패키지) 메모리 로딩
+		DriverManager.getConnection("연결정보","계정","비번");
+		예외 처리 : ClassNotFoundException, SQLException
+2. 각 기능 메서드 처리.
+	1) 기본 조회처리 메서드
+		public 결과데이터처리객체  기능메서드(검색에 필요한 객체){
+			연결공통메서드호출
+			예외처리1
+			대화객체생성
+			sql 수행을 통한 결과객체 생성
+			결과객체를 통한 데이터 처리(객체로 할당)	
+			예외처리2
+				- 자원해제
+		}
+		ex) 
+		public ArrayList<Emp> getEmpList(Emp sch){
+		 	ArrayList<Emp> list = new ArrayList<Emp>();
+			setConn();
+			stmt = con.createStatement(); // 전역필드에 대화객체 할당
+			String sql = "select * from emp "; // 작성된 sql문
+			rs = stmt.executeQuery(sql); // select 문의 실행 결과를 ResultSet 객체에 담기.
+			while(rs.next()){ // rs.next() : 행단위로 다음 행에 데이터가 있을 때까지 호출하는 작업
+				rs.getString("컬럼명") : 한 행의 데이터기준으로 해당 컬럼에 있는 데이터 가져오기.
+				list.add(new Emp(@@@));
+			}
+			rs.close(); stmt.close(); con.close() ; 연결된 자원의 해제..
+			try{}catch(SQLException) 예외 처리
+			return list;	
+		}
+	2) 핵심 기능 처리를 위한 이해
+		- 드라이버부터 시작하여 객체들이 생성되는 과정과 메모리를 해제하는 과정이 연결되어 있다는 개념이해..
+			생성순서
+				Class.forName("jdbc드라이버");
+				DriverManager ==> Connection ==> Statement ==> ResultSet
+			자원해제순서
+				ResultSet ==> Statement ==> Connection  .close()
+		- 결과객체(ResultSet)의 데이터 처리 기능 메서드.(###)
+			.next() : 행단위로 이동하게 처리해주는 메서드, 검색할 행에 데이터가 없을 때까지(boolean)
+				while(rs.next()) : 행단위로 커서가 이동되게 하는데, 해당 행에 데이터가 있을 때.
+			.getXXX("컬럼명" ) : 해당 컬럼의 데이터 유형과 select의 컬럼명 맞게 데이터를 가져온다.
+				empno : 숫자-정수형					
+			.getXXX(index) : 해당 컬럼의 데이터 유형과 select로 나열된 순서(1)에 맞게	
+		- 예외 처리
+			:자원의 해제에 대한 처리/기타 예외에 대한 처리.
+		- ResultSet 을 VO객체에 할당하고 이 VO를 모아서 ArrayList<VO>에 할당하는 처리.
+			1) 처리할 단위 객체 클래스 선언하기
+			2) 기본 생성자/set/get메서드 선언.
+			3) 메서드의 return 유형을 ArrayList로 선언하기..
+			4) while() 안에서 행단위로 생성하여 
+				선언된 ArrayList에 할당하기..		
+	4) 기능 메서드 작성 순서
+		- sql 작성  select * from emp where ename like '%'||'A'||'%';
+			insert into emp values(emp_seq.nextval,
+				'홍길동','사원',7991,sysdate, 3500, 1000,10);
+		
+		- 기능메서드를 작성하기 위하여 사용할  
+		    #return할 단위 VO/변수 확인/클래스생성
+			#매개변수로 작성할 VO/변수 확인/클래스생성
+			class Emp{} : 리턴할 단위 객체   ==> ArrayList<Emp>
+			"사원명" : 매개변수로 작성할 객체 ==> String ename
+		- 기능메서드 선언
+			public ArrayList<Emp> getEmpList(String ename){
+				ArrayList<Emp> list = new ArrayList<Emp>();
+				
+				return list;
+			}
+			public void insertEmp(Emp ins){
+				
+			}
+			
+		- 기능메서드 안에서 구현한 내용 처리.
+			# select
+				연결처리
+				sql 문자열로 선언(동적sql==>매개형태sql) 
+					** String sql = "select * from emp where ename like '%'||'"+ename+"'||'%'";
+				대화객체		
+				결과객체
+				**
+				while(rs.next){ 
+					//단위객체를 생성자나 메서드로 만들고
+					Emp emp = new Emp( rs.getInt("empno"), rs.getString("ename"),....  );
+					list.add(emp);
+				} 
+				자원해제
+				예외처리. ~10:48
+			# DML(insert, update, delete)
+				연결처리
+				트랜젝션(자동 commit false)	
+				대화객체생성
+					con.executeUpdate(sql)
+				commit 처리.
+				예외발생시 
+					rollback();
+						
+# 단계별 연습과제 
+1. sql을 이용한 동적 sql 문자열 선언과 VO 만들기
+	메서드의 리턴 유형 : ArrayList<Emp>
+	매개변수 : String job
+	String sql = "select * from emp where job like '%'||'"+job+"'||'%'";
+
+2. 기능 메서드 선언.
+	리턴할유형  메서드명( 매개변수){
+		리턴할 객체 = 객체 생성
+		return 객체;
+	}		
+		ex) 
+		public ArrayList<Emp> getEmpList(String job){
+			ArrayList<Emp> list = new ArrayList<Emp>();
+			return list;
+		}
+	1) 리턴할 유형과 리턴할 객체
+		기능메서드를 통해서 최종적으로 리턴할 객체를 의미한다.
+		ArrayList<Emp> : 이차원의 테이블형식의 데이터를 리턴할 때 사용.
+		ArrayList<Emp> list : 객체의 선언과 생성.
+		return list;   메서드 마지막 코드로 리턴 처리.
+		select * from emp 
+		where empno = 7780;  // empno가 식별하는 key이기에 단일 데이터만 나온다.
+		ex)
+		public Emp getEmp(int empno){
+			Emp emp=null;
+			return emp;
+		}
+		select count(*) 
+		from emp
+		where deptno=10;
+		public int getCount(int deptno){
+			int cnt =0;
+			return cnt;
+		}
+	2) 여러가지 유형의 매개변수 처리.
+		select * 
+		from emp
+		where sal between 1000 and 2000;
+		public ArrayList<Emp> schEmpList(int fr_sal, int to_sal){
+			String sql = "select * "+
+						 "from emp "+
+						 "where sal between "+fr_sal+" and "+to_sal;
+		}
+		select *
+		from emp
+		where ename = 'HIMAN'
+		and job = '사원';
+		public ArrayList<Emp> schEmpList2(String ename, String job){
+			String sql = "select * "+
+						 "from emp "+
+						 "where ename = '"+ename+"'"+
+						 "and job = '"+job+"'; // 숫자데이터와 문자열데이터 입력 시, 동적 sql은 구분
+						 // 하여야 한다.
+		}
+		select *
+		from emp
+		where ename= 'himan'
+		and job='사원'
+		and deptno = 10
+		and sal between 1000 and 2000;
+		
+		class EmpSch{
+			private String ename;
+			private String job;
+			private int deptno;
+			private int fr_sal;
+			private int to_sal;
+		}
+		public ArrayList<Emp> empSch(EmpSch sch){
+			String sql = "select *"+
+						 "from emp " +
+						 "where ename= '"+sch.getEname()+"' "+
+						 "and job='"+sch.getJob()+"' "+
+						 "and deptno = "+sch.getDeptno()+" "+
+						 "and sal between "+sch.getFr_sal()+" and "+sch.getTo_sal();
+		}
+3. ResultSet 객체처리..
+	1) 기능메서드 이해
+		rs.next() : 행단위 이동..
+		rs.getXXX("컬럼명")  select 컬럼명    XXX는 해당 컬럼의 데이터 유형.
+		while(rs.next()){
+			rs.getInt("empno")
+		}
+	2) 리턴할 VO/ArrayList/변수 할당..
+		public Emp XXXX()
+			Emp e=null;
+			if(rs.next()){ // 변수나 행이 단일로 나올 때..
+				e= new Emp(rs.getInt("empno"),....);
+		}
+		public ArrayList<Emp> XXXX()
+			ArrayList<Emp> list = new ArrayList<Emp>();
+			while(rs.next()){
+				list.add(new Emp(rs.getInt("empno"),....));
+			}
+
+# Database 처리
+1. 요구사항 정의서로 DB 처리한 부분 확인
+	ex) 직책별 가장 많은 연봉자 검색(조회:직책명)
+2. sql작성 ex) 
+	-- 직책별 가장 많은 연봉자 검색(조회:직책명)
+	SELECT job, max(sal) msal
+	FROM emp
+	GROUP BY job
+	HAVING job = 'CLERK';
+	SELECT *
+	FROM EMP
+	WHERE (JOB, SAL) = (
+		SELECT job, max(sal) msal
+			FROM emp
+			GROUP BY job
+			HAVING job = 'CLERK'
+	);
+	SELECT DISTINCT JOB
+	FROM EMP;
+3. 기능메서드를 위한 사전 준비 작업
+   리턴할 변수/VO객체/ArrayList결정 및 생성 
+   매개변수로 처리할 변수/VO 결정 및 생성
+   ex) 메서드1 : 리턴할 VO 객체 ArrayList<Emp>, 매개변수는 job
+   	   메서드2 : 리턴할 VO 객체 ArrayList<String>, 매개변수 () 
+4. 기능메서드 선언
+	1) 리턴유형, 메서드명, 매개변수 처리
+	ex) public ArrayList<Emp> getJobMaxSal(String job)
+	ex) public ArrayList<String> getJobs()
+	2) 리턴할 객체 선언과 리턴
+		ex) ArrayList<Emp> list = new ArrayList<Emp>();
+			return list;
+		ex) ArrayList<String> jobs = new ArrayList<String>();
+			return jobs;			
+	3) 동적 sql 작성 - 매개변수의 값을 받아서 문자열과
+		매개값을 통한 sql 작성..
+		ex) 
+		String sql = "SELECT *\n"+     /*SELECT *FROM EMPWHERE...*/
+		"FROM EMP\n"+
+		"WHERE (JOB, SAL) = (\n"+
+		"	SELECT job, max(sal) msal\n"+
+		"		FROM emp\n"+
+		"		GROUP BY job\n"+
+		"		HAVING job = '"+job+"'\n"+
+		")";	
+		String sql = "SELECT DISTINCT JOB FROM EMP"	
+5. 기능메서드 주요 내용 구현
+	1) 공통 연결 메서드 호출
+	2) 대화객체 생성 : stmt = conn.createStatement()
+	3) 결과객체 생성 : rs = stmt.executeQuery(sql);  stmt.updateQuery(sql);
+	4) while, if을 통한 데이터 처리(select 구문의 경우)
+		rs.next(), rs.getXXX("컬럼명")
+		리턴할 변수/VO객체/ArrayList에 할당
+	5) 자원 해제 : DML의 경우 commit 처리
+	6) 예외 처리 : DML의 경우 rollback처리
+		 자원해제를 취한 처리
+# select형 화면 처리
+1. jsp 파일 생성 및 DAO, VO, ArrayList import 하기..
+2. Dao 객체 생성
+3. for문을 통한 ArrayList 처리..				
+		   	
+# DML 처리
+1. 수정
+	1) sql 문 작성 및 동적 sql 작성, PreparedStatement 객체 
+		update emp02
+			SET ename='himan',
+				job = '사원',
+				sal = 5000,
+				hiredate = to_date('20220110','YYYYMMDD'),
+				deptno = 10
+		   where empno = 7780;
+	2) 기능메서드 선언
+		public void updateEmp02(Emp upt){}
+	3) 기능메서드 내용
+		연결공통메서드
+		setAutocommit(false)
+		stmt.executeUpdate(sql);
+		commit()
+		자원해제
+		예외처리 : rollback()	   
+# PreparedStatement
+1. 보안상에 이슈가 되는 sql injection을 막고, 속도 향상을 하기 위한 처리를 말한다.
+2. 처리를 위해 필드에 PreparedStatement psmt라고 선언하고,
+3. 입력된 값은 ?로 표기하여, 우선 입력되기 전에 sql을 전송하고,
+		String sql = "update emp02
+			SET ename=?
+				job = ?,
+				sal = ?,
+				hiredate = to_date(?,'YYYYMMDD'),
+				deptno = ?
+		   where empno = ?";
+
+
+4. ?에 해당 하는 값은 순서로 pstmt.setString(1, 입력할데이터); 형식으로 처리하는 것을 
+	말한다.
+	?에 입력할 데이터 유형에 맞게 .setXXXX()를 설정해주고,  ?의 순서로 1부터 시작하여 연결한다.
+	psmt.setString(1, upt.getEname());
+	psmt.setString(2, upt.getJob());
+	psmt.setDouble(3, upt.getSal());
+	psmt.setString(4, upt.getHiredate()); // 문자열로 만들어 설정한다.
+	psmt.setInt(5, upt.getDeptno());
+	psmt.setInt(6, upt.getEmpno());
+
+
+
+							
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+			
+		
+			
+	
+	
+	
+		
+		
+		
+		
+		
+		
