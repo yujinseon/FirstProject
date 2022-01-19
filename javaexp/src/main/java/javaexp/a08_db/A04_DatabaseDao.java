@@ -1,7 +1,7 @@
 package javaexp.a08_db;
-// javaexp.a08_db.A03_DatabaseDao
+// javaexp.a08_db.A04_DatabaseDao
 
-// javaexp.a04_vo.Dept
+// javaexp.a04_vo.*
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -9,10 +9,16 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Date;
 
+import javaexp.a04_vo.Dept;
 import javaexp.a04_vo.Emp;
+import javaexp.a04_vo.Emp2;
+import javaexp.a04_vo.Emp3;
+import javaexp.a04_vo.EmpDept01;
+import javaexp.a04_vo.EmpSal;
 import javaexp.a04_vo.EmpSch;
-
+import javaexp.a04_vo.LocSalSch;
 
 public class A04_DatabaseDao {
 	// 1. 필드 선언

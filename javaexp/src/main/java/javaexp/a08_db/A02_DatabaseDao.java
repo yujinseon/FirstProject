@@ -58,7 +58,7 @@ public class A02_DatabaseDao {
 			//5. 자원해제
 			rs.close();
 			stmt.close();
-			
+			con.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			//6. 예외처리..
@@ -133,6 +133,33 @@ public class A02_DatabaseDao {
 		return emplist;
 		
 		
+	}
+	void closeRsc() {
+		if(rs!=null) { 
+			try {
+				rs.close();
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} 
+		}
+			
+		if(stmt!=null) { 
+			try {
+				stmt.close();
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} 
+		}
+		if(con!=null) { 
+			try {
+				con.close();
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} 
+		}		
 	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

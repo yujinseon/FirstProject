@@ -1,11 +1,12 @@
 package javaexp.a04_vo;
 
-public class EmpSch{
- 	private String ename;
- 	private String job;
- 	private int fr_sal;
- 	private int to_sal;
- 	private int deptno;
+public class EmpSch {
+	private String ename;
+	private String job;
+	private int fr_sal;
+	private int to_sal;
+	private int deptno;
+	
 	public EmpSch() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -48,6 +49,5 @@ public class EmpSch{
 	public void setDeptno(int deptno) {
 		this.deptno = deptno;
 	}
- 	
- 	
+	
 }

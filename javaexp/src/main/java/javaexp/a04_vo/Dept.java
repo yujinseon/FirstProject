@@ -33,5 +33,4 @@ public class Dept {
 		this.loc = loc;
 	}
 	
-	
 }
